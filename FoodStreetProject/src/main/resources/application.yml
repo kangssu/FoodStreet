@@ -1,0 +1,30 @@
+server:
+  port: 9002
+
+#jsp
+spring:
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/shop/
+#      suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+
+#mysql
+  datasource:
+   driver-class-name: com.mysql.cj.jdbc.Driver
+   url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul
+   username: root
+   password: gmltn1234^
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+    
+#type을 data.*로 해도 다됨!
+mybatis:
+  type-aliases-package: data.mapper,data.dto
+  mapper-locations:
+  - /mapper/**/*.xml
+
