@@ -893,8 +893,8 @@ a:hover{
 	text-align:center;
 	color:#000;
 	border-top:1px solid #000;
-	border-bottom:1px solid rgba(000,000,000,.2);
 	padding:0 0 40px;
+	border-bottom:1px solid rgba(000,000,000,.2);
 }
 
 .success_content i{
