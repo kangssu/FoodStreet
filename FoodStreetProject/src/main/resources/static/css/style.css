@@ -834,16 +834,16 @@ a:hover{
 	width:170px;
 	height:47px;
 	line-height:47px;
-	border:1px solid #F63805;
+	border:1px solid #000;
 	padding:0 20px;
 	box-sizing:border-box;
 	margin-left:15px;
-	color:#F63805;
+	color:#000;
 	cursor:pointer;
 }
 
 .join_from_content_box .form_content .form_tb_all p{
-	color:#000;
+	color:#F63805;
 	font-size:15px;
 	margin-top:5px;
 }
@@ -883,5 +883,60 @@ a:hover{
 .join_form_all_btn{
 	margin:35px 0 0 0;
 	text-align:center;
+}
+
+.join_form_all_box .success_guide{
+	padding-top:45px;
+}
+
+.success_content{
+	text-align:center;
+	color:#000;
+	border-top:1px solid #000;
+	border-bottom:1px solid rgba(000,000,000,.2);
+	padding:0 0 40px;
+}
+
+.success_content i{
+	font-size:40px;
+	margin:40px 0 20px 0;
+}
+
+.success_content p{
+	font-size:27px;
+	margin:10px 0 25px 0;
+	font-weight:500;
+}
+
+.success_content_btn{
+	text-align:center;
+	margin-top:40px;
+}
+
+.success_content_btn .success_home_btn{
+	width:220px;
+	height:55px;
+	border:1px solid #F63805;
+	background:transparent;
+	border-radius:28px;
+	color:#F63805;
+	font-weight:600;
+	font-size:16px;
+	line-height:55px;
+	cursor:pointer;
+}
+
+.success_content_btn .success_login_btn{
+	width:220px;
+	height:55px;
+	border:1px solid #F63805;
+	background:#F63805;
+	border-radius:28px;
+	color:#fff;
+	font-weight:600;
+	font-size:16px;
+	line-height:55px;
+	cursor:pointer;
+	margin-left:20px;
 }
 /* 회원가입 영역 */

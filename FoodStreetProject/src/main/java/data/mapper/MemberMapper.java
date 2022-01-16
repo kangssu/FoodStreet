@@ -8,4 +8,6 @@ public interface MemberMapper {
 
   public void insertMember(MemberDto dto);
 
+  public int idCheck(String id);
+
 }
