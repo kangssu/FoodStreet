@@ -2,7 +2,6 @@ package data.controller;
 
 import java.io.IOException;
 import java.util.Map;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,8 +37,7 @@ public class JoinController {
 
   // 회원가입
   @PostMapping("/join/success")
-  public String insert(@Valid MemberDto dto, Errors errors, Model model,
-      HttpServletResponse response) throws IOException {
+  public String insert(@Valid MemberDto dto, Errors errors, Model model) throws IOException {
 
     if (errors.hasErrors()) {
       // 회원가입 실패시 작성한 정보 유지!
@@ -57,13 +55,13 @@ public class JoinController {
     return "/users/join_success";
   }
 
+  // 아이디 중복확인
   @ResponseBody
-  @RequestMapping("/join/idCheck")
+  @RequestMapping("/idCheck")
   public int idCheck(@RequestBody String id) {
 
-    int count = service.idCheck(id);
-
-    return count;
+    int cnt = service.idCheck(id);
+    return cnt;
   }
 
 }

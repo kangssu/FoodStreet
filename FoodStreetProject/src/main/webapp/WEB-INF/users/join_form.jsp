@@ -4,20 +4,18 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#name_form").blur(function(){
-			
+		$("#name_form").on('keyup', function(){
 			var name_length = $(this).val().length;
-			var id = $(this).val();
+			var id = $('#name_form').val();
 			
 			if(name_length>0){
-				//alert(id);
 				$.ajax({
-					type : "get", 
+					type: "post", 
 	                data: id,
-	                url: "/join/idCheck",
-	                dataType: "json",
-	                success: function(count) {    
-	                    if(count > 0) {
+	                url: "/idCheck",
+	                contentType: "application/json; charset=UTF-8",
+	                success: function(cnt) {   
+	                    if(cnt > 0) {
 	                    	$("#id_check_tag").html("<p>중복된 아이디입니다.</p>");
 	                    } else {
 	                    	$("#id_check_tag").html("<p>사용 가능한 아이디입니다.</p>");
