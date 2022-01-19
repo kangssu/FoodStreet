@@ -16,4 +16,6 @@ public interface MemberMapper {
 
   public boolean existsById(String id);
 
+  public boolean existsByNickname(String nickname);
+
 }

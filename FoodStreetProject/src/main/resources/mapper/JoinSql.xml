@@ -17,5 +17,9 @@
 	<select id="existsById" parameterType="String" resultType="boolean">
 		select if(count(*) > 0, 'true', 'false') from member where id = #{id, jdbcType=VARCHAR}
 	</select>
+	
+	<select id="existsByNickname" parameterType="String" resultType="boolean">
+		select if(count(*) > 0, 'true', 'false') from member where nickname = #{nickname, jdbcType=VARCHAR}
+	</select>
 </mapper>
 

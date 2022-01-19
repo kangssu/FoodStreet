@@ -17,23 +17,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import data.dto.MemberDto;
 import data.service.MemberService;
 import data.validator.IdCheckValidator;
+import data.validator.NicknameCheckValidator;
 
 @Controller
 public class JoinController {
 
   private final MemberService service;
-  private final IdCheckValidator validator;
+  private final IdCheckValidator idValidator;
+  private final NicknameCheckValidator nicknameValidator;
 
   @Autowired
-  public JoinController(MemberService service, IdCheckValidator validator) {
+  public JoinController(MemberService service, IdCheckValidator idValidator,
+      NicknameCheckValidator nicknameValidator) {
     this.service = service;
-    this.validator = validator;
+    this.idValidator = idValidator;
+    this.nicknameValidator = nicknameValidator;
   }
 
-  // 커스텀 유효성 검증을 위해 추가
+  // 커스텀 유효성 검사!
   @InitBinder
   public void validatorBinder(WebDataBinder binder) {
-    binder.addValidators(validator);
+    binder.addValidators(idValidator);
+    binder.addValidators(nicknameValidator);
   }
 
   @GetMapping("/join")

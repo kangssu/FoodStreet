@@ -23,29 +23,29 @@
 							<tr>
 								<th><span>*</span>아이디</th>
 								<td>
-									<input type="text" name="id" class="name_form" id="name_form" value="${MemberDto.id}"/>
+									<input type="text" name="id" class="id_form" id="id_form" value="${MemberDto.id}"/>
 									<p id="id_check_tag">${valid_id}</p>
 								</td>
 							</tr>
 							<tr>
 								<th><span>*</span>비밀번호</th>
 								<td>
-									<input type="password" name="pw" class="pw_form" placeholder="영문자+숫자+특수문자로 6~12자리로 입력해주세요." value="${MemberDto.pw}">
-									<p>${valid_pw}</p>
+									<input type="password" name="pw" class="pw_form" id="pw_form" value="${MemberDto.pw}">
+									<p id="pw_check_tag">${valid_pw}</p>
 								</td>
 							</tr>
 							<tr>
 								<th><span>*</span>비밀번호 확인</th>
 								<td>
-									<input type="password" name="pw_check" class="pwcheck_form" value="${MemberDto.pw_check}"/>
-									<p>비밀번호가 다릅니다.</p>
+									<input type="password" name="pw_check" class="pwcheck_form" id="pwcheck_form" value="${MemberDto.pw_check}"/>
+									<p id="pwcheck_check_tag">${valid_pw_check}</p>
 								</td>
 							</tr>
 							<tr>
 								<th><span>*</span>이름</th>
 								<td>
-									<input type="text" name="name" class="name_form" value="${MemberDto.name}"/>
-									<p>${valid_name}</p>
+									<input type="text" name="name" class="name_form" id="name_form" value="${MemberDto.name}"/>
+									<p id="name_check_tag">${valid_name}</p>
 								</td>
 							</tr>
 							<tr>
@@ -58,8 +58,7 @@
 							<tr>
 								<th><span>*</span>이메일</th>
 								<td>
-									<input type="text" name="email" class="email_form" id="email_form" 
-									placeholder="이메일 형식으로 입력해주세요. (food@naver.com)" value="${MemberDto.email}"/>
+									<input type="text" name="email" class="email_form" id="email_form" value="${MemberDto.email}"/>
 									<p id="email_check_tag">${valid_email}</p>
 								</td>
 							</tr>

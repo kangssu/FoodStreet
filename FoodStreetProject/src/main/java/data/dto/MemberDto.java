@@ -11,22 +11,25 @@ public class MemberDto {
   private int num;
   private int member_level;
   @NotBlank(message = "필수 입력 항목입니다.")
-  @Pattern(regexp = "^[a-zA-Z0-9]{4,20}$", message = "아이디는 영문자와 숫자가 포함된 4자~20자의 아이디여야 합니다.")
+  @Pattern(regexp = "^[a-zA-Z0-9]{4,20}$", message = "4자~20자의 아이디여야 합니다.")
   private String id;
 
   @NotBlank(message = "필수 입력 항목입니다.")
-  @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*\\W)(?=\\S+$).{6,12}",
-      message = "패스워드는 영문자와 숫자, 특수기호가 적어도 1개 이상 포함된 6자~12자의 패스워드여야 합니다.")
+  @Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$",
+      message = "숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.")
   private String pw;
 
+  @NotBlank(message = "필수 입력 항목입니다.")
+  @Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$",
+      message = "숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.")
   private String pw_check;
 
   @NotBlank(message = "필수 입력 항목입니다.")
-  @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$", message = "이름은 특수문자를 제외한 2~10자리여야 합니다.")
+  @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$", message = "특수문자를 제외한 2~10자리여야 합니다.")
   private String name;
 
   @NotBlank(message = "필수 입력 항목입니다.")
-  @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$", message = "닉네임은 특수문자를 제외한 2~10자리여야 합니다.")
+  @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$", message = "특수문자를 제외한 2~10자리여야 합니다.")
   private String nickname;
 
   @NotBlank(message = "필수 입력 항목입니다.")
@@ -35,7 +38,7 @@ public class MemberDto {
   private String email;
 
   @NotBlank(message = "필수 입력 항목입니다.")
-  @Pattern(regexp = "^[A-Za-z0-9_\\-]{5,20}$", message = "핸드폰 번호는 -를 제외한 숫자여야 합니다.")
+  @Pattern(regexp = "^[A-Za-z0-9_\\-]{5,20}$", message = "번호는 -를 제외한 숫자여야 합니다.")
   private String hp;
 
   @NotBlank(message = "필수 입력 항목입니다.")
