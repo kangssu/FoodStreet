@@ -36,4 +36,11 @@ public class MemberService {
     return mapper.idCheck(id);
   }
 
+  public int nicknameCheck(String nickname) {
+    return mapper.nicknameCheck(nickname);
+  }
+
+  public int emailCheck(String email) {
+    return mapper.emailCheck(email);
+  }
 }

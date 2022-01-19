@@ -7,22 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import data.dto.MemberDto;
 import data.service.MemberService;
+import data.validator.IdCheckValidator;
 
 @Controller
 public class JoinController {
 
   private final MemberService service;
+  private final IdCheckValidator validator;
 
   @Autowired
-  public JoinController(MemberService service) {
+  public JoinController(MemberService service, IdCheckValidator validator) {
     this.service = service;
+    this.validator = validator;
+  }
+
+  // 커스텀 유효성 검증을 위해 추가
+  @InitBinder
+  public void validatorBinder(WebDataBinder binder) {
+    binder.addValidators(validator);
   }
 
   @GetMapping("/join")
@@ -37,8 +48,10 @@ public class JoinController {
 
   // 회원가입
   @PostMapping("/join/success")
-  public String insert(@Valid MemberDto dto, Errors errors, Model model) throws IOException {
+  public String insert(String id, @Valid MemberDto dto, Errors errors, Model model)
+      throws IOException {
 
+    // 유효성 검사
     if (errors.hasErrors()) {
       // 회원가입 실패시 작성한 정보 유지!
       model.addAttribute("MemberDto", dto);
@@ -64,4 +77,21 @@ public class JoinController {
     return cnt;
   }
 
+  // 닉네임 중복확인
+  @ResponseBody
+  @RequestMapping("/nicknameCheck")
+  public int nicknameCheck(@RequestBody String nickname) {
+
+    int cnt = service.nicknameCheck(nickname);
+    return cnt;
+  }
+
+  // 이메일 중복확인
+  @ResponseBody
+  @RequestMapping("/emailCheck")
+  public int emailCheck(@RequestBody String email) {
+
+    int cnt = service.emailCheck(email);
+    return cnt;
+  }
 }

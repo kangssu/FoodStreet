@@ -30,5 +30,7 @@
 			<tiles:insertAttribute name="footer"/>
 		</div>
 	</div>
+	<!-- 스크립트 불러오기 -->
+	<script src="/js/join_script.js"></script>
 </body>
 </html>

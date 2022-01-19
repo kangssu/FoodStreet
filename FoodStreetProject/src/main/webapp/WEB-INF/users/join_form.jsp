@@ -2,30 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#name_form").on('keyup', function(){
-			var name_length = $(this).val().length;
-			var id = $('#name_form').val();
-			
-			if(name_length>0){
-				$.ajax({
-					type: "post", 
-	                data: id,
-	                url: "/idCheck",
-	                contentType: "application/json; charset=UTF-8",
-	                success: function(cnt) {   
-	                    if(cnt > 0) {
-	                    	$("#id_check_tag").html("<p>중복된 아이디입니다.</p>");
-	                    } else {
-	                    	$("#id_check_tag").html("<p>사용 가능한 아이디입니다.</p>");
-	                    }            
-	                }
-	            });
-			}
-		});
-	});
-</script>
 <div id="join_from_wrap">
 	<div class="join_form_all_box container">
 		<div class="join_title">
@@ -48,8 +24,7 @@
 								<th><span>*</span>아이디</th>
 								<td>
 									<input type="text" name="id" class="name_form" id="name_form" value="${MemberDto.id}"/>
-									<div id="id_check_tag"></div>
-									<p>${valid_id}</p>
+									<p id="id_check_tag">${valid_id}</p>
 								</td>
 							</tr>
 							<tr>
@@ -62,7 +37,7 @@
 							<tr>
 								<th><span>*</span>비밀번호 확인</th>
 								<td>
-									<input type="password" name="pw_check" class="pwcheck_form"/>
+									<input type="password" name="pw_check" class="pwcheck_form" value="${MemberDto.pw_check}"/>
 									<p>비밀번호가 다릅니다.</p>
 								</td>
 							</tr>
@@ -76,15 +51,16 @@
 							<tr>
 								<th><span>*</span>닉네임</th>
 								<td>
-									<input type="text" name="nickname" class="nickname_form" value="${MemberDto.nickname}"/>
-									<p>${valid_nickname}</p>
+									<input type="text" name="nickname" class="nickname_form" id="nickname_form" value="${MemberDto.nickname}"/>
+									<p id="nickname_check_tag">${valid_nickname}</p>
 								</td>
 							</tr>
 							<tr>
 								<th><span>*</span>이메일</th>
 								<td>
-									<input type="text" name="email" class="email_form" placeholder="이메일 형식으로 입력해주세요. (food@naver.com)" value="${MemberDto.email}"/>
-									<p>${valid_email}</p>
+									<input type="text" name="email" class="email_form" id="email_form" 
+									placeholder="이메일 형식으로 입력해주세요. (food@naver.com)" value="${MemberDto.email}"/>
+									<p id="email_check_tag">${valid_email}</p>
 								</td>
 							</tr>
 							<tr>
@@ -105,7 +81,7 @@
 							<tr>
 								<th rowspan="2"><span>*</span>프로필 이미지</th>
 								<td>
-									<input type="file" name="member_img" class="img_form"/>
+									<input type="file" name="member_img" class="img_form" value="${MemberDto.member_img}"/>
 									<p>${valid_member_img}</p>	
 								</td>
 							</tr>							

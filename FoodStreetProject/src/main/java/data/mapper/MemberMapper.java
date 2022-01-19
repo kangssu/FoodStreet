@@ -10,4 +10,10 @@ public interface MemberMapper {
 
   public int idCheck(String id);
 
+  public int nicknameCheck(String nickname);
+
+  public int emailCheck(String email);
+
+  public boolean existsById(String id);
+
 }
