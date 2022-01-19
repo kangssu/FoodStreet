@@ -5,7 +5,7 @@
 
  ```
  IDE: Eclipse(21-06)
- DB: MySQL
+ DB: MySQL 8.0.27
  VC: git
  Build Tool: Maven
 
