@@ -2,6 +2,7 @@ package data.controller;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Random;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import data.dto.MemberDto;
 import data.service.MemberService;
 import data.validator.IdCheckValidator;
 import data.validator.NicknameCheckValidator;
+import data.validator.PwCheckValidator;
 
 @Controller
 public class JoinController {
@@ -25,13 +27,15 @@ public class JoinController {
   private final MemberService service;
   private final IdCheckValidator idValidator;
   private final NicknameCheckValidator nicknameValidator;
+  private final PwCheckValidator pwValidator;
 
   @Autowired
   public JoinController(MemberService service, IdCheckValidator idValidator,
-      NicknameCheckValidator nicknameValidator) {
+      NicknameCheckValidator nicknameValidator, PwCheckValidator pwValidator) {
     this.service = service;
     this.idValidator = idValidator;
     this.nicknameValidator = nicknameValidator;
+    this.pwValidator = pwValidator;
   }
 
   // 커스텀 유효성 검사!
@@ -39,6 +43,7 @@ public class JoinController {
   public void validatorBinder(WebDataBinder binder) {
     binder.addValidators(idValidator);
     binder.addValidators(nicknameValidator);
+    binder.addValidators(pwValidator);
   }
 
   @GetMapping("/join")
@@ -53,8 +58,8 @@ public class JoinController {
 
   // 회원가입
   @PostMapping("/join/success")
-  public String insert(String id, @Valid MemberDto dto, Errors errors, Model model)
-      throws IOException {
+  public String insert(String id, String pw, String pw_check, @Valid MemberDto dto, Errors errors,
+      Model model) throws IOException {
 
     // 유효성 검사
     if (errors.hasErrors()) {
@@ -99,4 +104,22 @@ public class JoinController {
     int cnt = service.emailCheck(email);
     return cnt;
   }
+
+  // 인증번호
+  @ResponseBody
+  @RequestMapping("/check/sms")
+  public String sms(@RequestBody String hp) {
+    Random rand = new Random();
+    String numStr = "";
+    for (int i = 0; i < 4; i++) {
+      String ran = Integer.toString(rand.nextInt(10));
+      numStr += ran;
+    }
+
+    System.out.println("수신자 번호 : " + hp);
+    System.out.println("인증번호 : " + numStr);
+    service.certifiedPhoneNumber(hp, numStr);
+    return numStr;
+  }
+
 }

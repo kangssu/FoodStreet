@@ -939,4 +939,9 @@ a:hover{
 	cursor:pointer;
 	margin-left:20px;
 }
+
+#email_point_text{
+	font-size:14px;
+	color:#868686;
+}
 /* 회원가입 영역 */

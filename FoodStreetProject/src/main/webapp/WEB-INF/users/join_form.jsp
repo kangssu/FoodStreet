@@ -59,22 +59,23 @@
 								<th><span>*</span>이메일</th>
 								<td>
 									<input type="text" name="email" class="email_form" id="email_form" value="${MemberDto.email}"/>
+									<p id="email_point_text">※ 아이디/패스워드 찾기에 활용 되므로 정확하게 입력해주세요.</p>
 									<p id="email_check_tag">${valid_email}</p>
 								</td>
 							</tr>
 							<tr>
 								<th rowspan="2"><span>*</span>핸드폰</th>
 								<td>
-									<input type="text" name="hp" class="hp_form" placeholder="-없이 입력해주세요." value="${MemberDto.hp}"/>
-									<button type="button">휴대폰 인증</button>
-									<p>${valid_hp}</p>									
+									<input type="text" name="hp" class="hp_form" id="hp_form" placeholder="-없이 입력해주세요." value="${MemberDto.hp}"/>
+									<button type="button" id="hp_sms_btn">휴대폰 인증</button>
+									<p id="hp_forward_tag">${valid_hp}</p>									
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="text" name="hp_check" class="hp_form"/>
-									<button type="button">인증확인</button>
-									<p>인증 확인되었습니다.</p>
+									<input type="text" name="hp_check" class="hp_check" id="hp_check"/>
+									<button type="button" id="hp_check_btn">인증확인</button>
+									<p id="hp_check_tag"></p>
 								</td>
 							</tr>
 							<tr>

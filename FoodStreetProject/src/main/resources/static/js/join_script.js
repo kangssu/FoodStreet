@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var nameJ = /^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$/;
 	var nicknameJ = /^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$/;
 	var emailJ = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$/;
+	var hpJ = /^[0-9]*$/;
 	
 	// 아이디 정규식 체크 및 중복확인
 	$('#id_form').on('keyup', function(){
@@ -119,4 +120,35 @@ $(document).ready(function(){
 		}
 	});
 	
+	// 핸드폰 숫자만 입력
+	$('#hp_form').on('keyup', function(){
+		$(this).val($(this).val().replace(/[^0-9]/g,""));
+	});
+	
+	// 인증번호
+	$('#hp_sms_btn').click(function(){
+		var hp = $('#hp_form').val();
+		$('#hp_forward_tag').text('인증번호가 전송되었습니다.');
+		$('#hp_forward_tag').css('color','#F63805');
+		
+		$.ajax({
+			type: 'post',
+			url: '/check/sms',
+			data: hp,
+			contentType: 'application/json; charset=UTF-8',
+			success: function(data){
+				$('#hp_check_btn').click(function(){
+					if($.trim(data) ==$('#hp_check').val()){
+						$('#hp_check_tag').text('인증되었습니다.');
+						$('#hp_check_tag').css('color','#000');
+						$('#hp_forward_tag').text('');
+					} else{
+						$('#hp_check_tag').text('인증번호가 일치하지 않습니다.');
+						$('#hp_check_tag').css('color','#F63805');
+						$('#hp_forward_tag').text('');
+					}
+				});
+			}
+		});
+	});
 });
