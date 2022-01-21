@@ -138,7 +138,7 @@ $(document).ready(function(){
 			contentType: 'application/json; charset=UTF-8',
 			success: function(data){
 				$('#hp_check_btn').click(function(){
-					if($.trim(data) ==$('#hp_check').val()){
+					if($.trim(data) == $('#hp_check').val()){
 						$('#hp_check_tag').text('인증되었습니다.');
 						$('#hp_check_tag').css('color','#000');
 						$('#hp_forward_tag').text('');
@@ -152,3 +152,24 @@ $(document).ready(function(){
 		});
 	});
 });
+
+// 인증번호 불일치
+function submitCheck(){
+	var check_text = $('#hp_check_tag').text();
+	var check_text2 = '인증번호가 일치하지 않습니다.';
+	
+	if ($('#hp_check').val().length == 0){	     
+		alert("인증번호를 입력하지 않았습니다.");
+		return false;
+	} else if(check_text == ''){
+		alert('인증확인을 눌러서 인증번호를 확인해주셔야 합니다.');
+		return false;
+	} else if(check_text == check_text2){
+		alert('인증번호가 일치하지 않습니다.');
+		return false;
+	} else{
+		true;
+	}
+};
+
+

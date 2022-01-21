@@ -109,17 +109,16 @@ public class JoinController {
   @ResponseBody
   @RequestMapping("/check/sms")
   public String sms(@RequestBody String hp) {
-    Random rand = new Random();
-    String numStr = "";
-    for (int i = 0; i < 4; i++) {
-      String ran = Integer.toString(rand.nextInt(10));
-      numStr += ran;
+
+    Random rd = new Random();
+    String randomNum = "";
+    for (int i = 0; i < 6; i++) {
+      String ran = Integer.toString(rd.nextInt(10));
+      randomNum += ran;
     }
 
-    System.out.println("수신자 번호 : " + hp);
-    System.out.println("인증번호 : " + numStr);
-    service.certifiedPhoneNumber(hp, numStr);
-    return numStr;
+    service.phoneNumberCertified(hp, randomNum);
+    return randomNum;
   }
 
 }

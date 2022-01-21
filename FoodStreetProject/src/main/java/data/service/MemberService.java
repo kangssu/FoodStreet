@@ -51,7 +51,7 @@ public class MemberService {
     return mapper.emailCheck(email);
   }
 
-  public void certifiedPhoneNumber(String hp, String numStr) {
+  public void phoneNumberCertified(String hp, String randomNum) {
 
     String api_key = "NCSFETPM9HD9ZWFA";
     String api_secret = "WMMTGPK3CZV4NOI8KDPWGCF5EBSWLLBX";
@@ -61,7 +61,7 @@ public class MemberService {
     params.put("to", hp);
     params.put("from", "01025920475");
     params.put("type", "SMS");
-    params.put("text", "[푸드스트릿] 본인확인 인증번호는" + "[" + numStr + "]" + "입니다.");
+    params.put("text", "[푸드스트릿] 본인확인 인증번호는" + "[" + randomNum + "]" + "입니다.");
 
     try {
       JSONObject obj = coolsms.send(params);

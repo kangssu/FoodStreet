@@ -11,7 +11,7 @@
 			<div class="form_sub_title">
 				<h2>기본정보<span>* 필수입력사항</span></h2>
 			</div>
-			<form action="/join/success" method="post">
+			<form action="/join/success" method="post" onsubmit="return submitCheck();">
 				<input type="hidden" name="member_level" value="10"/>
 				<div class="form_content">
 					<table class="form_tb_all">
