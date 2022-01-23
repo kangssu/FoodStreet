@@ -42,6 +42,7 @@ public class MemberDto {
   private String hp;
 
   private String img_name;
+
   private String img_path;
   private Timestamp gaipday;
 
