@@ -11,7 +11,7 @@
 		</div>
 		<div class="login_all_btn">
 			<button type="submit" class="login_nomal_btn">로그인</button>
-			<button type="button" class="login_join_btn">회원가입</button>
+			<button type="button" class="login_join_btn" onclick="location.href='/join'">회원가입</button>
 		</div>
 		<div class="login_plus_btn">
 			<ul>

@@ -11,7 +11,7 @@
 			<div class="form_sub_title">
 				<h2>기본정보<span>* 필수입력사항</span></h2>
 			</div>
-			<form action="/join/success" method="post" onsubmit="return submitCheck();">
+			<form action="/join/success" method="post" onsubmit="return submitCheck();" enctype="multipart/form-data">
 				<input type="hidden" name="member_level" value="10"/>
 				<div class="form_content">
 					<table class="form_tb_all">
@@ -81,8 +81,8 @@
 							<tr>
 								<th rowspan="2"><span>*</span>프로필 이미지</th>
 								<td>
-									<input type="file" name="member_img" class="img_form" value="${MemberDto.member_img}"/>
-									<p>${valid_member_img}</p>	
+									<input type="file" name="file" class="img_form" id="img_check" value="${MemberDto.img_name}"/>
+									<p>${valid_img_name}</p>	
 								</td>
 							</tr>							
 						</tbody>

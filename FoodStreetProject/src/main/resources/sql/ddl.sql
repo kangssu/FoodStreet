@@ -7,6 +7,7 @@ create table member(
 	nickname varchar(50),
 	email varchar(70),
 	hp varchar(50),
-	member_img varchar(100),
+	img_name varchar(300),
+	img_path varchar(300),
 	gaipday datetime
 )

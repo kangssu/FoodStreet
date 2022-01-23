@@ -117,7 +117,7 @@
 							</div>
 							<div class="two_box_text">
 								<div class="two_box_nickname_text">
-									<img src="/img/noimg.jpg">
+									<img src="/img/noimg.png">
 									<span>푸드스트릿 에디터</span>
 								</div>
 								<div class="two_box_content_text">
@@ -136,7 +136,7 @@
 							</div>
 							<div class="two_box_text">
 								<div class="two_box_nickname_text">
-									<img src="/img/noimg.jpg">
+									<img src="/img/noimg.png">
 									<span>푸드스트릿 에디터</span>
 								</div>
 								<div class="two_box_content_text">
@@ -155,7 +155,7 @@
 							</div>
 							<div class="two_box_text">
 								<div class="two_box_nickname_text">
-									<img src="/img/noimg.jpg">
+									<img src="/img/noimg.png">
 									<span>푸드스트릿 에디터</span>
 								</div>
 								<div class="two_box_content_text">
@@ -174,7 +174,7 @@
 							</div>
 							<div class="two_box_text">
 								<div class="two_box_nickname_text">
-									<img src="/img/noimg.jpg">
+									<img src="/img/noimg.png">
 									<span>푸드스트릿 에디터</span>
 								</div>
 								<div class="two_box_content_text">
@@ -209,7 +209,7 @@
 					<a href="#">
 						<div class="four_box_text">
 							<div class="four_box_nickname_text">
-								<img src="/img/noimg.jpg">
+								<img src="/img/noimg.png">
 								<span>희수캉</span>
 							</div>
 							<div class="four_box_content_text">
@@ -224,7 +224,7 @@
 					<a href="#">
 						<div class="four_box_text">
 							<div class="four_box_nickname_text">
-								<img src="/img/noimg.jpg">
+								<img src="/img/noimg.png">
 								<span>희수캉</span>
 							</div>
 							<div class="four_box_content_text">
@@ -239,7 +239,7 @@
 					<a href="#">
 						<div class="four_box_text">
 							<div class="four_box_nickname_text">
-								<img src="/img/noimg.jpg">
+								<img src="/img/noimg.png">
 								<span>희수캉</span>
 							</div>
 							<div class="four_box_content_text">
@@ -254,7 +254,7 @@
 					<a href="#">
 						<div class="four_box_text">
 							<div class="four_box_nickname_text">
-								<img src="/img/noimg.jpg">
+								<img src="/img/noimg.png">
 								<span>희수캉</span>
 							</div>
 							<div class="four_box_content_text">
@@ -269,7 +269,7 @@
 					<a href="#">
 						<div class="four_box_text">
 							<div class="four_box_nickname_text">
-								<img src="/img/noimg.jpg">
+								<img src="/img/noimg.png">
 								<span>희수캉</span>
 							</div>
 							<div class="four_box_content_text">

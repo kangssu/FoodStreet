@@ -41,9 +41,8 @@ public class MemberDto {
   @Pattern(regexp = "^[A-Za-z0-9_\\-]{5,20}$", message = "번호는 -를 제외한 숫자여야 합니다.")
   private String hp;
 
-  @NotBlank(message = "필수 입력 항목입니다.")
-  private String member_img;
-
+  private String img_name;
+  private String img_path;
   private Timestamp gaipday;
 
   public int getNum() {
@@ -118,12 +117,20 @@ public class MemberDto {
     this.hp = hp;
   }
 
-  public String getMember_img() {
-    return member_img;
+  public String getImg_name() {
+    return img_name;
   }
 
-  public void setMember_img(String member_img) {
-    this.member_img = member_img;
+  public void setImg_name(String img_name) {
+    this.img_name = img_name;
+  }
+
+  public String getImg_path() {
+    return img_path;
+  }
+
+  public void setImg_path(String img_path) {
+    this.img_path = img_path;
   }
 
   public Timestamp getGaipday() {

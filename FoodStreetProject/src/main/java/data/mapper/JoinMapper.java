@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import data.dto.MemberDto;
 
 @Mapper
-public interface MemberMapper {
+public interface JoinMapper {
 
   public void insertMember(MemberDto dto);
 

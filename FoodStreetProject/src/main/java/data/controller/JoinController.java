@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import data.dto.MemberDto;
-import data.service.MemberService;
+import data.service.JoinService;
 import data.validator.IdCheckValidator;
 import data.validator.NicknameCheckValidator;
 import data.validator.PwCheckValidator;
@@ -24,13 +25,13 @@ import data.validator.PwCheckValidator;
 @Controller
 public class JoinController {
 
-  private final MemberService service;
+  private final JoinService service;
   private final IdCheckValidator idValidator;
   private final NicknameCheckValidator nicknameValidator;
   private final PwCheckValidator pwValidator;
 
   @Autowired
-  public JoinController(MemberService service, IdCheckValidator idValidator,
+  public JoinController(JoinService service, IdCheckValidator idValidator,
       NicknameCheckValidator nicknameValidator, PwCheckValidator pwValidator) {
     this.service = service;
     this.idValidator = idValidator;
@@ -58,7 +59,7 @@ public class JoinController {
 
   // 회원가입
   @PostMapping("/join/success")
-  public String insert(String id, String pw, String pw_check, @Valid MemberDto dto, Errors errors,
+  public String insert(String id, MultipartFile file, @Valid MemberDto dto, Errors errors,
       Model model) throws IOException {
 
     // 유효성 검사
@@ -74,7 +75,7 @@ public class JoinController {
       return "/users/join_form";
     }
 
-    service.insertMember(dto);
+    service.insertMember(dto, file);
     return "/users/join_success";
   }
 

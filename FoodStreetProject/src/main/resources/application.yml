@@ -20,7 +20,7 @@ spring:
 
   servlet:
     multipart:
-      max-file-size: 5MB
+      max-file-size: 10MB
     
 #type을 data.*로 해도 다됨!
 mybatis:

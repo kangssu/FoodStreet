@@ -1,32 +1,48 @@
 package data.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
+import org.springframework.web.multipart.MultipartFile;
 import data.dto.MemberDto;
-import data.mapper.MemberMapper;
+import data.mapper.JoinMapper;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Service
-public class MemberService {
+public class JoinService {
 
-  private final MemberMapper mapper;
+  private final JoinMapper mapper;
   private final PasswordEncoder passwordEncoder;
 
   @Autowired
-  public MemberService(MemberMapper mapper, PasswordEncoder passwordEncoder) {
+  public JoinService(JoinMapper mapper, PasswordEncoder passwordEncoder) {
     this.mapper = mapper;
     this.passwordEncoder = passwordEncoder;
   }
 
-  public void insertMember(MemberDto dto) {
+  public void insertMember(MemberDto dto, MultipartFile file) throws IOException {
+
+    String projectpath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\photo";
+    UUID uuid = UUID.randomUUID();
+
+    String fileName = uuid + "_" + file.getOriginalFilename();
+
+    File saveFile = new File(projectpath, fileName);
+
+    file.transferTo(saveFile);
+
     dto.setPw(passwordEncoder.encode(dto.getPw()));
+    dto.setImg_name(fileName);
+    dto.setImg_path("/photo/" + fileName);
     mapper.insertMember(dto);
   }
 

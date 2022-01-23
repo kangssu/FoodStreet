@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="data.mapper.MemberMapper">
+<mapper namespace="data.mapper.JoinMapper">
 	<insert id="insertMember" parameterType="mdto">
-		insert into member (member_level,id,pw,name,nickname,email,hp,member_img,gaipday) 
-		values (#{member_level},#{id},#{pw},#{name},#{nickname},#{email},#{hp},#{member_img},now())
+		insert into member (member_level,id,pw,name,nickname,email,hp,img_name,img_path,gaipday) 
+		values (#{member_level},#{id},#{pw},#{name},#{nickname},#{email},#{hp},#{img_name},#{img_path},now())
 	</insert>
 	
 	<select id="idCheck" parameterType="String" resultType="int">

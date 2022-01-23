@@ -153,7 +153,7 @@ $(document).ready(function(){
 	});
 });
 
-// 인증번호 불일치
+// 인증번호 불일치 및 이미지 업로드 확인
 function submitCheck(){
 	var check_text = $('#hp_check_tag').text();
 	var check_text2 = '인증번호가 일치하지 않습니다.';
@@ -167,9 +167,11 @@ function submitCheck(){
 	} else if(check_text == check_text2){
 		alert('인증번호가 일치하지 않습니다.');
 		return false;
+	} else if($('#img_check').val().length == 0){
+		alert("이미지를 등록하지 않았습니다.");
+		return false;
 	} else{
 		true;
 	}
 };
-
 

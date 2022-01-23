@@ -3,14 +3,14 @@ package data.validator;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import data.dto.MemberDto;
-import data.mapper.MemberMapper;
+import data.mapper.JoinMapper;
 
 @Component
 public class NicknameCheckValidator extends AbstractValidator<MemberDto> {
 
-  private final MemberMapper mapper;
+  private final JoinMapper mapper;
 
-  public NicknameCheckValidator(MemberMapper mapper) {
+  public NicknameCheckValidator(JoinMapper mapper) {
     this.mapper = mapper;
   }
 
