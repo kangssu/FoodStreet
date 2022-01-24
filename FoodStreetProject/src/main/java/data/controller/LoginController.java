@@ -27,14 +27,16 @@ public class LoginController {
     return "/users/login";
   }
 
+  // 로그인
   @PostMapping("/login/success")
   public void success(MemberDto dto, HttpSession session, HttpServletResponse response)
       throws IOException {
 
-    session.getAttribute("member");
+    // session.getAttribute("member");
 
     MemberDto login = service.login(dto);
     boolean pwMatch = pwdEncoder.matches(dto.getPw(), login.getPw());
+    System.out.println("로그인 : " + login + " 일치여부 : " + pwMatch);
 
     if (login != null && pwMatch == true) {
       session.setAttribute("member", login);
@@ -42,6 +44,7 @@ public class LoginController {
       response.setContentType("text/html; charset=UTF-8");
       PrintWriter out = response.getWriter();
       out.println("<script>location.href='/';</script>");
+      System.out.println("로그인성공");
     } else {
       session.setAttribute("member", null);
       response.setContentType("text/html; charset=UTF-8");
@@ -49,6 +52,15 @@ public class LoginController {
       PrintWriter out = response.getWriter();
       out.println(
           "<script>alert('아이디 또는 비밀번호를 다시 한번 확인해 주시기 바랍니다.'); location.href='/login';</script>");
+      System.out.println("로그인실패");
     }
+  }
+
+  // 로그아웃
+  @GetMapping("/logout/success")
+  public String logout(HttpSession session) {
+    session.removeAttribute("member");
+    System.out.println("로그아웃성공");
+    return "redirect:/";
   }
 }

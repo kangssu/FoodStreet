@@ -4,7 +4,11 @@ import java.sql.Timestamp;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.apache.ibatis.type.Alias;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Alias("mdto")
 public class MemberDto {
 
@@ -46,99 +50,4 @@ public class MemberDto {
   private String img_path;
   private Timestamp gaipday;
 
-  public int getNum() {
-    return num;
-  }
-
-  public void setNum(int num) {
-    this.num = num;
-  }
-
-  public int getMember_level() {
-    return member_level;
-  }
-
-  public void setMember_level(int member_level) {
-    this.member_level = member_level;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getPw() {
-    return pw;
-  }
-
-  public void setPw(String pw) {
-    this.pw = pw;
-  }
-
-  public String getPw_check() {
-    return pw_check;
-  }
-
-  public void setPw_check(String pw_check) {
-    this.pw_check = pw_check;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getNickname() {
-    return nickname;
-  }
-
-  public void setNickname(String nickname) {
-    this.nickname = nickname;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getHp() {
-    return hp;
-  }
-
-  public void setHp(String hp) {
-    this.hp = hp;
-  }
-
-  public String getImg_name() {
-    return img_name;
-  }
-
-  public void setImg_name(String img_name) {
-    this.img_name = img_name;
-  }
-
-  public String getImg_path() {
-    return img_path;
-  }
-
-  public void setImg_path(String img_path) {
-    this.img_path = img_path;
-  }
-
-  public Timestamp getGaipday() {
-    return gaipday;
-  }
-
-  public void setGaipday(Timestamp gaipday) {
-    this.gaipday = gaipday;
-  }
 }

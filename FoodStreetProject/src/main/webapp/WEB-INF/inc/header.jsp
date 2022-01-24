@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <div id="wrap">
 	<div id="header_wrap">
 		<div class="header_banner">
@@ -14,7 +16,7 @@
         			<li><a href="#">맛집리스트</a></li>
         			<li><a href="#">스토리</a></li>
         			<li><a href="#">리뷰</a></li>
-        			<li><a href="#">맛집신청</a></li>
+        			<li><a href="/request">맛집신청</a></li>
         		</ul>
         	</div>
         	<div class="main_menu_right">
@@ -30,8 +32,16 @@
 					</div>
         		</div>
 				<ul class="info_menu">
-		            <li><a href="/login"><i class="fa fa-user" aria-hidden="true"></i>로그인</a></li>
-		            <li><a href="/join"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>회원가입</a></li>
+					<c:choose>
+						<c:when test="${member != null}">
+		            		<li><a href="/logout/success"><i class="fa fa-user" aria-hidden="true"></i>로그아웃</a></li>
+							<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>마이페이지</a></li>
+		            	</c:when>
+		            	<c:otherwise>
+		            		<li><a href="/login"><i class="fa fa-user" aria-hidden="true"></i>로그인</a></li>
+		            		<li><a href="/join"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>회원가입</a></li>
+		            	</c:otherwise>
+		            </c:choose>
 	           	</ul>
             </div>	
         </div>

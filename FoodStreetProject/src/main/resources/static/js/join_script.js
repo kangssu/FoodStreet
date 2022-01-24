@@ -175,3 +175,12 @@ function submitCheck(){
 	}
 };
 
+// 로그인 아이디 미입력시
+function submitLogin(){
+	if($('.id_content').val().length==0){
+		alert('아이디를 입력해주세요.');
+		return false;
+	} else{
+		true;
+	}
+};
