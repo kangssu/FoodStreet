@@ -51,5 +51,5 @@ public class MemberDto {
   private Date gaipday;
 
   // @Enumerated 따로 적용하기!
-  private String auth_provider;
+  private Role auth_provider;
 }

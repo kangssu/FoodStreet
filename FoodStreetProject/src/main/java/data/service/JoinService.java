@@ -45,6 +45,7 @@ public class JoinService {
     dto.setPw(passwordEncoder.encode(dto.getPw()));
     dto.setImg_name(fileName);
     dto.setImg_path("/photo/" + fileName);
+    dto.setAuth_provider(Role.USER);
     mapper.insertMember(dto);
   }
 
@@ -97,10 +98,11 @@ public class JoinService {
 
   public void createNewMember(String email, String name, Role Auth_provider) {
     MemberDto dto = new MemberDto();
+    dto.setMember_level(10);
     dto.setEmail(email);
     dto.setName(name);
     dto.setGaipday(new Date());
-    dto.setAuth_provider("GOOGLE");
+    dto.setAuth_provider(Role.SOCIAL);
 
     mapper.insertMember(dto);
 
