@@ -2,6 +2,7 @@ package data.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -13,6 +14,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.web.multipart.MultipartFile;
 import data.dto.MemberDto;
+import data.dto.Role;
 import data.mapper.JoinMapper;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
@@ -86,6 +88,21 @@ public class JoinService {
       System.out.println("에러1" + e.getMessage());
       System.out.println("에러2" + e.getCode());
     }
+
+  }
+
+  public MemberDto getFindByEmail(String email) {
+    return mapper.getFindByEmail(email);
+  }
+
+  public void createNewMember(String email, String name, Role Auth_provider) {
+    MemberDto dto = new MemberDto();
+    dto.setEmail(email);
+    dto.setName(name);
+    dto.setGaipday(new Date());
+    dto.setAuth_provider("GOOGLE");
+
+    mapper.insertMember(dto);
 
   }
 }

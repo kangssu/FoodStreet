@@ -1,6 +1,6 @@
 package data.dto;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.apache.ibatis.type.Alias;
@@ -48,6 +48,8 @@ public class MemberDto {
   private String img_name;
 
   private String img_path;
-  private Timestamp gaipday;
+  private Date gaipday;
 
+  // @Enumerated 따로 적용하기!
+  private String auth_provider;
 }

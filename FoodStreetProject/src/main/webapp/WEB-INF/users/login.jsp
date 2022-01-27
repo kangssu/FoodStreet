@@ -30,9 +30,9 @@
 				<p>SNS 계정으로 간편하게 로그인 하세요.</p>
 			</div>
 			<div class="sns_icons">
-				<a href="/oauth2/authorization/naver" role="button" class="sns_naver"><img src="/img/naver_logo.png" alt="네이버"/></a>
+				<a href="#" role="button" class="sns_naver"><img src="/img/naver_logo.png" alt="네이버"/></a>
 				<a href="#" class="sns_kakao"><img src="/img/kakao_logo.png" alt="카카오"/></a>
-				<a href="#" class="sns_google"><img src="/img/google_logo.png" alt="구글"/></a>
+				<a href="/oauth2/authorization/google" class="sns_google"><img src="/img/google_logo.png" alt="구글"/></a>
 			</div>
 		</div>
 	</div>

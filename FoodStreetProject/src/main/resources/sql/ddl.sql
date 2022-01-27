@@ -9,5 +9,6 @@ create table member(
 	hp varchar(50),
 	img_name varchar(300),
 	img_path varchar(300),
-	gaipday datetime
+	gaipday datetime,
+	auth_provider varchar(15)
 )

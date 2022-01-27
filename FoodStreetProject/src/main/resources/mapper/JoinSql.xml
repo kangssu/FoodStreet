@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.JoinMapper">
 	<insert id="insertMember" parameterType="mdto">
-		insert into member (member_level,id,pw,name,nickname,email,hp,img_name,img_path,gaipday) 
-		values (#{member_level},#{id},#{pw},#{name},#{nickname},#{email},#{hp},#{img_name},#{img_path},now())
+		insert into member (member_level,id,pw,name,nickname,email,hp,img_name,img_path,auth_provider,gaipday) 
+		values (#{member_level},#{id},#{pw},#{name},#{nickname},#{email},#{hp},#{img_name},#{img_path},#{auth_provider},now())
 	</insert>
 	
 	<select id="idCheck" parameterType="String" resultType="int">
@@ -20,6 +20,10 @@
 	
 	<select id="existsByNickname" parameterType="String" resultType="boolean">
 		select if(count(*) > 0, 'true', 'false') from member where nickname = #{nickname, jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getFindByEmail" resultType="mdto">
+		select email from member where email=#{email}
 	</select>
 </mapper>
 
