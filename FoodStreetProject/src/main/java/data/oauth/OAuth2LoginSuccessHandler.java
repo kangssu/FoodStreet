@@ -4,6 +4,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
@@ -18,10 +19,13 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
 
   private final JoinService service;
 
+  private final HttpSession session;
+
   @Lazy
   @Autowired
-  public OAuth2LoginSuccessHandler(JoinService service) {
+  public OAuth2LoginSuccessHandler(JoinService service, HttpSession session) {
     this.service = service;
+    this.session = session;
   }
 
   @Override
@@ -37,11 +41,13 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
 
     if (member == null) {
       service.createNewMember(email, name, Role.GOOGLE);
+      System.out.println("로그인 + 회원가입 성공");
     } else {
-
+      // 여기에 업데이트 넣으면됨!
+      System.out.println("로그인 + 기존 회원(업데이트 성공)");
     }
 
-    System.out.println("이메일 확인" + email);
+    System.out.println("이메일 확인 " + email);
 
     super.onAuthenticationSuccess(request, response, authentication);
   }

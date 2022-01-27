@@ -33,7 +33,7 @@
         		</div>
 				<ul class="info_menu">
 					<c:choose>
-						<c:when test="${member != null || email != null}">
+						<c:when test="${member != null || user != null}">
 		            		<li><a href="/logout/success"><i class="fa fa-user" aria-hidden="true"></i>로그아웃</a></li>
 							<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>마이페이지</a></li>
 		            	</c:when>

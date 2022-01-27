@@ -62,6 +62,7 @@ public class LoginController {
   @GetMapping("/logout/success")
   public String logout(HttpSession session) {
     session.removeAttribute("member");
+    session.removeAttribute("user");
     System.out.println("로그아웃성공");
     return "redirect:/";
   }
