@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Random;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -21,7 +20,9 @@ import data.service.JoinService;
 import data.validator.IdCheckValidator;
 import data.validator.NicknameCheckValidator;
 import data.validator.PwCheckValidator;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Controller
 public class JoinController {
 
@@ -29,15 +30,6 @@ public class JoinController {
   private final IdCheckValidator idValidator;
   private final NicknameCheckValidator nicknameValidator;
   private final PwCheckValidator pwValidator;
-
-  @Autowired
-  public JoinController(JoinService service, IdCheckValidator idValidator,
-      NicknameCheckValidator nicknameValidator, PwCheckValidator pwValidator) {
-    this.service = service;
-    this.idValidator = idValidator;
-    this.nicknameValidator = nicknameValidator;
-    this.pwValidator = pwValidator;
-  }
 
   // 커스텀 유효성 검사!
   @InitBinder

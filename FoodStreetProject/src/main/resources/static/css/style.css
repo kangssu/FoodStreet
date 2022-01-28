@@ -81,6 +81,11 @@ a:hover{
 	margin: 0 auto;
 }
 
+.container_small{
+	width:990px;
+	margin: 0 auto;
+}
+
 /* 상단 헤더 */
 .header_banner{
 	background-color:#F63805;
@@ -758,36 +763,36 @@ a:hover{
 	text-align:center;
 }
 
-.join_from_content_box .form_sub_title{
+.from_content_box .form_sub_title{
 	width:100%;
 	padding:0 0 18px;
 	margin:0 0 40px;
 	border-bottom:1px solid #000;
 }
 
-.join_from_content_box .form_sub_title h2{
+.from_content_box .form_sub_title h2{
 	font-size:32px;
 	font-weight:600;
 	color:#000;
 }
 
-.join_from_content_box .form_sub_title span{
+.from_content_box .form_sub_title span{
 	font-size:16px;
 	margin-left:20px;
 	color:#696969;
 	font-weight:500;
 }
 
-.join_from_content_box .form_content .form_tb_all{
+.from_content_box .form_content .form_tb_all{
 	text-align:left;
 }
 
-.join_from_content_box .form_content .form_tb_all span{
+.from_content_box .form_content .form_tb_all span{
 	color:#F63805;
 	margin-right:10px;
 }
 
-.join_from_content_box .form_content .form_tb_all tr th{
+.from_content_box .form_content .form_tb_all tr th{
 	vertical-align:top;
 	padding:25px 10px 0px 10px;
 	font-size:15px;
@@ -795,10 +800,10 @@ a:hover{
 	color:#000;
 }
 
-.join_from_content_box .form_content .form_tb_all td{
+.from_content_box .form_content .form_tb_all td{
 	padding:15px 0 15px 15px;
 }
-.join_from_content_box .form_content .form_tb_all input{
+.from_content_box .form_content .form_tb_all input{
 	border-radius:22px;
 	background:transparent;
 	color:#696969;
@@ -810,11 +815,11 @@ a:hover{
 	box-sizing:border-box;
 }
 
-.join_from_content_box .form_content .form_tb_all input:focus{
+.from_content_box .form_content .form_tb_all input:focus{
 	outline:none;
 }
 
-.join_from_content_box .form_content .form_tb_all .all_mail_choice{
+.from_content_box .form_content .form_tb_all .all_mail_choice{
 	border-radius:22px;
 	background:transparent;
 	color:#696969;
@@ -827,7 +832,7 @@ a:hover{
 	margin-left:15px;
 }
 
-.join_from_content_box .form_content .form_tb_all button{
+.from_content_box .form_content .form_tb_all button{
 	border-radius:22px;
 	background:transparent;
 	color:#696969;
@@ -842,18 +847,18 @@ a:hover{
 	cursor:pointer;
 }
 
-.join_from_content_box .form_content .form_tb_all p{
+.from_content_box .form_content .form_tb_all p{
 	color:#F63805;
 	font-size:15px;
 	margin-top:5px;
 }
 
-.join_from_content_box .form_content{
+.from_content_box .form_content{
 	border-bottom:1px solid rgba(000,000,000,.2);
 	padding-bottom:32px;
 }
 
-.join_form_all_btn .btn_cancle{
+.form_all_btn .btn_cancle{
 	width:220px;
 	height:55px;
 	border:1px solid #F63805;
@@ -866,7 +871,7 @@ a:hover{
 	cursor:pointer;
 }
 
-.join_form_all_btn .btn_confirm{
+.form_all_btn .btn_confirm{
 	width:220px;
 	height:55px;
 	border:1px solid #F63805;
@@ -880,7 +885,7 @@ a:hover{
 	margin-left:20px;
 }
 
-.join_form_all_btn{
+.form_all_btn{
 	margin:35px 0 0 0;
 	text-align:center;
 }
@@ -926,7 +931,7 @@ a:hover{
 	cursor:pointer;
 }
 
-.success_content_btn .success_login_btn{
+.success_content_btn .success_login_btn, .btn_confirm{
 	width:220px;
 	height:55px;
 	border:1px solid #F63805;
@@ -945,3 +950,72 @@ a:hover{
 	color:#868686;
 }
 /* 회원가입 영역 */
+
+/* 맛집신청 영역 */
+.step_box_one{
+	display: inline-block;
+	background-color:#fff;
+	border-radius: 10px;
+	padding:30px;
+	margin:5px;
+	text-align:center;
+	width:257px;
+}
+
+.step_box_one h2{
+	color:#000;
+	font-size:25px;
+	font-weight: 600;
+}
+
+.step_box_one i{
+	font-size:45px;
+	margin-top:20px;
+	color:#000;
+}
+
+.step_box_one p{
+	font-size:15px;
+	margin-top:15px;
+	color:#656565;
+}
+
+#step_col{
+	color:#F63805;
+}
+
+
+.from_content_box .form_content .form_tb_all textarea{
+	border-radius:10px;
+	background:transparent;
+	color:#696969;
+	width:800px;
+	height:200px;
+	line-height:47px;
+	border:1px solid rgba(0,0,0,.2);
+	padding:0 20px;
+	box-sizing:border-box;
+}
+
+.from_content_box .form_content .form_tb_all textarea:focus{
+	outline:none;
+}
+
+.from_content_box .request_title_top{
+	margin-top:60px;
+}
+
+.request_notice{
+	margin-top:10px;
+}
+
+.request_notice p{
+	color:#F63805;
+	font-size:13px;
+}
+
+#request_address_form{
+	width:545px;
+}
+
+/* 맛집신청 영역 */

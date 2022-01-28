@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.RequestMapper">
+	<insert id="insertRequest" parameterType="rdto">
+		insert into food_request (id,food_store,place_name,address1,address2,hp,type_of_food,price,store_time,food_img,menu,comment,reason,reporting_date)
+		values (#{id},#{food_store},#{place_name},#{address1},#{address2},#{hp},#{type_of_food},#{price},#{store_time},#{food_img},#{menu},#{comment},#{reason},#{reporting_date})
+	</insert>
+</mapper>

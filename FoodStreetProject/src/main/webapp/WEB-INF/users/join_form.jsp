@@ -7,7 +7,7 @@
 		<div class="join_title">
 			<h2>회원가입</h2>
 		</div>
-		<div class="join_from_content_box">
+		<div class="from_content_box">
 			<div class="form_sub_title">
 				<h2>기본정보<span>* 필수입력사항</span></h2>
 			</div>
@@ -30,7 +30,7 @@
 							<tr>
 								<th><span>*</span>비밀번호</th>
 								<td>
-									<input type="password" name="pw" class="pw_form" id="pw_form" value="${MemberDto.pw}">
+									<input type="password" name="pw" class="pw_form" id="pw_form" value="${MemberDto.pw}"/>
 									<p id="pw_check_tag">${valid_pw}</p>
 								</td>
 							</tr>
@@ -88,7 +88,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="join_form_all_btn">
+				<div class="form_all_btn">
 					<button type="button" onclick="location.href='/join';" class="btn_cancle">취소</button>
 					<button type="submit" class="btn_confirm">회원가입</button>
 				</div>

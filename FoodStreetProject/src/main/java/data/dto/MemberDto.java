@@ -49,7 +49,5 @@ public class MemberDto {
 
   private String img_path;
   private Date gaipday;
-
-  // @Enumerated 따로 적용하기!
   private Role auth_provider;
 }

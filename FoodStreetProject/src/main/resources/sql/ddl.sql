@@ -12,3 +12,21 @@ create table member(
 	gaipday datetime,
 	auth_provider varchar(15)
 )
+
+create table food_request(
+	num smallint auto_increment primary key,
+	id varchar(100),
+	food_store varchar(50),
+	place_name varchar(20),
+	address1 varchar(20),
+	address2 varchar(100),
+	hp varchar(50),
+	type_of_food varchar(100),
+	price varchar(20),
+	store_time varchar(100),
+	food_img varchar(300),
+	menu varchar(300),
+	comment varchar(200),
+	reason varchar(300),
+	reporting_date datetime
+)

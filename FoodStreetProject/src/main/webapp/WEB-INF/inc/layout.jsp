@@ -32,5 +32,7 @@
 	</div>
 	<!-- 스크립트 불러오기 -->
 	<script src="/js/join_script.js"></script>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script src="/js/address_script.js"></script>
 </body>
 </html>

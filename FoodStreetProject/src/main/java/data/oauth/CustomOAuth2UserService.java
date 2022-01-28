@@ -6,13 +6,15 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Service
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
   private final HttpSession session;
+
+  public CustomOAuth2UserService(HttpSession session) {
+    this.session = session;
+  }
 
   @Override
   public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {

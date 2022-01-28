@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import org.json.simple.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
@@ -16,20 +15,16 @@ import org.springframework.web.multipart.MultipartFile;
 import data.dto.MemberDto;
 import data.dto.Role;
 import data.mapper.JoinMapper;
+import lombok.RequiredArgsConstructor;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
+@RequiredArgsConstructor
 @Service
 public class JoinService {
 
   private final JoinMapper mapper;
   private final PasswordEncoder passwordEncoder;
-
-  @Autowired
-  public JoinService(JoinMapper mapper, PasswordEncoder passwordEncoder) {
-    this.mapper = mapper;
-    this.passwordEncoder = passwordEncoder;
-  }
 
   public void insertMember(MemberDto dto, MultipartFile file) throws IOException {
 
