@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<div id="join_from_wrap">
-	<div class="join_form_all_box container_small">
-		<div class="join_title">
+<div id="request_form_wrap">
+	<div class="request_form_all_box container_small">
+		<div class="top_sub_title">
 			<h2>맛집신청</h2>
 		</div>
 		<div class="requset_step_banner">
@@ -42,6 +42,12 @@
 						</colgroup>
 						<tbody>
 							<tr>
+								<th><span>*</span>신청자</th>
+								<td>
+									<input type="text" name="name" class="name_form" placeholder="ex) 홍길동" value="${member.name}"/>
+								</td>
+							</tr>
+							<tr>
 								<th><span>*</span>가게이름</th>
 								<td>
 									<input type="text" name="food_store" class="food_store_form" placeholder="ex) 아웃백"/>
@@ -68,7 +74,7 @@
 							<tr>
 								<th><span>*</span>음식사진</th>
 								<td>
-									<input type="file" name="food_img" class="food_img_form" multiple/>
+									<input type="file" name="file" class="food_img_form" value="no" multiple/>
 								</td>
 							</tr>
 							<tr>
@@ -80,7 +86,7 @@
 							<tr>
 								<th><span>*</span>추천이유</th>
 								<td>
-									<textarea name="reason" class="reason_form" placeholder="해당 맛집을 추천하는 이유!? 구체적으로 작성해주세요 :-)"></textarea>
+									<textarea name="reason" class="reason_form" placeholder="해당 맛집을 추천하는 이유!? 구체적으로 작성해주셔야 맛집리스트에 등록될 가능성이 높아집니다 :-)"></textarea>
 								</td>
 							</tr>						
 						</tbody>

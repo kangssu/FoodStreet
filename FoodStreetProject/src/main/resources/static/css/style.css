@@ -56,6 +56,10 @@ img{
 	padding:0;
 }
 
+table{
+	border-collapse : collapse;
+}
+
 a,a:link,a:visited,a:active{
 	color:black;
 	letter-spacing:normal;
@@ -589,12 +593,6 @@ a:hover{
 	margin-bottom:180px;
 }
 
-.login_title h2{
-	margin:122px 0px 65px 0px;
-	font-size:46px;
-	color:#3c3c3c;
-}
-
 .login_form_box input{
 	width:100%;
 	height:45px;
@@ -714,7 +712,7 @@ a:hover{
 	text-align:center;
 }
 
-.join_title h2{
+.top_sub_title h2{
 	margin:122px 0px 65px 0px;
 	font-size:46px;
 	color:#3c3c3c;
@@ -748,18 +746,18 @@ a:hover{
 	color:#3c3c3c;
 }
 
-#join_from_wrap{
+#join_form_wrap, #request_form_wrap, #admin_mypage_form_wrap{
 	border-top:1px solid #dddbd8;
 	margin-top:85px;
 }
 
-.join_form_all_box{
+.join_form_all_box, .request_form_all_box, .admin_mypage_form_all_box{
 	width:100%;
 	max-width:990px;
 	padding:0 30px;
 }
 
-.join_title{
+.top_sub_title{
 	text-align:center;
 }
 
@@ -1019,3 +1017,125 @@ a:hover{
 }
 
 /* 맛집신청 영역 */
+
+/* 관리자 마이페이지 */
+.top_info_box{
+	background-color:#fff;
+	border-radius:10px;
+	height:200px;
+	padding:30px;
+}
+
+.info_content_box img{
+	margin:25px 0px 0px 135px;
+	border-radius:100px;
+}
+
+.info_content_box{
+	float:left;
+}
+
+.info_content_box_gride{
+	margin:65px 0px 10px 50px;
+	text-align:center;
+}
+
+.info_content_box p{
+	font-size:20px;
+	margin-bottom:25px;
+}
+
+.info_content_box span{
+	font-weight:500;
+}
+
+.info_content_box button{
+	border:1px solid #dddbd8;
+	background-color: #faf9f5;
+	width:150px;
+	height:35px;
+	border-radius:30px;
+	margin-right:5px;
+	cursor:pointer;
+}
+
+.info_content_list{
+	margin-top:70px;
+}
+
+.info_content_list_title h2{
+	font-weight: 500;
+	font-size:24px;
+	color:#000000;
+}
+
+.info_content_list_title span{
+	margin-left:20px;
+	font-size:15px;
+	color:#484848;
+}
+
+.info_content_list_title{
+	display:inline-block;
+}
+
+.more_button_text{
+	float:right;
+	display:block;
+	cursor:pointer;
+}
+
+.more_button_text i{
+	margin-left:10px;
+}
+
+.info_list_table{
+	width:990px;
+	table-layout: fixed;
+	color:#000000;
+	margin-top:15px;
+	border-top:1px solid #000000;
+}
+
+.info_content_all_table th{
+	height:45px;
+	border-bottom:1px solid #dbdbdb;
+	font-size:14px;
+	font-weight:500;
+	padding:10px;
+}
+
+.info_content_all_table td{
+	height:45px;
+	padding:10px;
+	font-size:13px;
+	text-align:center;
+	border-bottom:1px solid #dbdbdb;
+	
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
+}
+
+.info_list_table button{
+	border-radius:30px;
+	width:60px;
+	height:30px;
+	margin-right:5px;
+	font-size:12px;
+}
+
+.request_view{
+	background-color:#F63805;
+	border:1px solid #F63805;
+	color:#fff;
+	cursor:pointer;
+}
+
+.request_del{
+	background:none;
+	border:1px solid #F63805;
+	color:#F63805;
+	cursor:pointer;
+}
+/* 관리자 마이페이지 */

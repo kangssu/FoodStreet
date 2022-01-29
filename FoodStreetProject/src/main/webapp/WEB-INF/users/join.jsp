@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div id="join_wrap">
 	<div class="join_all_box container">
-		<div class="join_title">
+		<div class="top_sub_title">
 			<h2>회원가입</h2>
 		</div>
 		<div class="join_all_btn">

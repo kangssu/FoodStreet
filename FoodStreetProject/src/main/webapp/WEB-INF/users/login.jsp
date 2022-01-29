@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div id="login_wrap">
 	<div class="login_all_box container">
-		<div class="login_title">
+		<div class="top_sub_title">
 			<h2>로그인</h2>
 		</div>
 		<form action="/login/success" method="post" onsubmit="return submitLogin();">

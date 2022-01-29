@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div id="join_from_wrap">
+<div id="join_form_wrap">
 	<div class="join_form_all_box container">
-		<div class="join_title">
+		<div class="top_sub_title">
 			<h2>회원가입</h2>
 		</div>
 		<div class="join_from_content_box success_guide">

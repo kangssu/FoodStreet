@@ -11,7 +11,7 @@ import lombok.Setter;
 public class RequestDto {
 
   private int num;
-  private String id;
+  private String name;
   private String food_store;
   private String place_name;
   private String address1;
@@ -20,7 +20,8 @@ public class RequestDto {
   private String type_of_food;
   private String price;
   private String store_time;
-  private String food_img;
+  private String img_name;
+  private String img_path;
   private String menu;
   private String comment;
   private String reason;

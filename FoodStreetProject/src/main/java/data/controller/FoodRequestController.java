@@ -1,8 +1,10 @@
 package data.controller;
 
+import java.io.IOException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 import data.dto.RequestDto;
 import data.service.RequestService;
 
@@ -21,9 +23,11 @@ public class FoodRequestController {
   }
 
   @PostMapping("/request/success")
-  public String insert(RequestDto dto) {
+  public String insert(RequestDto dto, MultipartFile file)
+      throws IllegalStateException, IOException {
 
-    service.insertRequest(dto);
+    service.insertRequest(dto, file);
     return "/food_request/request_success";
   }
+
 }
