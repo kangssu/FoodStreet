@@ -16,6 +16,7 @@ create table member(
 create table food_request(
 	num smallint auto_increment primary key,
 	id varchar(100),
+	name varchar(30),
 	food_store varchar(50),
 	place_name varchar(20),
 	address1 varchar(20),
@@ -29,6 +30,6 @@ create table food_request(
 	menu varchar(300),
 	comment varchar(200),
 	reason varchar(300),
-	reporting_date datetime,
-	state varchar(20)
+	state varchar(20),
+	reporting_date datetime
 )

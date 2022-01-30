@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import data.dto.RequestDto;
 import data.mapper.MypageMapper;
+import data.paging.Criteria;
 
 @Service
 public class MypageService {
@@ -14,7 +15,11 @@ public class MypageService {
     this.mapper = mapper;
   }
 
-  public List<RequestDto> getList() {
-    return mapper.getList();
+  public List<RequestDto> getList(Criteria cri) {
+    return mapper.getList(cri);
+  }
+
+  public int totalCount() {
+    return mapper.totalCount();
   }
 }

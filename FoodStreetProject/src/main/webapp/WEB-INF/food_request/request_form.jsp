@@ -34,6 +34,14 @@
 				<h2>신청항목<span>* 필수입력사항</span></h2>
 			</div>
 			<form action="/request/success" method="post" enctype="multipart/form-data">
+				<c:choose>
+					<c:when test="${member == null}">
+						<input type="hidden" name="id" value="비회원">
+					</c:when>
+					<c:otherwise>
+						<input type="hidden" name="id" value="${member.id}">
+					</c:otherwise>
+				</c:choose>				
 				<input type="hidden" name="state" value="대기중">
 				<div class="form_content">
 					<table class="form_tb_all">

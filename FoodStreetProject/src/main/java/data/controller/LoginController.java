@@ -29,7 +29,7 @@ public class LoginController {
   public void success(MemberDto dto, HttpSession session, HttpServletResponse response)
       throws IOException {
 
-    // session.getAttribute("member");
+    session.getAttribute("member");
 
     MemberDto login = service.login(dto);
     boolean pwMatch = pwdEncoder.matches(dto.getPw(), login.getPw());
