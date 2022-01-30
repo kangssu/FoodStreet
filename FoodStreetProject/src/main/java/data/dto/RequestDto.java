@@ -26,6 +26,5 @@ public class RequestDto {
   private String comment;
   private String reason;
   private Date reporting_date;
-
-
+  private String state;
 }

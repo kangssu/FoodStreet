@@ -1043,10 +1043,12 @@ a:hover{
 .info_content_box p{
 	font-size:20px;
 	margin-bottom:25px;
+	color:#000000;
 }
 
 .info_content_box span{
 	font-weight:500;
+	color:#000000;
 }
 
 .info_content_box button{

@@ -28,4 +28,11 @@ public class MypageController {
 
     return mv;
   }
+
+  //////// 여기부터 일반 회원 마이페이지 ////////
+
+  @GetMapping("/mypage")
+  public String userHome() {
+    return "/mypage/user_home";
+  }
 }

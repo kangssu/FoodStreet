@@ -29,5 +29,6 @@ create table food_request(
 	menu varchar(300),
 	comment varchar(200),
 	reason varchar(300),
-	reporting_date datetime
+	reporting_date datetime,
+	state varchar(20)
 )
