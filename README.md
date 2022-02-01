@@ -1,24 +1,39 @@
-# FOODSTREET - 푸드스트릿 :hamburger::pizza::beers:
-
+# [개인 프로젝트] FOODSTREET - 푸드스트릿 :hamburger::pizza::beers:
+### 💡 프로젝트 기간 : 2022.01.01 ~ (진행중)
 * **"여러 사람들이 알고 있는 맛집들을 자신만 아는게 아닌 서로 공유할 방법이 없을까?"**
 * **"맛집 공유를 하더라도 사이트의 의도와 맞지 않는 게시글은 제외시키는게 낫지 않을까?"**
 * 이런 물음들에 대해 100% 딱 맞는 사이트로 만든 것이 바로 **푸드스트릿** 입니다!!
 
 <br/>
 
- ## 1. 개발환경
+## 1. 개발환경
+### Frontend Stack
+<p>
+  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
+  <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
+  <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
+  <img src="https://img.shields.io/badge/fontawesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white">
+</p>
 
- ```
- IDE: Eclipse(21-06)
- DB: MySQL 8.0.27
- VC: git
- Build Tool: Maven
+### Backend Stack
+<p>
+  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white">
+  <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+</p>
 
- + spring boot
- + jsp 기반
- + MyBatis
- ```
- <br/>
+### Deploy Stack
+<p>
+  <img src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">
+</p>
+
+### Version Control
+<p>
+  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+</p>
+<br/>
 
 ## 2. 기능구현
 
@@ -35,8 +50,13 @@
 * 맛집신청
   * 회원, 비회원 상관없이 맛집신청 가능 (필수 항목 체크!)
   * 다음 주소찾기 API 연동
-  * 신청하면 관리자 마이페이지에서 신청내역 확인 후 맛집리스트로 업로드 가능
-  * 회원들만 자신이 신청한 신청내역 마이페이지에서 확인,삭제 가능 (비회원 불가능)
+
+* 관리자, 회원 마이페이지
+  * <code>관리자</code> 회원,비회원들이 맛집 신청하면 신청내역 확인, 삭제 및 맛집리스트로 업로드 가능
+  * <code>관리자</code> 운영진 계정 생성, 수정, 삭제 가능
+  * <code>회원</code> 자신의 회원정보 수정 가능 (비회원 불가능)
+  * <code>회원</code> 자신이 신청한 신청내역 확인, 삭제 가능 (비회원 불가능)
+  * <code>회원</code> 자신이 등록한 리뷰 리스트 확인, 수정, 삭제 가능 (비회원 불가능) 
 <br/>
 
 ## 3. 트러블 슈팅
