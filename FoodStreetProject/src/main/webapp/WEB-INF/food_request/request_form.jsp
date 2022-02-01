@@ -83,7 +83,7 @@
 							<tr>
 								<th><span>*</span>음식사진</th>
 								<td>
-									<input type="file" name="file" class="food_img_form" value="no" multiple/>
+									<input type="file" name="upload" class="food_img_form" value="no" multiple/>
 								</td>
 							</tr>
 							<tr>

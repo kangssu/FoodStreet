@@ -11,5 +11,9 @@ public interface MypageMapper {
   public List<RequestDto> getList(Criteria cri);
 
   public int totalCount();
+
+  public RequestDto getNumList(int num);
+
+  public int requestDel(int num);
 }
 

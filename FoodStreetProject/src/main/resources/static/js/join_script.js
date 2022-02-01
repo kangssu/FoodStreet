@@ -154,7 +154,7 @@ $(document).ready(function(){
 });
 
 // 인증번호 불일치 및 이미지 업로드 확인
-/*function submitCheck(){
+function submitCheck(){
 	var check_text = $('#hp_check_tag').text();
 	var check_text2 = '인증번호가 일치하지 않습니다.';
 	
@@ -173,7 +173,7 @@ $(document).ready(function(){
 	} else{
 		true;
 	}
-};*/
+};
 
 // 로그인 아이디 미입력시
 function submitLogin(){

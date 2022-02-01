@@ -3,6 +3,9 @@ package data.controller;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.RequestDto;
 import data.paging.Criteria;
@@ -32,7 +35,7 @@ public class MypageController {
   }
 
   @GetMapping("/admin/mypage/request")
-  public ModelAndView adminRequest(Criteria cri) {
+  public ModelAndView requestList(Criteria cri) {
     ModelAndView mv = new ModelAndView();
 
     int listCount = service.totalCount();
@@ -40,17 +43,38 @@ public class MypageController {
     Paging paging = new Paging();
     paging.setCri(cri);
     paging.setTotalCount(listCount);
+    int no = paging.getNo();
 
     List<RequestDto> list = service.getList(cri);
     int currentPage = cri.getPage();
-    System.out.println(paging);
 
     mv.addObject("list", list);
     mv.addObject("paging", paging);
+    mv.addObject("no", no);
     mv.addObject("currentPage", currentPage);
     mv.setViewName("/m/mypage/admin_request_list");
 
     return mv;
+  }
+
+  @GetMapping("/admin/request/view")
+  public ModelAndView requestUdate(int num) {
+    ModelAndView mv = new ModelAndView();
+
+    RequestDto dto = service.getNumList(num);
+
+    mv.addObject("dto", dto);
+    mv.setViewName("/m/mypage/admin_request_form");
+
+    return mv;
+  }
+
+  @ResponseBody
+  @RequestMapping("/admin/delete")
+  public void requestDelete(@RequestBody int num) {
+
+    service.requestDel(num);
+
   }
 
   //////// 여기부터 일반 회원 마이페이지 ////////

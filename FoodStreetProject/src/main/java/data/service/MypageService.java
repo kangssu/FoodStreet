@@ -22,4 +22,12 @@ public class MypageService {
   public int totalCount() {
     return mapper.totalCount();
   }
+
+  public RequestDto getNumList(int num) {
+    return mapper.getNumList(num);
+  }
+
+  public int requestDel(int num) {
+    return mapper.requestDel(num);
+  }
 }

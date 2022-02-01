@@ -17,20 +17,25 @@ public class RequestService {
     this.mapper = mapper;
   }
 
-  public void insertRequest(RequestDto dto, MultipartFile file)
-      throws IllegalStateException, IOException {
+  public void insertRequest(RequestDto dto) throws IllegalStateException, IOException {
 
     String projectpath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\photo";
     UUID uuid = UUID.randomUUID();
 
-    String fileName = uuid + "_" + file.getOriginalFilename();
+    String photoName = "";
+    for (MultipartFile file : dto.getUpload()) {
+      String fileName = uuid + "_" + file.getOriginalFilename();
+      photoName += fileName + ",";
 
-    File saveFile = new File(projectpath, fileName);
+      File saveFile = new File(projectpath, fileName);
 
-    file.transferTo(saveFile);
+      file.transferTo(saveFile);
+    }
 
-    dto.setImg_name(fileName);
-    dto.setImg_path("/photo/" + fileName);
+    photoName = photoName.substring(0, photoName.length() - 1);
+
+    dto.setImg_name(photoName);
+    dto.setImg_path("/photo/" + photoName);
 
     mapper.insertRequest(dto);
   }

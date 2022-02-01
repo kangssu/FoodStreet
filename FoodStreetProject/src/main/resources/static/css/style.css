@@ -1193,3 +1193,115 @@ a:hover{
 	transition: all, 0.3s;
 }
 /* 페이징 처리 */
+
+/* 맛집 신청 확인 페이지 */
+.view_info_content{
+	margin-top:15px;
+	border-top:2px solid #000000;
+	padding-top:40px;
+}
+
+.form_tb_all select{
+	border-radius:30px;
+	width:200px;
+	height:47px;
+	padding:0 20px;
+	background:none;
+	border:1px solid rgba(0,0,0,.2);
+}
+
+.form_tb_all select:focus{
+	outline:none;
+}
+
+#state_form{
+	width:200px;
+	margin-right:10px;
+}
+
+.form_tb_all img{
+	width:150px;
+	height:150px;
+	margin:0 5px 8px 0;
+}
+/* 맛집 신청 확인 페이지 */
+
+/* 삭제 팝업 */
+#popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+}
+
+#popup.hide {
+	display: none;
+}
+
+#popup .content{
+	text-align:center;
+	background: #fff; 
+	border-radius: 10px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:300px;
+	height:200px;
+}
+
+.popup_title{
+	font-size:25px;
+	color:#1C1C1C;
+	font-weight:700;
+	margin-bottom:30px;
+	text-align:center;
+}
+
+.content i{
+	margin-right:6px;
+}
+
+.content p{
+	color:#000000;
+	font-size:16px;
+	line-height:23px;
+}
+
+.content span{
+	font-size:16px;
+	color:#F63805;
+	line-height:30px;
+}
+
+.popup_btn{
+	text-align:center;
+	margin-top:20px;
+}
+
+.popup_btn button{
+	border:1px solid #F63805;
+	border-radius:30px;
+	width:100px;
+	height:35px;
+	cursor:pointer;
+}
+
+.popup_btn #btn_ok_del{
+	background-color:#F63805;
+	color:white;
+	margin-right:5px;
+}
+
+.popup_btn #btn_close{
+	background:none;
+	color:#F63805;
+}
+
+.form_tb_all .request_img_view{
+	height:200px;
+}
+/* 삭제 팝업 */

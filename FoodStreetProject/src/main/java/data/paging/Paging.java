@@ -9,6 +9,7 @@ public class Paging {
   private boolean prev;
   private boolean next;
   private Criteria cri;
+  private int no;
 
   public int getTotalCount() {
     return totalCount;
@@ -29,7 +30,7 @@ public class Paging {
       endPage = tempEndPage;
     }
 
-    int no = totalCount - (cri.getPage() - 1) * displayPageNum;
+    no = totalCount - (cri.getPage() - 1) * displayPageNum;
 
     prev = startPage == 1 ? false : true;
     next = endPage * cri.getPerPageNum() >= totalCount ? false : true;
@@ -83,10 +84,18 @@ public class Paging {
     this.cri = cri;
   }
 
+  public int getNo() {
+    return no;
+  }
+
+  public void setNo(int no) {
+    this.no = no;
+  }
+
   @Override
   public String toString() {
-    return "PageMaker [totalCount=" + totalCount + ", startPage=" + startPage + ", endPage="
-        + endPage + ", prev=" + prev + ", next=" + next + ", displayPageNum=" + displayPageNum
-        + ", cri=" + cri + "]";
+    return "Paging [totalCount=" + totalCount + ", displayPageNum=" + displayPageNum
+        + ", startPage=" + startPage + ", endPage=" + endPage + ", prev=" + prev + ", next=" + next
+        + ", cri=" + cri + ", no=" + no + "]";
   }
 }
