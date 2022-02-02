@@ -3,6 +3,7 @@ package data.controller;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,7 +35,7 @@ public class MypageController {
     return mv;
   }
 
-  @GetMapping("/admin/mypage/request")
+  @GetMapping("/admin/request/list")
   public ModelAndView requestList(Criteria cri) {
     ModelAndView mv = new ModelAndView();
 
@@ -69,12 +70,16 @@ public class MypageController {
     return mv;
   }
 
+  @PostMapping("/admin/update")
+  public String requestUpdate() {
+    return "/m/mypage/admin_request_success";
+  }
+
   @ResponseBody
   @RequestMapping("/admin/delete")
   public void requestDelete(@RequestBody int num) {
 
     service.requestDel(num);
-
   }
 
   //////// 여기부터 일반 회원 마이페이지 ////////

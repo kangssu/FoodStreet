@@ -811,6 +811,7 @@ a:hover{
 	border:1px solid rgba(0,0,0,.2);
 	padding:0 20px;
 	box-sizing:border-box;
+	color:#000000;
 }
 
 .from_content_box .form_content .form_tb_all input:focus{
@@ -943,7 +944,7 @@ a:hover{
 	margin-left:20px;
 }
 
-#email_point_text{
+#small_point_text{
 	font-size:14px;
 	color:#868686;
 }
@@ -993,6 +994,7 @@ a:hover{
 	border:1px solid rgba(0,0,0,.2);
 	padding:0 20px;
 	box-sizing:border-box;
+	color:#000000;
 }
 
 .from_content_box .form_content .form_tb_all textarea:focus{

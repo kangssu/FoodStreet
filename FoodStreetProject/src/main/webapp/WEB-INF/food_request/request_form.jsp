@@ -84,6 +84,7 @@
 								<th><span>*</span>음식사진</th>
 								<td>
 									<input type="file" name="upload" class="food_img_form" value="no" multiple/>
+									<p id="small_point_text">※ 이미지를 많이 넣으면 평가에 유리합니다.</p>
 								</td>
 							</tr>
 							<tr>

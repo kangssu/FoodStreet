@@ -59,7 +59,7 @@
 								<th><span>*</span>이메일</th>
 								<td>
 									<input type="text" name="email" class="email_form" id="email_form" value="${MemberDto.email}"/>
-									<p id="email_point_text">※ 아이디/패스워드 찾기에 활용 되므로 정확하게 입력해주세요.</p>
+									<p id="small_point_text">※ 아이디/패스워드 찾기에 활용 되므로 정확하게 입력해주세요.</p>
 									<p id="email_check_tag">${valid_email}</p>
 								</td>
 							</tr>

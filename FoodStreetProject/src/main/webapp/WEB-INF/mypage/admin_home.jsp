@@ -8,7 +8,7 @@
 		<h2>신청내역<span>맛집신청 페이지에서 신청된 내역입니다.</span></h2>
 	</div>
 	<div class="info_content_list_title more_button_text">
-		<a href="/admin/mypage/request">
+		<a href="/admin/request/list">
 			<span>더보기<i class="fa fa-angle-right" aria-hidden="true"></i></span>
 		</a>
 	</div>
@@ -42,7 +42,7 @@
 								<td>${r.address2}</td>
 								<td><fmt:formatDate value="${r.reporting_date}" pattern="yyyy-MM-dd"/></td>
 								<td>
-									<button type="button" class="request_view">확인</button>
+									<button type="button" class="request_view" num="${r.num}" onclick="location.href='/admin/request/view';">확인</button>
 									<button type="button" class="request_del" onclick="showDelPopup(${r.num})">삭제</button>
 								</td>
 							</tr>

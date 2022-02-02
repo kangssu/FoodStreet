@@ -76,9 +76,10 @@
 							</td>
 						</tr>
 						<tr>
-							<th class="request_img_view"><span>*</span>음식사진 미리보기</th>
+							<th class="request_img_view"><span>*</span>등록된 음식사진</th>
 							<td>
-								<c:forTokens items="${dto}" var="item" delims=",">
+								<c:forTokens items="${dto.img_name}" var="image" delims=",">
+									<img src="/photo/${image}">
 								</c:forTokens>
 							</td>
 						</tr>
@@ -95,10 +96,23 @@
 							</td>
 						</tr>	
 						<tr>
+							<th><span>*</span>카테고리</th>
+							<td>
+								<select>
+									<option value="일식">일식</option>
+									<option value="피자">피자</option>
+									<option value="양식">양식</option>
+									<option value="브런치">브런치</option>
+									<option value="중식">중식</option>
+									<option value="카페">카페</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
 							<th><span>*</span>상태변경</th>
 							<td>
 								<input type="text" name="state" id="state_form" value="${dto.state}"/>
-								<select>
+								<select id="request_state">
 									<option value="대기중">대기중</option>
 									<option value="등록완료">등록완료</option>
 									<option value="평가탈락">평가탈락</option>
@@ -109,7 +123,7 @@
 				</table>
 			</div>
 			<div class="form_all_btn">
-				<button type="button" onclick="location.href='/admin/mypage/request';" class="btn_cancle">목록</button>
+				<button type="button" onclick="location.href='/admin/request/list';" class="btn_cancle">목록</button>
 				<button type="submit" class="btn_confirm">등록하기</button>
 			</div>
 		</form>
