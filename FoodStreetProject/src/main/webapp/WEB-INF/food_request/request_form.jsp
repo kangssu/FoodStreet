@@ -33,7 +33,7 @@
 			<div class="form_sub_title request_title_top">
 				<h2>신청항목<span>* 필수입력사항</span></h2>
 			</div>
-			<form action="/request/success" method="post" enctype="multipart/form-data">
+			<form action="/request/success" method="post" onsubmit="return submitRequest();"  enctype="multipart/form-data">
 				<c:choose>
 					<c:when test="${member == null}">
 						<input type="hidden" name="id" value="비회원">
@@ -84,7 +84,7 @@
 								<th><span>*</span>음식사진</th>
 								<td>
 									<input type="file" name="upload" class="food_img_form" value="no" multiple/>
-									<p id="small_point_text">※ 이미지를 많이 넣으면 평가에 유리합니다.</p>
+									<p id="small_point_text">※ 이미지를 많이 추가하시면 평가에 유리합니다.</p>
 								</td>
 							</tr>
 							<tr>

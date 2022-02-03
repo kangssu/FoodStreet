@@ -14,9 +14,9 @@
 		<div class="info_all_button">
 			<c:choose>
 				<c:when test="${member.id eq 'admin'}">
-					<button type="button" onclick="location.href='/admin/mypage/request';">신청내역</button>
-					<button type="button">운영진 계정 관리</button>
-					<button type="button">운영진 계정 생성</button>
+					<button type="button" onclick="location.href='/admin/request/list';">신청내역</button>
+					<button type="button" onclick="location.href='/admin/executive/list';">운영진 계정 관리</button>
+					<button type="button" onclick="location.href='/admin/executive/form';">운영진 계정 생성</button>
 				</c:when>
 				<c:otherwise>
 					<button type="button">회원정보수정</button>

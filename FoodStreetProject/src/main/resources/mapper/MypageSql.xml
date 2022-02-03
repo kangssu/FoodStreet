@@ -12,8 +12,18 @@
 	<select id="getNumList" parameterType="HashMap" resultType="rdto">
 		select * from food_request where num = #{num}
 	</select>
+
+	<update id="requestUpdate" parameterType="rdto">
+		update food_request set food_store=#{food_store},place_name=#{place_name},
+		address1=#{address1},address2=#{address2},hp=#{hp},category=#{category},type_of_food=#{type_of_food},
+		price=#{price},store_time=#{store_time},menu=#{menu},state=#{state} where num=#{num}
+	</update>
 	
 	<delete id="requestDel" parameterType="int">
 		delete from food_request where num = #{num}
 	</delete>
+	
+	<select id="getMemberList" parameterType="HashMap" resultType="mdto">
+		select * from member where auth_provider = "ROLE_EXECUTIVE" order by num desc LIMIT #{pageStart}, #{perPageNum}
+	</select>
 </mapper>

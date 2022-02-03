@@ -889,6 +889,10 @@ a:hover{
 	text-align:center;
 }
 
+#success_top{
+	margin-top:30px;
+}
+
 .join_form_all_box .success_guide{
 	padding-top:45px;
 }
@@ -1136,6 +1140,20 @@ a:hover{
 	cursor:pointer;
 }
 
+.request_view_modify{
+	background-color:#fff;
+	border:1px solid #F63805;
+	color:#F63805;
+	cursor:pointer;
+}
+
+.request_fail{
+	border:1px solid #dddbd8;
+	background-color:#dddbd8;
+	color:#fff;
+	cursor:pointer;
+}
+
 .request_del{
 	background:none;
 	border:1px solid #F63805;
@@ -1216,7 +1234,7 @@ a:hover{
 	outline:none;
 }
 
-#state_form{
+#state_form, #category_form{
 	width:200px;
 	margin-right:10px;
 }
@@ -1227,6 +1245,16 @@ a:hover{
 	margin:0 5px 8px 0;
 }
 /* 맛집 신청 확인 페이지 */
+
+/* 운영진 계정 생성 페이지 */
+.info_content_list .form_tb_all input{
+	margin-left:40px;
+}
+
+.info_content_list .form_tb_all p{
+	margin-left:40px;
+}
+/* 운영진 계정 생성 페이지 */
 
 /* 삭제 팝업 */
 #popup {

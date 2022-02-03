@@ -1,7 +1,7 @@
 package data.dto;
 
 public enum Role {
-  ADMIN("ROLE_ADMIN"), USER("ROLE_LOCAL"), SOCIAL("ROLE_SOCIAL");
+  ADMIN("ROLE_ADMIN"), EXECUTIVE("ROLE_EXECUTIVE"), USER("ROLE_LOCAL"), SOCIAL("ROLE_SOCIAL");
 
   public String code;
 

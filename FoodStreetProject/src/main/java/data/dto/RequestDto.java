@@ -20,6 +20,7 @@ public class RequestDto {
   private String address1;
   private String address2;
   private String hp;
+  private String category;
   private String type_of_food;
   private String price;
   private String store_time;
@@ -36,9 +37,9 @@ public class RequestDto {
   public String toString() {
     return "RequestDto [num=" + num + ", id=" + id + ", name=" + name + ", food_store=" + food_store
         + ", place_name=" + place_name + ", address1=" + address1 + ", address2=" + address2
-        + ", hp=" + hp + ", type_of_food=" + type_of_food + ", price=" + price + ", store_time="
-        + store_time + ", img_name=" + img_name + ", img_path=" + img_path + ", menu=" + menu
-        + ", comment=" + comment + ", reason=" + reason + ", reporting_date=" + reporting_date
-        + ", state=" + state + "]";
+        + ", hp=" + hp + ", category=" + category + ", type_of_food=" + type_of_food + ", price="
+        + price + ", store_time=" + store_time + ", upload=" + upload + ", img_name=" + img_name
+        + ", img_path=" + img_path + ", menu=" + menu + ", comment=" + comment + ", reason="
+        + reason + ", reporting_date=" + reporting_date + ", state=" + state + "]";
   }
 }

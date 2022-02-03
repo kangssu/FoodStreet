@@ -7,7 +7,8 @@
 		<h2>상세 신청내역<span>상세 내역을 확인 후 맛집리스트로 업데이트 여부를 결정해주세요.</span></h2>
 	</div>
 	<div class="from_content_box view_info_content">
-		<form action="/request/success" method="post" enctype="multipart/form-data">
+		<form action="/admin/update" method="post">
+			<input type="hidden" name="num" value="${dto.num}">
 			<div class="form_content">
 				<table class="form_tb_all">
 					<colgroup>
@@ -48,31 +49,25 @@
 						<tr>
 							<th><span>*</span>매장번호</th>
 							<td>
-								<input type="text" name="hp" class="hp_form" id="hp_form" placeholder="ex) 02-111-1111"/>
+								<input type="text" name="hp" class="hp_form" id="hp_form" placeholder="ex) 02-111-1111" value="${dto.hp}"/>
 							</td>
 						</tr>
 						<tr>
 							<th><span>*</span>음식종류</th>
 							<td>
-								<input type="text" name="type_of_food" class="type_of_food_form" id="type_of_food_form" placeholder="ex) 스테이크 등 양식"/>
+								<input type="text" name="type_of_food" class="type_of_food_form" id="type_of_food_form" placeholder="ex) 스테이크 등 양식" value="${dto.type_of_food}"/>
 							</td>
 						</tr>
 						<tr>
 							<th><span>*</span>가격대</th>
 							<td>
-								<input type="text" name="price" class="price_form" id="price_form" placeholder="ex) 만원~이만원 정도"/>
+								<input type="text" name="price" class="price_form" id="price_form" placeholder="ex) 만원~이만원 정도" value="${dto.price}"/>
 							</td>
 						</tr>
 						<tr>
 							<th><span>*</span>영업시간</th>
 							<td>
-								<input type="text" name="store_time" class="store_time_form" id="store_time_form" placeholder="ex) AM 10:00 - PM 06:00"/>
-							</td>
-						</tr>
-						<tr>
-							<th><span>*</span>음식사진</th>
-							<td>
-								<input type="file" name="file" class="food_img_form" value="no" multiple/>
+								<input type="text" name="store_time" class="store_time_form" id="store_time_form" placeholder="ex) AM 10:00 - PM 06:00" value="${dto.store_time}"/>
 							</td>
 						</tr>
 						<tr>
@@ -98,24 +93,25 @@
 						<tr>
 							<th><span>*</span>카테고리</th>
 							<td>
-								<select>
-									<option value="일식">일식</option>
-									<option value="피자">피자</option>
-									<option value="양식">양식</option>
-									<option value="브런치">브런치</option>
-									<option value="중식">중식</option>
-									<option value="카페">카페</option>
+								<select name="category">
+									<option>--선택--</option>
+									<option value="일식" <c:if test="${dto.category == '일식'}">selected</c:if>>일식</option>
+									<option value="피자" <c:if test="${dto.category == '피자'}">selected</c:if>>피자</option>
+									<option value="양식" <c:if test="${dto.category == '양식'}">selected</c:if>>양식</option>
+									<option value="브런치" <c:if test="${dto.category == '브런치'}">selected</c:if>>브런치</option>
+									<option value="중식" <c:if test="${dto.category == '중식'}">selected</c:if>>중식</option>
+									<option value="카페" <c:if test="${dto.category == '카페'}">selected=</c:if>>카페</option>
 								</select>
 							</td>
 						</tr>
 						<tr>
 							<th><span>*</span>상태변경</th>
 							<td>
-								<input type="text" name="state" id="state_form" value="${dto.state}"/>
-								<select id="request_state">
-									<option value="대기중">대기중</option>
-									<option value="등록완료">등록완료</option>
-									<option value="평가탈락">평가탈락</option>
+								<select name="state">
+									<option>--선택--</option>
+									<option value="대기중" <c:if test="${dto.state == '대기중'}">selected</c:if>>대기중</option>
+									<option value="등록완료" <c:if test="${dto.state == '등록완료'}">selected</c:if>>등록완료</option>
+									<option value="평가탈락" <c:if test="${dto.state == '평가탈락'}">selected</c:if>>평가탈락</option>
 								</select>
 							</td>
 						</tr>					
@@ -124,7 +120,14 @@
 			</div>
 			<div class="form_all_btn">
 				<button type="button" onclick="location.href='/admin/request/list';" class="btn_cancle">목록</button>
-				<button type="submit" class="btn_confirm">등록하기</button>
+				<c:choose>
+					<c:when test="${dto.state == '대기중'}">
+						<button type="submit" class="btn_confirm">등록하기</button>
+					</c:when>
+					<c:otherwise>
+						<button type="submit" class="btn_confirm">수정하기</button>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</form>
 	</div>

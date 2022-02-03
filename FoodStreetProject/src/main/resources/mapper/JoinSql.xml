@@ -5,7 +5,7 @@
 		insert into member (member_level,id,pw,name,nickname,email,hp,img_name,img_path,auth_provider,gaipday) 
 		values (#{member_level},#{id},#{pw},#{name},#{nickname},#{email},#{hp},#{img_name},#{img_path},#{auth_provider},now())
 	</insert>
-	
+
 	<select id="idCheck" parameterType="String" resultType="int">
 		select count(*) from member where id = #{id}
 	</select>

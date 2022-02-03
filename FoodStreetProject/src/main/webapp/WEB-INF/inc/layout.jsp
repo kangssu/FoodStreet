@@ -35,6 +35,6 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="/js/address_script.js"></script>
 	<script src="/js/popup_script.js"></script>
-	<script src="/js/mypage_script.js"></script>
+	<script src="/js/request_script.js"></script>
 </body>
 </html>

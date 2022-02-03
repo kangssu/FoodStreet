@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="info_content_list">
 	<div class="info_content_list_title">
-		<h2>신청내역<span>맛집신청 페이지에서 신청된 내역입니다.</span></h2>
+		<h2>운영진 계정 관리<span>관리자님께서 직접 생성한 운영진 계정 리스트 입니다.</span></h2>
 	</div>
 	<div class="info_content_list_title more_button_text">
 		<a href="/admin/mypage">
@@ -17,44 +17,34 @@
 			<thead>
 				<tr>
 					<th width="10%">No</th>
-					<th width="10%">신청자</th>
-					<th width="20%">가게이름</th>
-					<th width="10%">지점명</th>
-					<th width="20%">주소</th>
-					<th width="10%">신청일</th>
+					<th width="10%">이름</th>
+					<th width="15%">아이디</th>
+					<th width="10%">닉네임</th>
+					<th width="20%">이메일</th>
+					<th width="10%">생성일</th>
 					<th width="20%">비고</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:choose>
-					<c:when test="${list.size()==0}">
+					<c:when test="${list.size() == 0}">
 						<tr>
-							<td colspan="7">맛집 신청내역이 없습니다.</td>
+							<td colspan="7">등록된 운영진 계정이 없습니다.</td>
 						</tr>
 					</c:when>
 					<c:otherwise>
-						<c:forEach var="r" items="${list}" varStatus="i">
+						<c:forEach var="m" items="${list}">
 							<tr>
 								<td>${no}</td>
 								<c:set var="no" value="${no-1}"/>
-								<td>${r.name}</td>
-								<td>${r.food_store}</td>
-								<td>${r.place_name }</td>
-								<td>${r.address2}</td>
-								<td><fmt:formatDate value="${r.reporting_date}" pattern="yyyy-MM-dd"/></td>
+								<td>${m.name}</td>
+								<td>${m.id}</td>
+								<td>${m.nickname}</td>
+								<td>${m.email}</td>
+								<td><fmt:formatDate value="${m.gaipday}" pattern="yyyy-MM-dd"/></td>
 								<td>
-									<c:choose>
-										<c:when test="${r.state == '대기중'}">
-											<button type="button" class="request_view" onclick="location.href='/admin/request/view?num=${r.num}';">확인</button>
-										</c:when>
-										<c:when test="${r.state == '평가탈락'}">
-											<button type="button" class="request_view request_fail" onclick="location.href='/admin/request/view?num=${r.num}';">탈락</button>
-										</c:when>
-										<c:otherwise>
-											<button type="button" class="request_view_modify" onclick="location.href='/admin/request/view?num=${r.num}';">수정</button>
-										</c:otherwise>
-									</c:choose>
-									<button type="button" class="request_del" onclick="showDelPopup(${r.num})">삭제</button>
+									<button type="button" class="request_view">수정</button>
+									<button type="button" class="request_del">삭제</button>
 								</td>
 							</tr>
 						</c:forEach>

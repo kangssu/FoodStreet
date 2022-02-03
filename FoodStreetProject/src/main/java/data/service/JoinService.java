@@ -40,7 +40,12 @@ public class JoinService {
     dto.setPw(passwordEncoder.encode(dto.getPw()));
     dto.setImg_name(fileName);
     dto.setImg_path("/photo/" + fileName);
-    dto.setAuth_provider(Role.USER);
+
+    if (dto.getMember_level() == 10) {
+      dto.setAuth_provider(Role.USER);
+    } else {
+      dto.setAuth_provider(Role.EXECUTIVE);
+    }
     mapper.insertMember(dto);
   }
 

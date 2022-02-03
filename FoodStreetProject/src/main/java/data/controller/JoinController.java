@@ -1,8 +1,10 @@
 package data.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Random;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,7 +70,33 @@ public class JoinController {
     }
 
     service.insertMember(dto, file);
-    return "/users/join_success";
+    return "/inc/main";
+  }
+
+  // 운영진 계정 생성
+  @PostMapping("/executive/success")
+  public void insertExecutive(String id, MultipartFile file, @Valid MemberDto dto, Errors errors,
+      Model model, HttpServletResponse response) throws IOException {
+
+    // 유효성 검사
+    if (errors.hasErrors()) {
+      // 회원가입 실패시 작성한 정보 유지!
+      model.addAttribute("MemberDto", dto);
+
+      // 유효성 실패한 항목들에 대한 메세지!
+      Map<String, String> validatorResult = service.validateHandling(errors);
+      for (String key : validatorResult.keySet()) {
+        model.addAttribute(key, validatorResult.get(key));
+      }
+      response.setContentType("text/html; charset=UTF-8");
+      PrintWriter out = response.getWriter();
+      out.println("<script> location.href='/admin/executive/form';</script>");
+    }
+
+    service.insertMember(dto, file);
+    response.setContentType("text/html; charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    out.println("<script>alert('운영진 계정이 등록되었습니다!'); location.href='/admin/mypage';</script>");
   }
 
   // 아이디 중복확인
