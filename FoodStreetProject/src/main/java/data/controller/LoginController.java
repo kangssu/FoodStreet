@@ -33,7 +33,6 @@ public class LoginController {
 
     MemberDto login = service.login(dto);
     boolean pwMatch = pwdEncoder.matches(dto.getPw(), login.getPw());
-    System.out.println("로그인 : " + login + " 일치여부 : " + pwMatch);
 
     if (login != null && pwMatch == true) {
       session.setAttribute("member", login);

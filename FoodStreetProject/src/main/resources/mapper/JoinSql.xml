@@ -5,6 +5,14 @@
 		insert into member (member_level,id,pw,name,nickname,email,hp,img_name,img_path,auth_provider,gaipday) 
 		values (#{member_level},#{id},#{pw},#{name},#{nickname},#{email},#{hp},#{img_name},#{img_path},#{auth_provider},now())
 	</insert>
+	
+	<update id="updateMember" parameterType="mdto">
+		update member set pw=#{pw},email=#{email},hp=#{hp},img_name=#{img_name},img_path=#{img_path} where num=#{num}
+	</update>
+	
+	<select id="getFindJoin" resultType="mdto">
+		select pw, img_name from member where num = #{num}
+	</select>
 
 	<select id="idCheck" parameterType="String" resultType="int">
 		select count(*) from member where id = #{id}

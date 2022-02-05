@@ -10,7 +10,34 @@ function showDelPopup(num) {
 		
 		$.ajax({
 			type: 'post',
-			url: '/admin/delete',
+			url: '/request/delete',
+			data: num,
+			contentType: 'application/json; charset=UTF-8',
+			success: function(){
+				location.reload();
+			}
+		});
+	});
+}
+
+function closeDelPopup() {
+	const popup2 = document.querySelector('#popup');
+	popup2.classList.add('hide');
+}
+
+
+function executiveDelPopup(num) {
+	$("#delnum").val(num);
+	
+	const popup2 = document.querySelector('#popup_e');
+	popup2.classList.remove('hide');
+		
+	$("#btn_e_del").click(function(){
+		var num = $("#delnum").val();
+		
+		$.ajax({
+			type: 'post',
+			url: '/executive/delete',
 			data: num,
 			contentType: 'application/json; charset=UTF-8',
 			success: function(){
@@ -20,7 +47,7 @@ function showDelPopup(num) {
 	});
 }
 	
-function closeDelPopup() {
-	const popup2 = document.querySelector('#popup');
+function closeExecutivePopup() {
+	const popup2 = document.querySelector('#popup_e');
 	popup2.classList.add('hide');
 }

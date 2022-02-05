@@ -791,6 +791,7 @@ a:hover{
 }
 
 .from_content_box .form_content .form_tb_all tr th{
+	width:160px;
 	vertical-align:top;
 	padding:25px 10px 0px 10px;
 	font-size:15px;
@@ -1246,15 +1247,51 @@ a:hover{
 }
 /* 맛집 신청 확인 페이지 */
 
-/* 운영진 계정 생성 페이지 */
-.info_content_list .form_tb_all input{
-	margin-left:40px;
+/* 운영진 계정 수정 페이지 */
+#pw_modify_btn, #img_modify_btn{
+	background:#000000;
+	color:#fff;
+	width:160px;
+	font-weight:600;
+	margin-left:0px;
 }
 
-.info_content_list .form_tb_all p{
-	margin-left:40px;
+#pw_modify_btn:hover, #img_modify_btn:hover{
+	background:#fff;
+	color:#000000;
+	transition:all 0.5s ease;
 }
-/* 운영진 계정 생성 페이지 */
+
+.join_modify_form_pw, .join_modify_form_img{
+	display:inline-block;
+}
+
+.pw_modify_all_box, .join_modify_form_img_all{
+	margin-top:20px;
+}
+
+.join_modify_form_pw, .join_modify_form_img{
+	font-size:15px;
+	color:#000000;
+}
+
+#join_form_pw{
+	margin-right:30px;
+}
+
+#pw_all{
+	margin-top:8px;
+}
+
+#join_form_pw{
+	margin-right:60px;
+}
+
+#join_form_pw_check, #join_form_img{
+	margin-right:30px;
+}
+
+/* 운영진 계정 수정 페이지 */
 
 /* 삭제 팝업 */
 #popup {
@@ -1274,6 +1311,32 @@ a:hover{
 }
 
 #popup .content{
+	text-align:center;
+	background: #fff; 
+	border-radius: 10px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:300px;
+	height:200px;
+}
+
+#popup_e {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+}
+
+#popup_e.hide {
+	display: none;
+}
+
+#popup_e .content{
 	text-align:center;
 	background: #fff; 
 	border-radius: 10px; 
@@ -1320,7 +1383,7 @@ a:hover{
 	cursor:pointer;
 }
 
-.popup_btn #btn_ok_del{
+.popup_btn #btn_ok_del, .popup_btn #btn_e_del{
 	background-color:#F63805;
 	color:white;
 	margin-right:5px;

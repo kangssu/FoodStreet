@@ -1,6 +1,17 @@
 $(document).ready(function(){
+	// 비밀번호 수정 이벤트
+	$('.pw_modify_all_box').hide();
+	$('#pw_modify_btn').click(function(){
+		$('.pw_modify_all_box').toggle();
+	});
 	
+	// 이미지 수정 이벤트
+	$('.join_modify_form_img_all').hide();
+	$('#img_modify_btn').click(function(){
+		$('.join_modify_form_img_all').toggle();
+	});
 });
+
 function submitRequest(){
 	var name = $('.name_form').val().length;
 	var food_store = $('.food_store_form').val().length;

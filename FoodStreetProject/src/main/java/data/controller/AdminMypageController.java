@@ -16,16 +16,14 @@ import data.dto.MemberDto;
 import data.dto.RequestDto;
 import data.paging.Criteria;
 import data.paging.Paging;
-import data.service.MypageService;
+import data.service.AdminMypageService;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Controller
 public class AdminMypageController {
 
-  private final MypageService service;
-
-  public AdminMypageController(MypageService service) {
-    this.service = service;
-  }
+  private final AdminMypageService service;
 
   @GetMapping("/admin/mypage")
   public ModelAndView home(Criteria cri) {
@@ -33,11 +31,11 @@ public class AdminMypageController {
     ModelAndView mv = new ModelAndView();
 
     List<RequestDto> list = service.getList(cri);
-    List<MemberDto> executive_list = service.getMemberList(cri);
+    List<MemberDto> executive_list = service.getExecutiveList(cri);
 
     mv.addObject("list", list);
     mv.addObject("executive_list", executive_list);
-    mv.setViewName("/m/mypage/admin_home");
+    mv.setViewName("/m/admin_mypage/home");
 
     return mv;
   }
@@ -60,24 +58,24 @@ public class AdminMypageController {
     mv.addObject("paging", paging);
     mv.addObject("no", no);
     mv.addObject("currentPage", currentPage);
-    mv.setViewName("/m/mypage/admin_request_list");
+    mv.setViewName("/m/admin_mypage/request_list");
 
     return mv;
   }
 
   @GetMapping("/admin/request/view")
-  public ModelAndView requestUdate(@RequestParam("num") int num) {
+  public ModelAndView requestUdateView(@RequestParam("num") int num) {
     ModelAndView mv = new ModelAndView();
 
     RequestDto dto = service.getNumList(num);
 
     mv.addObject("dto", dto);
-    mv.setViewName("/m/mypage/admin_request_form");
+    mv.setViewName("/m/admin_mypage/request_form");
 
     return mv;
   }
 
-  @PostMapping("/admin/update")
+  @PostMapping("/request/update")
   public void requestUpdate(RequestDto dto, int num, HttpServletResponse response)
       throws IOException {
 
@@ -99,11 +97,10 @@ public class AdminMypageController {
       out.println(
           "<script>alert('해당 맛집이 수정되었습니다!'); location.href='/admin/request/list';</script>");
     }
-
   }
 
   @ResponseBody
-  @RequestMapping("/admin/delete")
+  @RequestMapping("/request/delete")
   public void requestDelete(@RequestBody int num) {
 
     service.requestDel(num);
@@ -111,29 +108,48 @@ public class AdminMypageController {
 
   @GetMapping("/admin/executive/form")
   public String insert() {
-    return "/m/mypage/admin_executive_form";
+    return "/m/admin_mypage/executive_form";
   }
 
   @GetMapping("/admin/executive/list")
   public ModelAndView executiveList(Criteria cri) {
     ModelAndView mv = new ModelAndView();
 
-    int listCount = service.totalCount();
+    int listCount = service.totalExecutiveCount();
 
     Paging paging = new Paging();
     paging.setCri(cri);
     paging.setTotalCount(listCount);
     int no = paging.getNo();
 
-    List<MemberDto> list = service.getMemberList(cri);
+    List<MemberDto> list = service.getExecutiveList(cri);
     int currentPage = cri.getPage();
 
     mv.addObject("list", list);
     mv.addObject("paging", paging);
     mv.addObject("no", no);
     mv.addObject("currentPage", currentPage);
-    mv.setViewName("/m/mypage/admin_executive_list");
+    mv.setViewName("/m/admin_mypage/executive_list");
 
     return mv;
+  }
+
+  @GetMapping("/admin/executive/view")
+  public ModelAndView executiveUpdateView(@RequestParam("num") int num) {
+
+    ModelAndView mv = new ModelAndView();
+    MemberDto dto = service.executiveNumList(num);
+
+    mv.addObject("dto", dto);
+    mv.setViewName("/m/admin_mypage/executive_update");
+
+    return mv;
+  }
+
+  @ResponseBody
+  @RequestMapping("/executive/delete")
+  public void executiveDelete(@RequestBody int num) {
+
+    service.executiveDel(num);
   }
 }

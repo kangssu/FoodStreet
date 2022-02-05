@@ -8,6 +8,10 @@ public interface JoinMapper {
 
   public void insertMember(MemberDto dto);
 
+  public void updateMember(MemberDto dto);
+
+  public MemberDto getFindJoin(int num);
+
   public int idCheck(String id);
 
   public int nicknameCheck(String nickname);

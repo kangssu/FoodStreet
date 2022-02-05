@@ -70,7 +70,7 @@ public class JoinController {
     }
 
     service.insertMember(dto, file);
-    return "/inc/main";
+    return "/users/join_success";
   }
 
   // 운영진 계정 생성
@@ -97,6 +97,18 @@ public class JoinController {
     response.setContentType("text/html; charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<script>alert('운영진 계정이 등록되었습니다!'); location.href='/admin/mypage';</script>");
+  }
+
+  // 회원정보 수정
+  @PostMapping("/join/update")
+  public void update(MultipartFile file, int num, MemberDto dto, HttpServletResponse response)
+      throws IOException {
+
+    service.updateMember(dto, num, file);
+
+    response.setContentType("text/html; charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    out.println("<script>alert('계정이 수정되었습니다!'); location.href='/admin/executive/list';</script>");
   }
 
   // 아이디 중복확인

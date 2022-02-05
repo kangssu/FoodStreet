@@ -20,6 +20,8 @@ public class RequestService {
   public void insertRequest(RequestDto dto) throws IllegalStateException, IOException {
 
     String projectpath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\photo";
+    String allprojectpath = projectpath.replaceAll("\\\\", "/");
+
     UUID uuid = UUID.randomUUID();
 
     String photoName = "";
@@ -27,7 +29,7 @@ public class RequestService {
       String fileName = uuid + "_" + file.getOriginalFilename();
       photoName += fileName + ",";
 
-      File saveFile = new File(projectpath, fileName);
+      File saveFile = new File(allprojectpath, fileName);
 
       file.transferTo(saveFile);
     }

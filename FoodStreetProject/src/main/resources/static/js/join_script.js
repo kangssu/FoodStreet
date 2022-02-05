@@ -128,28 +128,35 @@ $(document).ready(function(){
 	// 인증번호
 	$('#hp_sms_btn').click(function(){
 		var hp = $('#hp_form').val();
-		$('#hp_forward_tag').text('인증번호가 전송되었습니다.');
-		$('#hp_forward_tag').css('color','#F63805');
+		var hp_length = $('#hp_form').val().length;
 		
-		$.ajax({
-			type: 'post',
-			url: '/check/sms',
-			data: hp,
-			contentType: 'application/json; charset=UTF-8',
-			success: function(data){
-				$('#hp_check_btn').click(function(){
-					if($.trim(data) == $('#hp_check').val()){
-						$('#hp_check_tag').text('인증되었습니다.');
-						$('#hp_check_tag').css('color','#000');
-						$('#hp_forward_tag').text('');
-					} else{
-						$('#hp_check_tag').text('인증번호가 일치하지 않습니다.');
-						$('#hp_check_tag').css('color','#F63805');
-						$('#hp_forward_tag').text('');
-					}
-				});
-			}
-		});
+		if(hp_length  == 0){
+			$('#hp_forward_tag').text('핸드폰 번호를 먼저 입력해주세요.');	
+			$('#hp_forward_tag').css('color','#F63805');		
+		} else {
+			$('#hp_forward_tag').text('인증번호가 전송되었습니다.');
+			$('#hp_forward_tag').css('color','#F63805');
+			
+			$.ajax({
+				type: 'post',
+				url: '/check/sms',
+				data: hp,
+				contentType: 'application/json; charset=UTF-8',
+				success: function(data){
+					$('#hp_check_btn').click(function(){
+						if($.trim(data) == $('#hp_check').val()){
+							$('#hp_check_tag').text('인증되었습니다.');
+							$('#hp_check_tag').css('color','#000');
+							$('#hp_forward_tag').text('');
+						} else{
+							$('#hp_check_tag').text('인증번호가 일치하지 않습니다.');
+							$('#hp_check_tag').css('color','#F63805');
+							$('#hp_forward_tag').text('');
+						}
+					});
+				}
+			});
+		}
 	});
 });
 

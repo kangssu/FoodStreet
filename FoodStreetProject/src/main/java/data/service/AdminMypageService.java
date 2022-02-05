@@ -4,15 +4,15 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import data.dto.MemberDto;
 import data.dto.RequestDto;
-import data.mapper.MypageMapper;
+import data.mapper.AdminMypageMapper;
 import data.paging.Criteria;
 
 @Service
-public class MypageService {
+public class AdminMypageService {
 
-  private final MypageMapper mapper;
+  private final AdminMypageMapper mapper;
 
-  public MypageService(MypageMapper mapper) {
+  public AdminMypageService(AdminMypageMapper mapper) {
     this.mapper = mapper;
   }
 
@@ -36,7 +36,19 @@ public class MypageService {
     return mapper.requestDel(num);
   }
 
-  public List<MemberDto> getMemberList(Criteria cri) {
-    return mapper.getMemberList(cri);
+  public List<MemberDto> getExecutiveList(Criteria cri) {
+    return mapper.getExecutiveList(cri);
+  }
+
+  public int totalExecutiveCount() {
+    return mapper.totalExecutiveCount();
+  }
+
+  public MemberDto executiveNumList(int num) {
+    return mapper.executiveNumList(num);
+  }
+
+  public int executiveDel(int num) {
+    return mapper.executiveDel(num);
   }
 }

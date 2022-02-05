@@ -43,8 +43,8 @@
 								<td>${m.email}</td>
 								<td><fmt:formatDate value="${m.gaipday}" pattern="yyyy-MM-dd"/></td>
 								<td>
-									<button type="button" class="request_view">수정</button>
-									<button type="button" class="request_del">삭제</button>
+									<button type="button" class="request_view" onclick="location.href='/admin/executive/view?num=${m.num}';">수정</button>
+									<button type="button" class="request_del" onclick="executiveDelPopup(${m.num});">삭제</button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -73,19 +73,19 @@
 	</div>
 </div>
 <!-- 삭제 클릭하면 나오는 팝업! -->
-<div id="popup" class="hide">
+<div id="popup_e" class="hide">
 	<div class="content">
 		<h3 class="popup_title"><i class="fa fa-bell-o" aria-hidden="true"></i>삭제 확인</h3>
 		<p class="popup_text">
-			맛집 신청 내역을 삭제하시겠습니까?<br>
+			운영진 계정 내역을 삭제하시겠습니까?<br>
 			삭제하시면 다시 원복하실 수 없습니다.<br>
 		</p>
 		<span>※ 신중히 생각하시고 진행부탁드립니다.</span>	
 		<input type="hidden" id="delnum">
 		<input type="hidden" id="nowpage">
 		<div class="popup_btn">
-			<button type="button" id="btn_ok_del">삭제</button>
-			<button type="button" id="btn_close" onclick="closeDelPopup()" >취소</button>
+			<button type="button" id="btn_e_del">삭제</button>
+			<button type="button" id="btn_close" onclick="closeExecutivePopup()" >취소</button>
 		</div>
 	</div>
 </div>

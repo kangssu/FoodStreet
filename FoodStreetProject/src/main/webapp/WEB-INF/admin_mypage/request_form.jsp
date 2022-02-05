@@ -7,7 +7,7 @@
 		<h2>상세 신청내역<span>상세 내역을 확인 후 맛집리스트로 업데이트 여부를 결정해주세요.</span></h2>
 	</div>
 	<div class="from_content_box view_info_content">
-		<form action="/admin/update" method="post">
+		<form action="/request/update" method="post">
 			<input type="hidden" name="num" value="${dto.num}">
 			<div class="form_content">
 				<table class="form_tb_all">

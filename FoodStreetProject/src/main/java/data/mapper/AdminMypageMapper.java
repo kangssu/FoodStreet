@@ -7,7 +7,7 @@ import data.dto.RequestDto;
 import data.paging.Criteria;
 
 @Mapper
-public interface MypageMapper {
+public interface AdminMypageMapper {
 
   public List<RequestDto> getList(Criteria cri);
 
@@ -19,6 +19,13 @@ public interface MypageMapper {
 
   public int requestDel(int num);
 
-  public List<MemberDto> getMemberList(Criteria cri);
+  public List<MemberDto> getExecutiveList(Criteria cri);
+
+  public int totalExecutiveCount();
+
+  public MemberDto executiveNumList(int num);
+
+  public int executiveDel(int num);
+
 }
 

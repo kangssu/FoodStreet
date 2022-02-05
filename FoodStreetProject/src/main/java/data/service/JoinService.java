@@ -29,11 +29,12 @@ public class JoinService {
   public void insertMember(MemberDto dto, MultipartFile file) throws IOException {
 
     String projectpath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\photo";
+    String allprojectpath = projectpath.replaceAll("\\\\", "/");
     UUID uuid = UUID.randomUUID();
 
     String fileName = uuid + "_" + file.getOriginalFilename();
 
-    File saveFile = new File(projectpath, fileName);
+    File saveFile = new File(allprojectpath, fileName);
 
     file.transferTo(saveFile);
 
@@ -47,6 +48,36 @@ public class JoinService {
       dto.setAuth_provider(Role.EXECUTIVE);
     }
     mapper.insertMember(dto);
+  }
+
+  public void updateMember(MemberDto dto, int num, MultipartFile file) throws IOException {
+
+    String projectpath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\photo";
+    String allprojectpath = projectpath.replaceAll("\\\\", "/");
+    UUID uuid = UUID.randomUUID();
+
+    String fileName = uuid + "_" + file.getOriginalFilename();
+
+    File saveFile = new File(allprojectpath, fileName);
+
+    MemberDto item = mapper.getFindJoin(num);
+
+    if (dto.getPw().length() == 0) {
+      dto.setPw(item.getPw());
+    } else {
+      dto.setPw(passwordEncoder.encode(dto.getPw()));
+    }
+
+    if (file.getOriginalFilename().equals("")) {
+      dto.setImg_name(item.getImg_name());
+      dto.setImg_path("/photo/" + item.getImg_name());
+    } else {
+      file.transferTo(saveFile);
+      dto.setImg_name(fileName);
+      dto.setImg_path("/photo/" + fileName);
+    }
+
+    mapper.updateMember(dto);
   }
 
   public Map<String, String> validateHandling(Errors errors) {
