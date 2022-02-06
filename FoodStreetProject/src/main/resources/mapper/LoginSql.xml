@@ -2,6 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.LoginMapper">
 	<select id="login" parameterType="String" resultType="mdto">
-		select id,pw,name,nickname,email,hp,img_path from member where id=#{id}
+		select num,id,pw,name,nickname,email,hp,img_path,auth_provider from member where id=#{id}
 	</select>
 </mapper>

@@ -1,5 +1,8 @@
 package data.paging;
 
+import lombok.ToString;
+
+@ToString
 public class Paging {
 
   private int totalCount;
@@ -90,12 +93,5 @@ public class Paging {
 
   public void setNo(int no) {
     this.no = no;
-  }
-
-  @Override
-  public String toString() {
-    return "Paging [totalCount=" + totalCount + ", displayPageNum=" + displayPageNum
-        + ", startPage=" + startPage + ", endPage=" + endPage + ", prev=" + prev + ", next=" + next
-        + ", cri=" + cri + ", no=" + no + "]";
   }
 }

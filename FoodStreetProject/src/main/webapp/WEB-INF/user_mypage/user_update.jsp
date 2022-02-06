@@ -8,6 +8,8 @@
 	</div>
 	<div class="from_content_box view_info_content">
 		<form action="/join/update" method="post" onsubmit="return submitUpdate();" enctype="multipart/form-data">
+			<input type="hidden" name="num" value="${dto.num}">
+			<input type="hidden" name="auth_provider" value="${dto.auth_provider}">
 			<div class="form_content">
 				<table class="form_tb_all">
 					<colgroup>
@@ -29,16 +31,14 @@
 									<div class="join_modify_form_pw_all">
 										<div class="join_modify_form_pw" id="join_form_pw">새 비밀번호</div>
 										<div class="join_modify_form_pw">
-											<input type="password" name="pw" class="pw_form" id="pw_form" 
-											pw="${dto.pw}" value="${MemberDto.pw}"/>
+											<input type="password" name="pw" class="pw_form" id="pw_form" pw="${dto.pw}"/>
 											<p id="pw_check_tag">${valid_pw}</p>
 										</div>
 									</div>
 									<div class="join_modify_form_pw_all" id="pw_all">
 										<div class="join_modify_form_pw" id="join_form_pw_check">새 비밀번호 확인</div>
 										<div class="join_modify_form_pw">
-											<input type="password" name="pw_check" class="pwcheck_form" 
-											id="pwcheck_form" value="${MemberDto.pw_check}"/>
+											<input type="password" name="pw_check" class="pwcheck_form" id="pwcheck_form"/>
 											<p id="pwcheck_check_tag">${valid_pw_check}</p>
 										</div>
 									</div>
@@ -79,9 +79,9 @@
 									<div class="join_modify_form_img" id="join_form_img">새 프로필 선택</div>
 									<div class="join_modify_form_img">
 										<input type="file" name="file" class="img_form" id="img_check"/>
-									</div>
-									<p id="small_point_text">※ 기존 이미지에서 변경시에만 선택해주세요.</p>
+										<p id="small_point_text">※ 기존 이미지에서 변경시에만 선택해주세요.</p>
 										<p>${valid_img_name}</p>
+									</div>
 								</div>
 							</td>
 						</tr>							
@@ -89,7 +89,7 @@
 				</table>
 			</div>
 			<div class="form_all_btn">
-				<button type="button" onclick="location.href='/admin/executive/list';" class="btn_cancle">취소</button>
+				<button type="button" onclick="location.href='/mypage';" class="btn_cancle">취소</button>
 				<button type="submit" class="btn_confirm">수정하기</button>
 			</div>
 		</form>

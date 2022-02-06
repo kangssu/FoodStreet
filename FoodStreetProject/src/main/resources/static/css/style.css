@@ -1263,7 +1263,7 @@ a:hover{
 }
 
 .join_modify_form_pw, .join_modify_form_img{
-	display:inline-block;
+	float:left;
 }
 
 .pw_modify_all_box, .join_modify_form_img_all{
@@ -1273,6 +1273,7 @@ a:hover{
 .join_modify_form_pw, .join_modify_form_img{
 	font-size:15px;
 	color:#000000;
+	line-height:55px;
 }
 
 #join_form_pw{
@@ -1337,6 +1338,32 @@ a:hover{
 }
 
 #popup_e .content{
+	text-align:center;
+	background: #fff; 
+	border-radius: 10px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:300px;
+	height:200px;
+}
+
+#u_r_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+}
+
+#u_r_popup.hide {
+	display: none;
+}
+
+#u_r_popup .content{
 	text-align:center;
 	background: #fff; 
 	border-radius: 10px; 

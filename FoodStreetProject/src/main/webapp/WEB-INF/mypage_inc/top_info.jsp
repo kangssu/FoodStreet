@@ -19,8 +19,8 @@
 					<button type="button" onclick="location.href='/admin/executive/form';">운영진 계정 생성</button>
 				</c:when>
 				<c:otherwise>
-					<button type="button" onclick="location.href='/mypage/modify';">회원정보수정</button>
-					<button type="button">내가 신청한 맛집</button>
+					<button type="button" onclick="location.href='/mypage/my';">회원정보수정</button>
+					<button type="button" onclick="location.href='/mypage/request/list';">내가 신청한 맛집</button>
 					<button type="button">내가 등록한 리뷰</button>
 				</c:otherwise>
 			</c:choose>

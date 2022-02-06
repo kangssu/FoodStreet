@@ -59,9 +59,11 @@ $(document).ready(function(){
 		if($('#pw_form').val() != $(this).val().replace(/\s/gi,'')){
 			$('#pwcheck_check_tag').text('일치하지 않습니다.');
 			$('#pwcheck_check_tag').css('color','#F63805');
-		}else{
+		}else if($('#pw_form').val() != $(this).val().replace(/\s/gi,'')){
 			$('#pwcheck_check_tag').text('일치합니다.');
 			$('#pwcheck_check_tag').css('color','#000');
+		}else{
+			$('#pwcheck_check_tag').text('');
 		}
 	});
 	

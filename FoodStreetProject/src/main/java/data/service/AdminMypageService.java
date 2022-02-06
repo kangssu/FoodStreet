@@ -6,15 +6,13 @@ import data.dto.MemberDto;
 import data.dto.RequestDto;
 import data.mapper.AdminMypageMapper;
 import data.paging.Criteria;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Service
 public class AdminMypageService {
 
   private final AdminMypageMapper mapper;
-
-  public AdminMypageService(AdminMypageMapper mapper) {
-    this.mapper = mapper;
-  }
 
   public List<RequestDto> getList(Criteria cri) {
     return mapper.getList(cri);

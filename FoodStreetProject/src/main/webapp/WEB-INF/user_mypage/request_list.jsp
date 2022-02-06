@@ -5,11 +5,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="info_content_list">
 	<div class="info_content_list_title">
-		<h2>내가 신청한 맛집<span>${member.name}님께서 신청한 맛집 리스트 입니다.</span></h2>
+		<h2>내가 신청한 맛집<span>회원님께서 직접 신청하신 맛집 내역입니다.</span></h2>
 	</div>
 	<div class="info_content_list_title more_button_text">
-		<a href="/mypage/request/list">
-			<span>더보기<i class="fa fa-angle-right" aria-hidden="true"></i></span>
+		<a href="/mypage">
+			<span>홈으로 돌아가기<i class="fa fa-angle-right" aria-hidden="true"></i></span>
 		</a>
 	</div>
 	<div class="info_content_all_table">
@@ -34,9 +34,10 @@
 						</tr>
 					</c:when>
 					<c:otherwise>
-						<c:forEach var="r" items="${list}" varStatus="status" begin="0" end="4">
+						<c:forEach var="r" items="${list}">
 							<tr>
-								<td>${status.count}</td>
+								<td>${no}</td>
+								<c:set var="no" value="${no-1}"/>
 								<td>${r.name}</td>
 								<td>${r.food_store}</td>
 								<td>${r.place_name}</td>
@@ -53,69 +54,27 @@
 				</c:choose>
 			</tbody>
 		</table>
+		<ul class="paging">
+			<c:if test="${paging.prev}">
+				<li><a href="/mypage/request/list?page=${paging.startPage-1}"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+			</c:if>
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="num">
+				<c:choose>
+					<c:when test="${currentPage == num}">
+						<li class="active"><a href="/mypage/request/list?page=${num}">${num}</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="select"><a href="/mypage/request/list?page=${num}">${num}</a></li>
+					</c:otherwise>
+				</c:choose> 
+			</c:forEach>
+			<c:if test="${paging.next && paging.endPage>0}">
+				<li><a href="/mypage/request/list?page=${paging.endPage+1}"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+			</c:if>	
+		</ul>
 	</div>
 </div>
-<div class="info_content_list">
-	<div class="info_content_list_title">
-		<h2>내가 등록한 리뷰<span>${member.name}님께서 등록한 리뷰 리스트 입니다.</span></h2>
-	</div>
-	<div class="info_content_list_title more_button_text">
-		<span>더보기<i class="fa fa-angle-right" aria-hidden="true"></i></span>
-	</div>
-	<div class="info_content_all_table">
-		<table class="info_list_table">
-			<thead>
-				<tr>
-					<th width="10%">No</th>
-					<th width="20%">가게이름</th>
-					<th width="10%">지점명</th>
-					<th width="30%">내용</th>
-					<th width="10%">작성일</th>
-					<th width="20%">비고</th>
-				</tr>
-			</thead>
-			<!-- <tr>
-					<td colspan="5">맛집 신청내역이 없습니다.</td>
-				</tr> -->
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>메드포갈릭</td>
-					<td>강남점</td>
-					<td>여기는 진짜 제가 추천하는 찐 맛집!!!</td>
-					<td>2022.01.30</td>
-					<td>
-						<button type="button" class="request_view">수정</button>
-						<button type="button" class="request_del">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>메드포갈릭</td>
-					<td>강남점</td>
-					<td>여기는 진짜 제가 추천하는 찐 맛집!!!</td>
-					<td>2022.01.30</td>
-					<td>
-						<button type="button" class="request_view">수정</button>
-						<button type="button" class="request_del">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>메드포갈릭</td>
-					<td>강남점</td>
-					<td>여기는 진짜 제가 추천하는 찐 맛집!!!</td>
-					<td>2022.01.30</td>
-					<td>
-						<button type="button" class="request_view">수정</button>
-						<button type="button" class="request_del">삭제</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
-<!-- 맛집신청 삭제 클릭하면 나오는 팝업! -->
+<!-- 삭제 클릭하면 나오는 팝업! -->
 <div id="u_r_popup" class="hide">
 	<div class="content">
 		<h3 class="popup_title"><i class="fa fa-bell-o" aria-hidden="true"></i>삭제 확인</h3>

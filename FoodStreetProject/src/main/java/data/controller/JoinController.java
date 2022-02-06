@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Random;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -101,14 +102,24 @@ public class JoinController {
 
   // 회원정보 수정
   @PostMapping("/join/update")
-  public void update(MultipartFile file, int num, MemberDto dto, HttpServletResponse response)
-      throws IOException {
+  public void update(MultipartFile file, int num, String auth_provider, MemberDto dto,
+      HttpServletResponse response, HttpSession session) throws IOException {
 
-    service.updateMember(dto, num, file);
+    if (auth_provider.equals("EXECUTIVE")) {
 
-    response.setContentType("text/html; charset=UTF-8");
-    PrintWriter out = response.getWriter();
-    out.println("<script>alert('계정이 수정되었습니다!'); location.href='/admin/executive/list';</script>");
+      service.updateMember(dto, num, file);
+      response.setContentType("text/html; charset=UTF-8");
+      PrintWriter out = response.getWriter();
+      out.println(
+          "<script>alert('운영자 계정이 수정되었습니다!'); location.href='/admin/executive/list';</script>");
+    } else if (auth_provider.equals("USER")) {
+
+      service.updateMember(dto, num, file);
+      response.setContentType("text/html; charset=UTF-8");
+      PrintWriter out = response.getWriter();
+      out.println("<script>alert('회원님의 계정이 수정되었습니다!'); location.href='/mypage';</script>");
+    }
+
   }
 
   // 아이디 중복확인

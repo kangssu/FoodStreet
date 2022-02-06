@@ -9,6 +9,7 @@
 	<div class="from_content_box view_info_content">
 		<form action="/join/update" method="post" onsubmit="return submitUpdate();" enctype="multipart/form-data">
 			<input type="hidden" name="num" value="${dto.num}">
+			<input type="hidden" name="auth_provider" value="${dto.auth_provider}">
 			<div class="form_content">
 				<table class="form_tb_all">
 					<colgroup>
@@ -32,7 +33,7 @@
 										<div class="join_modify_form_pw">
 											<input type="password" name="pw" class="pw_form" id="pw_form" 
 											pw="${dto.pw}" value="${MemberDto.pw}"/>
-											<p id="pw_check_tag">${valid_pw}</p>
+										 	<p id="pw_check_tag">${valid_pw}</p>
 										</div>
 									</div>
 									<div class="join_modify_form_pw_all" id="pw_all">
@@ -80,9 +81,9 @@
 									<div class="join_modify_form_img" id="join_form_img">새 프로필 선택</div>
 									<div class="join_modify_form_img">
 										<input type="file" name="file" class="img_form" id="img_check"/>
-									</div>
-									<p id="small_point_text">※ 기존 이미지에서 변경시에만 선택해주세요.</p>
+										<p id="small_point_text">※ 기존 이미지에서 변경시에만 선택해주세요.</p>
 										<p>${valid_img_name}</p>
+									</div>
 								</div>
 							</td>
 						</tr>							
