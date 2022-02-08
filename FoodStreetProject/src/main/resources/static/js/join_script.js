@@ -163,7 +163,7 @@ $(document).ready(function(){
 });
 
 // 인증번호 불일치 및 이미지 업로드 확인
-function submitCheck(){
+/*function submitCheck(){
 	var check_text = $('#hp_check_tag').text();
 	var check_text2 = '인증번호가 일치하지 않습니다.';
 	
@@ -182,14 +182,17 @@ function submitCheck(){
 	} else{
 		true;
 	}
-};
+};*/
 
 // 로그인 아이디 미입력시
 function submitLogin(){
 	if($('.id_content').val().length==0){
 		alert('아이디를 입력해주세요.');
 		return false;
-	} else{
+	} else if($('.pw_content').val().length==0){
+		alert('패스워드를 입력해주세요.');
+		return false;
+	}else{
 		true;
 	}
 };

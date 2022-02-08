@@ -35,6 +35,7 @@ public class LoginController {
     boolean pwMatch = pwdEncoder.matches(dto.getPw(), login.getPw());
 
     if (login != null && pwMatch == true) {
+
       session.setAttribute("member", login);
 
       response.setContentType("text/html; charset=UTF-8");
@@ -43,8 +44,8 @@ public class LoginController {
       System.out.println("로그인성공");
     } else {
       session.setAttribute("member", null);
-      response.setContentType("text/html; charset=UTF-8");
 
+      response.setContentType("text/html; charset=UTF-8");
       PrintWriter out = response.getWriter();
       out.println(
           "<script>alert('아이디 또는 비밀번호를 다시 한번 확인해 주시기 바랍니다.'); location.href='/login';</script>");

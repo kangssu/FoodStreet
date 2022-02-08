@@ -1034,6 +1034,8 @@ a:hover{
 }
 
 .info_content_box img{
+	width:150px;
+	height:150px;
 	margin:25px 0px 0px 135px;
 	border-radius:100px;
 }
@@ -1291,8 +1293,14 @@ a:hover{
 #join_form_pw_check, #join_form_img{
 	margin-right:30px;
 }
-
 /* 운영진 계정 수정 페이지 */
+
+/* 회원 맛집신청 확인 페이지 */
+.info_content_list_title .confirm_fix_text{
+	color:#F63805;
+}
+
+/* 회원 맛집신청 확인 페이지 */
 
 /* 삭제 팝업 */
 #popup {

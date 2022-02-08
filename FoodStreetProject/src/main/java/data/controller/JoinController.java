@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Random;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -93,8 +92,8 @@ public class JoinController {
       PrintWriter out = response.getWriter();
       out.println("<script> location.href='/admin/executive/form';</script>");
     }
-
     service.insertMember(dto, file);
+
     response.setContentType("text/html; charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<script>alert('운영진 계정이 등록되었습니다!'); location.href='/admin/mypage';</script>");
@@ -102,12 +101,13 @@ public class JoinController {
 
   // 회원정보 수정
   @PostMapping("/join/update")
-  public void update(MultipartFile file, int num, String auth_provider, MemberDto dto,
-      HttpServletResponse response, HttpSession session) throws IOException {
+  public void update(int num, String auth_provider, MemberDto dto, MultipartFile file,
+      HttpServletResponse response) throws IOException {
 
     if (auth_provider.equals("EXECUTIVE")) {
 
       service.updateMember(dto, num, file);
+
       response.setContentType("text/html; charset=UTF-8");
       PrintWriter out = response.getWriter();
       out.println(
@@ -115,11 +115,11 @@ public class JoinController {
     } else if (auth_provider.equals("USER")) {
 
       service.updateMember(dto, num, file);
+
       response.setContentType("text/html; charset=UTF-8");
       PrintWriter out = response.getWriter();
       out.println("<script>alert('회원님의 계정이 수정되었습니다!'); location.href='/mypage';</script>");
     }
-
   }
 
   // 아이디 중복확인

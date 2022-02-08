@@ -10,11 +10,15 @@ public interface UserMypageMapper {
 
   public MemberDto getNumFind(int num);
 
+  public String getImg(String id);
+
   public List<RequestDto> getIdList(String id, int start, int end);
 
   public List<RequestDto> noPageList(String id);
 
   public int totalCount(String id);
+
+  public RequestDto numRequestView(int num);
 
   public int requestDel(int num);
 }

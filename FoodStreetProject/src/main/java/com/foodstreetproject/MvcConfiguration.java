@@ -22,6 +22,8 @@ public class MvcConfiguration implements WebMvcConfigurer {
     /* '/fonts/**'로 호출하는 자원은 '/static/fonts/' 폴더 아래에서 찾는다. */
     registry.addResourceHandler("/fonts/**").addResourceLocations("classpath:/static/fonts/")
         .setCachePeriod(60 * 60 * 24 * 365);
+    /* '/images/**'로 호출하는 자원은 프로젝트 폴더 아래에서 찾는다. */
+    registry.addResourceHandler("/images/**").addResourceLocations("classpath:/images/");
   }
 }
 

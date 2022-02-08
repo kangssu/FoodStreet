@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1220">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>푸드스트릿 : 나만의 맛집 검색!</title>
 <!-- 제이쿼리 불러오기 -->
 <script src="/js/jquery-3.3.1.min.js"></script>

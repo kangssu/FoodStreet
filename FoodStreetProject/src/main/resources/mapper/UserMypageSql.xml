@@ -5,6 +5,10 @@
 		select * from member where num=#{num}
 	</select>
 	
+	<select id="getImg" resultType="String">
+		select img_name from member where id=#{id}
+	</select>
+	
 	<select id="getIdList" parameterType="HashMap" resultType="rdto">
 		select * from food_request where id=#{id} order by num desc LIMIT #{start}, #{end}
 	</select>
@@ -17,6 +21,10 @@
 		select count(*) from food_request where id=#{id}
 	</select>
 	
+	<select id="numRequestView" parameterType="HashMap" resultType="rdto">
+		select * from food_request where num=#{num}
+	</select>
+		
 	<delete id="requestDel" parameterType="int">
 		delete from food_request where num = #{num}
 	</delete>

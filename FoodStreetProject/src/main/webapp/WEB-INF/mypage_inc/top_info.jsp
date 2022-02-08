@@ -2,12 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <div class="top_sub_title">
 	<h2>마이페이지</h2>
 </div>
 <div class="top_info_box">
 	<div class="info_content_box">
-		<img src="/img/noimg.png">
+		<c:choose>
+			<c:when test="${member.id eq 'admin'}">
+				<img src="/images/${member.img_name}">
+			</c:when>
+			<c:otherwise>
+				<img src="/images/${img_name}" alt="프로필 이미지">
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<div class="info_content_box info_content_box_gride">
 		<p><span>${member.name}님,</span> 푸드스트릿에 오신걸 환영합니다.</p>

@@ -45,7 +45,7 @@
 								<td><fmt:formatDate value="${r.reporting_date}" pattern="yyyy-MM-dd"/></td>
 								<td>${r.state}</td>
 								<td>
-									<button type="button" class="request_view">확인</button>
+									<button type="button" class="request_view" onclick="location.href='/user/request/view?num=${r.num}';">확인</button>
 									<button type="button" class="request_del" onclick="userRequestDelPopup(${r.num});">삭제</button>
 								</td>
 							</tr>

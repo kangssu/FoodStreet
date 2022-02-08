@@ -8,7 +8,7 @@
 	</div>
 	<div class="from_content_box view_info_content">
 		<form action="/executive/success" method="post" onsubmit="return submitCheck();" enctype="multipart/form-data">
-			<input type="hidden" name="member_level" value="10"/>
+			<input type="hidden" name="member_level" value="20"/>
 			<div class="form_content">
 				<table class="form_tb_all">
 					<colgroup>

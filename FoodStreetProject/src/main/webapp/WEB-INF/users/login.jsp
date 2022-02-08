@@ -8,7 +8,7 @@
 		<form action="/login/success" method="post" onsubmit="return submitLogin();">
 			<div class="login_form_box">
 				<input type="text" name="id" class="id_content" placeholder="아이디를 입력해주세요." class="login_form_box_1"/>
-				<input type="password" name="pw" placeholder="비밀번호를 입력해주세요."/>
+				<input type="password" name="pw" class="pw_content" placeholder="비밀번호를 입력해주세요."/>
 			</div>
 			<div class="login_all_btn">
 				<button type="submit" class="login_nomal_btn">로그인</button>

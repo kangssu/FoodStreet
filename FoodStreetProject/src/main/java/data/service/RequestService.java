@@ -19,7 +19,7 @@ public class RequestService {
 
   public void insertRequest(RequestDto dto) throws IllegalStateException, IOException {
 
-    String projectpath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\photo";
+    String projectpath = System.getProperty("user.dir") + "\\src\\main\\webapp\\images";
     String allprojectpath = projectpath.replaceAll("\\\\", "/");
 
     UUID uuid = UUID.randomUUID();
@@ -37,7 +37,7 @@ public class RequestService {
     photoName = photoName.substring(0, photoName.length() - 1);
 
     dto.setImg_name(photoName);
-    dto.setImg_path("/photo/" + photoName);
+    dto.setImg_path("/images/" + photoName);
 
     mapper.insertRequest(dto);
   }

@@ -17,6 +17,10 @@ public class UserMypageService {
     return mapper.getNumFind(num);
   }
 
+  public String getImg(String id) {
+    return mapper.getImg(id);
+  }
+
   public List<RequestDto> getIdList(String id, int start, int end) {
     return mapper.getIdList(id, start, end);
   }
@@ -25,11 +29,15 @@ public class UserMypageService {
     return mapper.noPageList(id);
   }
 
-  public int requestDel(int num) {
-    return mapper.requestDel(num);
+  public RequestDto numRequestView(int num) {
+    return mapper.numRequestView(num);
   }
 
   public int totalCount(String id) {
     return mapper.totalCount(id);
+  }
+
+  public int requestDel(int num) {
+    return mapper.requestDel(num);
   }
 }

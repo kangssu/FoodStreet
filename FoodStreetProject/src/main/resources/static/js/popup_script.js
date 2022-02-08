@@ -48,7 +48,7 @@ function executiveDelPopup(num) {
 }
 	
 function closeExecutivePopup() {
-	const popup2 = document.querySelector('#u_r_popup');
+	const popup2 = document.querySelector('#popup_e');
 	popup2.classList.add('hide');
 }
 
