@@ -32,9 +32,15 @@ public class LoginController {
     session.getAttribute("member");
 
     MemberDto login = service.login(dto);
-    boolean pwMatch = pwdEncoder.matches(dto.getPw(), login.getPw());
+    boolean pwMatch = false;
 
-    if (login != null && pwMatch == true) {
+    if (login != null) {
+      pwMatch = pwdEncoder.matches(dto.getPw(), login.getPw());
+    } else {
+      pwMatch = false;
+    }
+
+    if (login != null && pwMatch != false) {
 
       session.setAttribute("member", login);
 
