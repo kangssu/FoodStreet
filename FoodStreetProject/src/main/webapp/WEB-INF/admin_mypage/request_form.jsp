@@ -49,7 +49,7 @@
 						<tr>
 							<th><span>*</span>매장번호</th>
 							<td>
-								<input type="text" name="hp" class="hp_form" id="hp_form" placeholder="ex) 02-111-1111" value="${dto.hp}"/>
+								<input type="text" name="hp" placeholder="ex) 02-111-1111" value="${dto.hp}"/>
 							</td>
 						</tr>
 						<tr>
@@ -76,6 +76,12 @@
 								<c:forTokens items="${dto.img_name}" var="image" delims=",">
 									<img src="/images/${image}">
 								</c:forTokens>
+							</td>
+						</tr>
+						<tr>
+							<th><span>*</span>메뉴</th>
+							<td>
+								<input type="text" name="menu" class="menu_form" placeholder="ex) 대표메뉴를 입력해주세요." value="${dto.menu}"/>
 							</td>
 						</tr>
 						<tr>

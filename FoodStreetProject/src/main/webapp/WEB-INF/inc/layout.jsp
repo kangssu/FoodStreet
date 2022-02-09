@@ -18,6 +18,7 @@
 <!-- css, icon 불러오기 -->
 <link rel="stylesheet" href="/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 </head>
 <body>
 	<div class="layout">
