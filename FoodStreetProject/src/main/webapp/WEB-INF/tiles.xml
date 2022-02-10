@@ -16,12 +16,23 @@
 		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
 	</definition>
 	
+	<definition name="layout_f" template="/WEB-INF/food_inc/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/inc/header.jsp"/>
+		<put-attribute name="tab_menu" value="/WEB-INF/food_inc/tab_menu.jsp"/>
+		<put-attribute name="main" value="/WEB-INF/inc/main.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
+	</definition>
+	
 	<!-- wild card -->
 	<definition name="/*/*" extends="layout">
 		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
 	</definition>
 	
 	<definition name="/m/*/*" extends="layout_m">
+		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="/f/*/*" extends="layout_f">
 		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
 	</definition>
 </tiles-definitions>

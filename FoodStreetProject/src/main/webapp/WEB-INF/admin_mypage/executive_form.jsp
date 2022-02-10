@@ -76,7 +76,7 @@
 				</table>
 			</div>
 			<div class="form_all_btn">
-				<button type="button" onclick="location.href='/admin/executive/list';" class="btn_cancle">취소</button>
+				<button type="button" onclick="location.href='/admin/executive/list?page=${currentPage}';" class="btn_cancle">취소</button>
 				<button type="submit" class="btn_confirm">계정 생성</button>
 			</div>
 		</form>

@@ -64,12 +64,14 @@ public class AdminMypageController {
   }
 
   @GetMapping("/admin/request/view")
-  public ModelAndView requestUdateView(@RequestParam("num") int num) {
+  public ModelAndView requestUdateView(@RequestParam("num") int num,
+      @RequestParam(value = "page", defaultValue = "1", required = false) int page) {
     ModelAndView mv = new ModelAndView();
 
     RequestDto dto = service.getNumList(num);
 
     mv.addObject("dto", dto);
+    mv.addObject("currentPage", page);
     mv.setViewName("/m/admin_mypage/request_form");
 
     return mv;
@@ -135,12 +137,14 @@ public class AdminMypageController {
   }
 
   @GetMapping("/admin/executive/view")
-  public ModelAndView executiveUpdateView(@RequestParam("num") int num) {
+  public ModelAndView executiveUpdateView(@RequestParam("num") int num,
+      @RequestParam(value = "page", defaultValue = "1", required = false) int page) {
 
     ModelAndView mv = new ModelAndView();
     MemberDto dto = service.executiveNumList(num);
 
     mv.addObject("dto", dto);
+    mv.addObject("currentPage", page);
     mv.setViewName("/m/admin_mypage/executive_update");
 
     return mv;

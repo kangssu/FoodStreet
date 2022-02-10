@@ -1033,6 +1033,16 @@ a:hover{
 	white-space:nowrap; 
 	overflow:hidden;
 }
+
+.food_block_content_not_fount{
+	padding-top:40px;
+	text-align:center;
+}
+
+.food_block_content_not_fount p{
+	font-size:18px;
+	color:#000000;
+}
 /* 맛집리스트 영역 */
 
 /* 맛집리스트 상세 영역 */
@@ -1042,8 +1052,8 @@ a:hover{
 
 .top_view_sub_title h2{
 	color:#000000;
-	font-size:35px;
-	margin-top:20px;
+	font-size:46px;
+	margin-top:25px;
 	font-weight:500;
 }
 
@@ -1116,8 +1126,8 @@ a:hover{
 
 .comment_list_title{
 	margin-top:60px;
-	padding:10px;
-	border-bottom:2px solid #000000;
+	padding:15px 10px;
+	border-bottom:1px solid #000000;
 }
 
 .comment_list_title h2{
@@ -1131,7 +1141,7 @@ a:hover{
 }
 
 .comment_list_title a{
-	padding-left:870px;
+	padding-left:875px;
 	text-align:right;
 	font-weight:600;
 	font-size:16px;
@@ -1158,7 +1168,6 @@ a:hover{
 }
 
 .commtent_my_info img{
-	margin-left:10px;
 	border-radius:100px;
 	width:80px;
 	height:80px;

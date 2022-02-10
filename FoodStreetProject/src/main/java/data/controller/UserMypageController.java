@@ -90,7 +90,9 @@ public class UserMypageController {
   }
 
   @GetMapping("/user/request/view")
-  public ModelAndView requestView(@RequestParam("num") int num, HttpSession session) {
+  public ModelAndView requestView(@RequestParam("num") int num,
+      @RequestParam(value = "page", defaultValue = "1", required = false) int page,
+      HttpSession session) {
 
     ModelAndView mv = new ModelAndView();
 
@@ -102,6 +104,7 @@ public class UserMypageController {
 
     mv.addObject("dto", dto);
     mv.addObject("img_name", img_name);
+    mv.addObject("currentPage", page);
     mv.setViewName("/m/user_mypage/request_confirm");
 
     return mv;

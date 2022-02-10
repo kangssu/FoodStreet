@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.FoodListMapper">
+	<select id="allList" parameterType="HashMap" resultType="rdto">
+		select * from food_request where state = '등록완료' order by num desc LIMIT #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="categoryList" parameterType="HashMap" resultType="rdto">
+		select * from food_request where state = '등록완료' and category=#{category} order by num desc LIMIT #{start}, #{end}
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(*) from food_request where state = '등록완료'
+	</select>
+	
+	<select id="categoryTotalCount" resultType="int">
+		select count(*) from food_request where state = '등록완료' and category=#{category}
+	</select>
+</mapper>

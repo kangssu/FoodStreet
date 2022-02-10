@@ -67,7 +67,7 @@
 			</table>
 		</div>
 		<div class="form_all_btn">
-			<button type="button" onclick="location.href='/mypage/request/list';" class="btn_cancle">목록</button>
+			<button type="button" onclick="location.href='/mypage/request/list?page=${currentPage}';" class="btn_cancle">목록</button>
 		</div>
 	</div>
 </div>

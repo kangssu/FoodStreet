@@ -43,7 +43,7 @@
 								<td>${m.email}</td>
 								<td><fmt:formatDate value="${m.gaipday}" pattern="yyyy-MM-dd"/></td>
 								<td>
-									<button type="button" class="request_view" onclick="location.href='/admin/executive/view?num=${m.num}';">수정</button>
+									<button type="button" class="request_view" onclick="location.href='/admin/executive/view?num=${m.num}&page=${currentPage}';">수정</button>
 									<button type="button" class="request_del" onclick="executiveDelPopup(${m.num});">삭제</button>
 								</td>
 							</tr>
@@ -54,20 +54,20 @@
 		</table>
 		<ul class="paging">
 			<c:if test="${paging.prev}">
-				<li><a href="/admin/mypage/request?page=${paging.startPage-1}"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+				<li><a href="/admin/executive/list?page=${paging.startPage-1}"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
 			</c:if>
 			<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="num">
 				<c:choose>
 					<c:when test="${currentPage == num}">
-						<li class="active"><a href="/admin/mypage/request?page=${num}">${num}</a></li>
+						<li class="active"><a href="/admin/executive/list?page=${num}">${num}</a></li>
 					</c:when>
 					<c:otherwise>
-						<li class="select"><a href="/admin/mypage/request?page=${num}">${num}</a></li>
+						<li class="select"><a href="/admin/executive/list?page=${num}">${num}</a></li>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
 			<c:if test="${paging.next && paging.endPage>0}">
-				<li><a href="/admin/mypage/request?page=${paging.endPage+1}"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li><a href="/admin/executive/list?page=${paging.endPage+1}"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
 			</c:if>	
 		</ul>
 	</div>

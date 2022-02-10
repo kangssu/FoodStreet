@@ -111,7 +111,7 @@
 							</td>
 						</tr>
 						<tr>
-							<th><span>*</span>상태변경</th>
+							<th><span>*</span>상태변경${currentPage}</th>
 							<td>
 								<select name="state">
 									<option>--선택--</option>
@@ -125,7 +125,7 @@
 				</table>
 			</div>
 			<div class="form_all_btn">
-				<button type="button" onclick="location.href='/admin/request/list';" class="btn_cancle">목록</button>
+				<button type="button" onclick="location.href='/admin/request/list?page=${currentPage}';" class="btn_cancle">목록</button>
 				<c:choose>
 					<c:when test="${dto.state == '대기중'}">
 						<button type="submit" class="btn_confirm">등록하기</button>
