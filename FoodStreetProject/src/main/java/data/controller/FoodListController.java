@@ -53,7 +53,27 @@ public class FoodListController {
   }
 
   @GetMapping("/food/view")
-  public String foodView() {
-    return "/f/food/food_view";
+  public ModelAndView foodView(@RequestParam("num") int num,
+      @RequestParam(value = "page", defaultValue = "1", required = false) int page) {
+
+    ModelAndView mv = new ModelAndView();
+
+    RequestDto dto = service.getNumList(num);
+
+    String img = service.imgNameList(num);
+    String[] results = img.split(",");
+
+    int count = 0;
+
+    for (int i = 0; i < results.length; i++) {
+      count++;
+    }
+
+    mv.addObject("dto", dto);
+    mv.addObject("count", count);
+    mv.addObject("currentPage", page);
+    mv.setViewName("/food/food_view");
+
+    return mv;
   }
 }

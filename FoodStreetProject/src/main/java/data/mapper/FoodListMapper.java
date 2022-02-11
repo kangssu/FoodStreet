@@ -16,4 +16,8 @@ public interface FoodListMapper {
 
   public int categoryTotalCount(String category);
 
+  public RequestDto getNumList(int num);
+
+  public String imgNameList(int num);
+
 }

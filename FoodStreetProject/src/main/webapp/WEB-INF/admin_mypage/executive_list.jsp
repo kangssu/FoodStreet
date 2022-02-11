@@ -81,7 +81,7 @@
 			삭제하시면 다시 원복하실 수 없습니다.<br>
 		</p>
 		<span>※ 신중히 생각하시고 진행부탁드립니다.</span>	
-		<input type="hidden" id="delnum">
+		<input type="hidden" id="num">
 		<input type="hidden" id="nowpage">
 		<div class="popup_btn">
 			<button type="button" id="btn_e_del">삭제</button>

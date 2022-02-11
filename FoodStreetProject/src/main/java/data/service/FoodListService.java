@@ -29,4 +29,12 @@ public class FoodListService {
     return mapper.categoryTotalCount(category);
   }
 
+  public RequestDto getNumList(int num) {
+    return mapper.getNumList(num);
+  }
+
+  public String imgNameList(int num) {
+    return mapper.imgNameList(num);
+  }
+
 }

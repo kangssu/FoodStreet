@@ -33,3 +33,13 @@ create table food_request(
 	state varchar(20),
 	reporting_date datetime
 )
+
+create table review(
+	idx smallint auto_increment primary key,
+	num smallint,
+	id varchar(100),
+	comment varchar(3000),
+	img_name varchar(300),
+	img_path varchar(300),
+	reporting_date datetime
+)

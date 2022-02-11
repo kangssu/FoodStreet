@@ -11,7 +11,7 @@
 		</c:when>
 		<c:otherwise>
 			<c:forEach var="r" items="${list}">
-				<a href="/food/view">
+				<a href="/food/view?num=${r.num}&page=${currentPage}">
 					<div class="food_block_content"> 
 						<c:forTokens items="${r.img_name}" var="image" varStatus="status" delims=",">
 							<c:if test="${status.index eq 0}">

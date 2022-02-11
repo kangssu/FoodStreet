@@ -16,4 +16,12 @@
 	<select id="categoryTotalCount" resultType="int">
 		select count(*) from food_request where state = '등록완료' and category=#{category}
 	</select>
+	
+	<select id="getNumList" resultType="rdto">
+		select * from food_request where num=#{num}
+	</select>
+	
+	<select id="imgNameList" resultType="String">
+		select img_name from food_request where num=#{num}
+	</select>
 </mapper>

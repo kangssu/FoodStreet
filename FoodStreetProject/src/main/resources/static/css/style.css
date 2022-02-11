@@ -992,6 +992,7 @@ a:hover{
 #action a{
 	color:#fff;
 	font-weight:600;
+	display:block;
 }
 
 .all_food_list{
@@ -1156,6 +1157,10 @@ a:hover{
 
 .title_box i{
 	margin-right:7px;
+}
+
+.title_box a{
+	cursor:pointer;
 }
 
 .commtent_list_box{
@@ -1635,6 +1640,89 @@ a:hover{
 	height:200px;
 }
 
+#review_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+}
+
+#review_popup.hide {
+	display: none;
+}
+
+#review_popup .content{
+	text-align:center;
+	background: #fff; 
+	border-radius: 10px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:300px;
+	height:150px;
+}
+
+#r_write_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+}
+
+#r_write_popup.hide {
+	display: none;
+}
+
+#r_write_popup .content{
+	background: #fff; 
+	border-radius: 10px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:500px;
+	height:435px;
+}
+
+#r_write_popup p{
+	text-align:center;
+}
+
+#r_write_popup span{
+	font-size:14px;
+}
+
+#r_write_popup .content textarea{
+	width:500px;
+	height:200px;
+	margin-top:30px;
+	padding:10px;
+	border-radius:10px;
+	background:transparent;
+	color:#696969;
+	border:1px solid rgba(0,0,0,.2);
+	box-sizing:border-box;
+}
+
+#r_write_popup .content textarea:focus{
+	outline:none;
+}
+
+#r_write_popup .content input{
+	text-align:left;
+}
+
+#r_write_popup .popup_btn{
+	margin-top:20px;
+}
+
 .popup_title{
 	font-size:25px;
 	color:#1C1C1C;
@@ -1672,7 +1760,7 @@ a:hover{
 	cursor:pointer;
 }
 
-.popup_btn #btn_ok_del, .popup_btn #btn_e_del{
+.popup_btn #btn_ok_del, .popup_btn #btn_e_del, #btn_suceess{
 	background-color:#F63805;
 	color:white;
 	margin-right:5px;
