@@ -1,8 +1,9 @@
 # [개인 프로젝트] FOODSTREET - 푸드스트릿 :hamburger::pizza::beers:
-### 💡 프로젝트 기간 : 2022.01.01 ~ (진행중)
+### 💡 프로젝트 기간 : 2022.01.05 ~ (진행중)
 * **"여러 사람들이 알고 있는 맛집들을 자신만 아는게 아닌 서로 공유할 방법이 없을까?"**
 * **"맛집 공유를 하더라도 사이트의 의도와 맞지 않는 게시글은 제외시키는게 낫지 않을까?"**
 * 이런 물음들에 대해 100% 딱 맞는 사이트로 만든 것이 바로 **푸드스트릿** 입니다!!
+* **푸드스트릿을 통해 혼자만 알고 있는 맛집을 여러 사람들과 함께 공유해보세요!**
 
 <br/>
 
@@ -56,12 +57,12 @@
   * <code>회원</code> 자신이 등록한 리뷰 리스트 확인, 수정, 삭제 가능
 
 * 맛집리스트
-  * 맛집리스트 카테고리별 출력 (X)
-  * 관리자가 맛집으로 등록한 맛집들만 리스트 및 상세 페이지 출력 (X)
-  * 해당 맛집에 대한 회원들이 직접 리뷰 등록, 수정 삭제 가능 (X)
+  * 맛집리스트 카테고리별 출력
+  * 관리자가 맛집으로 등록한 맛집들만 리스트 및 상세 페이지 출력
+  * 회원들이 맛집리스트로 등록된 맛집들에 직접 리뷰 등록, 수정, 삭제 가능 (X)
 
 * 맛집신청
-  * 회원, 비회원 상관없이 맛집신청 가능 (필수 항목 체크!)
+  * 회원, 비회원 상관없이 맛집신청 가능
   * 다음 주소찾기 API 연동
 <br/>
 
@@ -103,6 +104,88 @@ CSRF는 REST API의 조건에는 관련이 없기 때문에 공격을 받을 가
 
 **스프링 시큐리티 설정을 이해없이 복붙하여 사용했을 때의 오류였기 때문에 이후에는 설정을 전부 다 찾아보고 필요한 것들만 적용했다.**
 
+### 📌 Ajax 다중파일 전송
+리뷰를 등록할 때 내용뿐만 아니라 이미지들까지 전송하려고 하면 Ajax가 동작하지 않았고<br/>
+생각해보니 Ajax를 사용할 때 항상 문자들만 전송했었는데 이미지 파일까지 ajax로 해본 적은 없었다.
+
+Ajax로 이미지 전송 관련하여 구글링을 통해서 찾는 해답으로는 파일 전송 시 processData: false, contentType:false  추가해줘야 했다.<br/>
+또한 form 태그를 추가하여 formData를 사용해야 formData.append를 통해 내용과 파일을 같이 보낼 수 있었다.
+
+우선 단일 파일로 시도를 해보았고 성공한 이후에 다중 파일을 위해 for문을 추가하여 성공하게 되었다.
+
+<details>
+  <summary><b>✔️ 단일 파일 전송 스크립트 코드 확인하기</b></summary>
+  <div markdown="1">    
+    
+```
+$("#btn_suceess").click(function(){
+  var data = {
+    num: $('#num').val(),
+    id: $('#id').val(),
+    comment: $('#comment').val()
+  };
+  
+  var form =$('#form')[0];
+  var formData = new FormData(form);
+  
+  formData.append('file', $('#file'));
+  formData.append('key', new Blob([JSON.stringify(data)] , {type: "application/json"}));
+    
+  $.ajax({
+    type: 'post',
+    url: '/review/insert',
+    processData: false,
+    contentType:false,
+    data: formData,
+    success: function(){
+      alert("소중한 회원님의 리뷰가 등록되었습니다!");
+      location.reload();
+    }
+  });
+});
+```
+  </div>
+</details>
+
+<details>
+  <summary><b>✔️ 다중 파일 전송 스크립트 코드 확인하기</b></summary>
+  <div markdown="1">    
+  
+```
+$("#btn_suceess").click(function(){
+  var data = {
+    num: $("#num").val(),
+    id: $("#id").val(),
+    comment: $("#comment").val()
+  };
+		
+  var form =$('#form')[0]; 
+  var formData = new FormData(form); 
+
+  for(var i=0; i<$('#file')[0].files.length; i++){
+    formData.append('file', $('#file')[0].files[i]);
+  }
+		
+  formData.append('key', new Blob([JSON.stringify(data)] , {type: "application/json"}));
+                  
+  $.ajax({
+    type: 'post',
+    url: '/review/insert',
+    processData: false,
+    contentType:false,
+    data: formData,
+    success: function(){
+      alert("소중한 회원님의 리뷰가 등록되었습니다!");
+      location.reload();
+    }
+  });
+});
+```
+  </div>
+</details>
+
+**Ajax로 이미지 전송 방법을 통해 기존에 몰랐던 옵션들과 자바스크립트 객체를 알게 되어서 Ajax에 대해 조금 더 공부하게 된 계기가 되었다.**
+  
 <br/>
 
 ## 4. 추후 보완사항
