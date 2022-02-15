@@ -3,6 +3,7 @@ package data.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import data.dto.RequestDto;
+import data.dto.ReviewDto;
 import data.paging.Criteria;
 
 @Mapper
@@ -19,5 +20,7 @@ public interface FoodListMapper {
   public RequestDto getNumList(int num);
 
   public String imgNameList(int num);
+
+  public List<ReviewDto> reviewList(int num);
 
 }

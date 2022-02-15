@@ -24,4 +24,9 @@
 	<select id="imgNameList" resultType="String">
 		select img_name from food_request where num=#{num}
 	</select>
+	
+	<select id="reviewList" parameterType="HashMap" resultType="rvdto">
+		select * from review where num = #{num} order by idx desc
+	</select>
+	
 </mapper>

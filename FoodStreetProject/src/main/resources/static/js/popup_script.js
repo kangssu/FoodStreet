@@ -95,13 +95,36 @@ function reviewWritePopup() {
 	
 	const popup2 = document.querySelector('#r_write_popup');
 	popup2.classList.remove('hide');
+	
 		
 	$("#btn_suceess").click(function(){
+		var data = {
+			num: $("#num").val(),
+			id: $("#id").val(),
+			comment: $("#comment").val()
+		};
+		
+		var form =$('#form')[0]; //첫번째 폼을 의미함
+		var formData = new FormData(form);
+		var img_size = $('#file')[0].files.length;
+		
+		if(img_size > 4){
+			alert("이미지는 4장까지 등록 가능합니다! 다시 선택해주세요!");
+			return;
+		}
+		
+		formData.append('key', new Blob([JSON.stringify(data)] , {type: "application/json"}));
+		
+		for(var i=0; i<$('#file')[0].files.length; i++){
+			formData.append('file', $('#file')[0].files[i]);
+		}
+		
 		$.ajax({
 			type: 'post',
-			dataType:"text",
 			url: '/review/insert',
-			data: {"num":$("#num").val(),"id":$("#id").val(),"comment":$("#comment").val()},
+			processData: false,
+            contentType:false,
+            data: formData,
 			success: function(){
 				alert("소중한 회원님의 리뷰가 등록되었습니다!");
 				location.reload();
@@ -112,5 +135,32 @@ function reviewWritePopup() {
 	
 function closereviewWritePopup() {
 	const popup2 = document.querySelector('#r_write_popup');
+	popup2.classList.add('hide');
+}
+
+/* 맛집 리뷰 삭제할 때 나오는 팝업 */
+function reviewDelPopup(idx) {
+	$("#idx").val(idx);
+	
+	const popup2 = document.querySelector('#r_del_popup');
+	popup2.classList.remove('hide');
+		
+	$("#btn_r_del").click(function(){
+		var idx = $("#idx").val();
+		
+		$.ajax({
+			type: 'post',
+			url: '/review/delete',
+			data: idx,
+			contentType: 'application/json; charset=UTF-8',
+			success: function(){
+				location.reload();
+			}
+		});
+	});
+}
+	
+function closeReviewDelPopup() {
+	const popup2 = document.querySelector('#r_del_popup');
 	popup2.classList.add('hide');
 }

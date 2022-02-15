@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.RequestDto;
+import data.dto.ReviewDto;
 import data.paging.Criteria;
 import data.paging.Paging;
 import data.service.FoodListService;
@@ -69,9 +70,12 @@ public class FoodListController {
       count++;
     }
 
+    List<ReviewDto> reviewList = service.reviewList(num);
+
     mv.addObject("dto", dto);
     mv.addObject("count", count);
     mv.addObject("currentPage", page);
+    mv.addObject("reviewList", reviewList);
     mv.setViewName("/food/food_view");
 
     return mv;

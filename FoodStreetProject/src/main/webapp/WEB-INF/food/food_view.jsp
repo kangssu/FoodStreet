@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div id="food_list_wrap">
 	<div class="food_list_all_box container">
 		<div class="top_view_sub_title">
@@ -82,71 +83,38 @@
 				</div>
 			</div>
 			<div class="commtent_list_all_box">
-				<div class="commtent_list_box">
-					<div class="commtent_my_info">
-						<img src="/img/noimg.png">
-						<h3>홍길동</h3>
-					</div>
-					<div class="commtent_my_content">
-						<div class="comment_my_cotent_box">
-							<span>2022-02-09</span>
-							<p>정말 여기는 찐 맛집이예요! 정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!</p>
-							<div class="comment_img_box">
-								<img src="/img/pizza_new.jpg">
-								<img src="/img/pizza_new.jpg">
-								<img src="/img/pizza_new.jpg">
-								<img src="/img/noimg.png">
+				<c:choose>
+					<c:when test="${reviewList.size() == 0}">
+						<div class="not_comment">
+							<p>등록된 리뷰가 없습니다. 소중한 첫 리뷰를 작성해주세요!</p>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="r" items="${reviewList}">
+							<div class="commtent_list_box">
+								<div class="commtent_my_info">
+									<img src="/img/noimg.png">
+									<h3>${r.id}</h3>
+									<div class="food_review_all_btn">
+										<button type="button" class="food_review_modify">수정</button>
+										<button type="button" class="food_review_del" onclick="reviewDelPopup(${r.idx});">삭제</button>
+									</div>
+								</div>
+								<div class="commtent_my_content">
+									<div class="comment_my_cotent_box">
+										<span><fmt:formatDate value="${r.reporting_date}" pattern="yyyy-MM-dd"/></span>
+										<p>${r.comment}</p>
+										<div class="comment_img_box">
+											<c:forTokens items="${r.img_name}" var="image" delims=",">
+												<img src="/images/${image}">
+											</c:forTokens>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="commtent_list_box">
-					<div class="commtent_my_info">
-						<img src="/img/noimg.png">
-						<h3>홍길동</h3>
-					</div>
-					<div class="commtent_my_content">
-						<div class="comment_my_cotent_box">
-							<span>2022-02-09</span>
-							<p>정말 여기는 찐 맛집이예요! 정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!</p>
-						</div>
-					</div>
-				</div>
-				<div class="commtent_list_box">
-					<div class="commtent_my_info">
-						<img src="/img/noimg.png">
-						<h3>홍길동</h3>
-					</div>
-					<div class="commtent_my_content">
-						<div class="comment_my_cotent_box">
-							<span>2022-02-09</span>
-							<p>정말 여기는 찐 맛집이예요! 정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!
-							정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!정말 여기는 찐 맛집이예요!</p>
-							<div class="comment_img_box">
-								<img src="/img/pizza_new.jpg">
-								<img src="/img/pizza_new.jpg">
-								<img src="/img/pizza_new.jpg">
-								<img src="/img/noimg.png">
-							</div>
-						</div>
-					</div>
-				</div>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>
@@ -154,13 +122,16 @@
 <!-- 리뷰쓰기 클릭시 로그인 안했을 경우 나오는 팝업! -->
 <div id="review_popup" class="hide">
 	<div class="content">
+		<button type="button" class="review_close" onclick="closereviewPopup()"><i class="bi bi-x-lg"></i></button>
 		<h3 class="popup_title"><i class="fa fa-bell-o" aria-hidden="true"></i>로그인 확인</h3>
 		<p class="popup_text">
 			소중한 리뷰는 로그인 후 작성해주세요.
 		</p>
-		<div class="popup_btn">
-			<button type="button" onclick="location.href='/login';" id="btn_ok_del">로그인하기</button>
-			<button type="button" id="btn_close" onclick="closereviewPopup()" >닫기</button>
+		<button type="button" onclick="location.href='/login';" id="btn_login_go">로그인하기</button>
+		<div id="join_guide">
+			<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+			<span>아직 회원이 아니신가요?</span>
+			<button type="button" onclick="location.href='/join';" id="btn_join_go">회원가입하기</button>
 		</div>
 	</div>
 </div>
@@ -169,14 +140,32 @@
 	<div class="content">
 		<h3 class="popup_title"><i class="bi bi-chat-right-text"></i>리뷰 작성</h3>
 		<p class="popup_text">솔직한 회원님의 리뷰를 남겨주세요!</p>
-		<input type="hidden" name="num" id="num" value="${dto.num}">
-		<input type="hidden" name="id" id="id" value="${member.id}">
-		<textarea name="comment" id="comment" placeholder="해당 맛집에 대한 리뷰를 자세하게 남겨주시면 많은 사람들에게 도움이 될 것 같습니다 :-)"></textarea>
-		<span>* 이미지는 최대 4장까지만 등록이 가능합니다.</span>
-		<input type="file" id="file" multiple>
+		<form id="form" enctype = "multipart/form-data">
+			<input type="hidden" name="num" id="num" value="${dto.num}">
+			<input type="hidden" name="id" id="id" value="${member.id}">
+			<textarea name="comment" id="comment" placeholder="해당 맛집에 대한 리뷰를 자세하게 남겨주시면 많은 사람들에게 도움이 될 것 같습니다 :-)"></textarea>
+			<span>* 이미지는 최대 4장까지만 등록이 가능합니다.</span>
+			<input type="file" name="file" id="file" multiple>
+			<div class="popup_btn">
+				<button type="button" id="btn_suceess">등록</button>
+				<button type="button" id="btn_close" onclick="closereviewWritePopup()">취소</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- 삭제 클릭하면 나오는 팝업! -->
+<div id="r_del_popup" class="hide">
+	<div class="content">
+		<h3 class="popup_title"><i class="fa fa-bell-o" aria-hidden="true"></i>삭제 확인</h3>
+		<p class="popup_text">
+			해당 맛집 리뷰를 삭제하시겠습니까?<br>
+			삭제하시면 다시 원복하실 수 없습니다.<br>
+		</p>
+		<span>※ 신중히 생각하시고 진행부탁드립니다.</span>	
+		<input type="hidden" id="idx">
 		<div class="popup_btn">
-			<button type="submit" id="btn_suceess">등록</button>
-			<button type="button" id="btn_close" onclick="closereviewWritePopup()" >취소</button>
+			<button type="button" id="btn_r_del">삭제</button>
+			<button type="button" id="btn_close" onclick="closeReviewDelPopup()" >취소</button>
 		</div>
 	</div>
 </div>

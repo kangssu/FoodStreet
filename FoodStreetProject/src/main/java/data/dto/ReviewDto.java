@@ -1,7 +1,7 @@
 package data.dto;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import org.apache.ibatis.type.Alias;
 import org.springframework.web.multipart.MultipartFile;
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class ReviewDto {
   private int num;
   private String id;
   private String comment;
-  private ArrayList<MultipartFile> upload;
+  private List<MultipartFile> upload;
   private String img_name;
   private String img_path;
   private Date reporting_date;

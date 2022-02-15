@@ -7,4 +7,6 @@ import data.dto.ReviewDto;
 public interface ReviewMapper {
 
   public void reviewInsert(ReviewDto dto);
+
+  public int reviewDel(int idx);
 }

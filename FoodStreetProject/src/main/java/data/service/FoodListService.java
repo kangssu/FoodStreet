@@ -3,6 +3,7 @@ package data.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import data.dto.RequestDto;
+import data.dto.ReviewDto;
 import data.mapper.FoodListMapper;
 import data.paging.Criteria;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +36,10 @@ public class FoodListService {
 
   public String imgNameList(int num) {
     return mapper.imgNameList(num);
+  }
+
+  public List<ReviewDto> reviewList(int num) {
+    return mapper.reviewList(num);
   }
 
 }

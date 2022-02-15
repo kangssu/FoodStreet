@@ -5,4 +5,8 @@
 		insert into review (num,id,comment,img_name,img_path,reporting_date)
 		values (#{num},#{id},#{comment},#{img_name},#{img_path},now())
 	</insert>
+	
+	<delete id="reviewDel" parameterType="int">
+		delete from review where idx = #{idx}
+	</delete>
 </mapper>

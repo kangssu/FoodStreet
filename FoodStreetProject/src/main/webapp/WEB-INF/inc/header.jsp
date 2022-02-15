@@ -13,9 +13,9 @@
 			</div>
 			<div class="main_menu_left">
         		<ul class="gnb">
+        			<li><a href="/">홈</a></li>
         			<li><a href="/food/list">맛집리스트</a></li>
         			<li><a href="#">스토리</a></li>
-        			<li><a href="#">리뷰</a></li>
         			<li><a href="/request">맛집신청</a></li>
         		</ul>
         	</div>
