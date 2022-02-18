@@ -39,7 +39,9 @@ create table review(
 	num smallint,
 	id varchar(100),
 	comment varchar(3000),
-	img_name varchar(300),
-	img_path varchar(300),
+	img_name1 varchar(300),
+	img_name2 varchar(300),
+	img_name3 varchar(300),
+	img_name4 varchar(300),
 	reporting_date datetime
 )

@@ -1743,18 +1743,18 @@ a:hover{
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
 	padding:50px 50px 30px 50px;
 	width:500px;
-	height:435px;
+	height:500px;
 }
 
-#r_write_popup p{
+#r_write_popup p, #r_modify_popup p{
 	text-align:center;
 }
 
-#r_write_popup span{
+#r_write_popup span, #r_modify_popup span{
 	font-size:14px;
 }
 /********/
-#r_write_popup .content textarea{
+#r_write_popup .content textarea, #r_modify_popup .content textarea{
 	width:500px;
 	height:200px;
 	margin-top:30px;
@@ -1766,6 +1766,10 @@ a:hover{
 	box-sizing:border-box;
 }
 
+.all_input_box{
+	margin-top:5px;
+}
+
 #r_write_popup .content textarea:focus{
 	outline:none;
 }
@@ -1774,10 +1778,41 @@ a:hover{
 	text-align:left;
 }
 
-#r_write_popup .popup_btn{
-	margin-top:20px;
+#r_write_popup .popup_btn, #r_modify_popup .popup_btn{
+	margin-top:35px;
+	float: left;
+	margin-left:145px;
 }
 /********/
+#r_modify_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+}
+
+#r_modify_popup.hide {
+	display: none;
+}
+
+#r_modify_popup .content{
+	background: #fff; 
+	border-radius: 10px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:500px;
+	height:500px;
+}
+
+#r_modify_popup .content textarea:focus{
+	outline:none;
+}
+/*******/
 .popup_title{
 	font-size:25px;
 	color:#1C1C1C;
@@ -1798,13 +1833,15 @@ a:hover{
 
 .content span{
 	font-size:16px;
-	color:#F63805;
+	color:#000000;
 	line-height:30px;
+	margin-bottom:7px;
 }
 
 .popup_btn{
 	text-align:center;
 	margin-top:20px;
+	display:block;
 }
 
 .popup_btn button{
@@ -1847,7 +1884,7 @@ a:hover{
 	color:#696969;
 }
 
-.popup_btn #btn_e_del, #btn_suceess, #btn_r_del{
+.popup_btn #btn_e_del, #btn_suceess, #btn_r_del, #btn_modify{
 	background-color:#F63805;
 	color:white;
 	margin-right:5px;
@@ -1862,3 +1899,61 @@ a:hover{
 	height:200px;
 }
 /* 삭제 팝업 */
+/* 리뷰 input 이미지 관련 */
+#file_1{
+	display:none;
+}
+
+#file_2{
+	display:none;
+}
+
+#file_3{
+	display:none;
+}
+
+#file_4{
+	display:none;
+}
+
+.all_input_box label{
+	width:70px;
+	height:70px;
+	border-radius:10px;
+	background-color: #F63805;
+	position:relative;
+	text-align:center;
+	cursor: pointer;
+	font-size:30px;
+	display:block;
+	float:left;
+	margin-right:5px;
+}
+
+.all_input_box label .bi-plus{
+	line-height:75px;
+	color:#fff;
+	margin-left:5px;
+}
+
+.img_view1, .img_view2, .img_view3, .img_view4{
+	width:70px;
+	height:70px;
+	border-radius:10px;
+	margin:0 5px 0 0;
+}
+
+.all_input_box button{
+	position:absolute;
+	top:0;
+	left:0;
+	overflow:hidden;
+	border:none;
+	background:none;
+	color:#F63805;
+	font-size:20px;
+	cursor:pointer;
+	margin:2px 0 0 -2px;
+}
+
+/* 인풋 스타일 */

@@ -95,19 +95,30 @@
 								<div class="commtent_my_info">
 									<img src="/img/noimg.png">
 									<h3>${r.id}</h3>
-									<div class="food_review_all_btn">
-										<button type="button" class="food_review_modify">수정</button>
-										<button type="button" class="food_review_del" onclick="reviewDelPopup(${r.idx});">삭제</button>
-									</div>
+									<c:if test="${member.id == r.id}">
+										<div class="food_review_all_btn">
+											<button type="button" class="food_review_modify" onclick="reviewModifyPopup(${r.idx});">수정</button>
+											<button type="button" class="food_review_del" onclick="reviewDelPopup(${r.idx});">삭제</button>
+										</div>
+									</c:if>
 								</div>
 								<div class="commtent_my_content">
 									<div class="comment_my_cotent_box">
 										<span><fmt:formatDate value="${r.reporting_date}" pattern="yyyy-MM-dd"/></span>
 										<p>${r.comment}</p>
 										<div class="comment_img_box">
-											<c:forTokens items="${r.img_name}" var="image" delims=",">
-												<img src="/images/${image}">
-											</c:forTokens>
+											<c:if test="${r.img_name1 != null and r.img_name1 != ''}">
+												<img src="/images/${r.img_name1}" class="review_img_one">
+											</c:if>
+											<c:if test="${r.img_name2 != null and r.img_name2 != ''}">
+												<img src="/images/${r.img_name2}" class="review_img_two">
+											</c:if>
+											<c:if test="${r.img_name3 != null and r.img_name1 != ''}">
+												<img src="/images/${r.img_name3}" class="review_img_three">
+											</c:if>
+											<c:if test="${r.img_name4 != null and r.img_name1 != ''}">
+												<img src="/images/${r.img_name4}" class="review_img_four">
+											</c:if>
 										</div>
 									</div>
 								</div>
@@ -135,7 +146,7 @@
 		</div>
 	</div>
 </div>
-<!-- 리뷰쓰기 클릭시 로그인 했을 경우 나오는 팝업! -->
+<!-- 리뷰 등록시 팝업! -->
 <div id="r_write_popup" class="hide">
 	<div class="content">
 		<h3 class="popup_title"><i class="bi bi-chat-right-text"></i>리뷰 작성</h3>
@@ -144,11 +155,52 @@
 			<input type="hidden" name="num" id="num" value="${dto.num}">
 			<input type="hidden" name="id" id="id" value="${member.id}">
 			<textarea name="comment" id="comment" placeholder="해당 맛집에 대한 리뷰를 자세하게 남겨주시면 많은 사람들에게 도움이 될 것 같습니다 :-)"></textarea>
-			<span>* 이미지는 최대 4장까지만 등록이 가능합니다.</span>
-			<input type="file" name="file" id="file" multiple>
+			<span>* 이미지는 최대 4장까지만 등록이 가능합니다.</span><br/>
+			<div class="all_input_box">
+				<label class="input_file_button_1" for="file_1"><i class="bi bi-plus"></i></label>
+				<input type="file" name="file1" id="file_1">
+				
+				<label class="input_file_button_2" for="file_2"><i class="bi bi-plus"></i></label>
+				<input type="file" name="file2" id="file_2">
+				
+				<label class="input_file_button_3" for="file_3"><i class="bi bi-plus"></i></label>
+				<input type="file" name="file3" id="file_3">
+				
+				<label class="input_file_button_4" for="file_4"><i class="bi bi-plus"></i></label>
+				<input type="file" name="file4" id="file_4">
+			</div>
 			<div class="popup_btn">
 				<button type="button" id="btn_suceess">등록</button>
 				<button type="button" id="btn_close" onclick="closereviewWritePopup()">취소</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- 리뷰 수정시 팝업! -->
+<div id="r_modify_popup" class="hide">
+	<div class="content">
+		<h3 class="popup_title"><i class="bi bi-chat-right-text"></i>리뷰 수정</h3>
+		<p class="popup_text">회원님이 작성한 리뷰를 수정해주세요!</p>
+		<form id="form" enctype = "multipart/form-data">
+			<input type="hidden" id="idx">
+			<textarea name="comment" id="modify_comment"></textarea>
+			<span>* 이미지는 최대 4장까지만 등록이 가능합니다.</span><br/>
+			<div class="all_input_box">
+				<label class="input_file_button_1" for="file_1"><i class="bi bi-plus"></i></label>
+				<input type="file" name="file1" id="file_1">
+				
+				<label class="input_file_button_2" for="file_2"><i class="bi bi-plus"></i></label>
+				<input type="file" name="file2" id="file_2">
+				
+				<label class="input_file_button_3" for="file_3"><i class="bi bi-plus"></i></label>
+				<input type="file" name="file3" id="file_3">
+				
+				<label class="input_file_button_4" for="file_4"><i class="bi bi-plus"></i></label>
+				<input type="file" name="file4" id="file_4">
+			</div>
+			<div class="popup_btn">
+				<button type="button" id="btn_modify">수정</button>
+				<button type="button" id="btn_close" onclick="closereviewModifyPopup()">취소</button>
 			</div>
 		</form>
 	</div>

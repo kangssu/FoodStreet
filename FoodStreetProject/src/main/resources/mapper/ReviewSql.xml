@@ -2,9 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.ReviewMapper">
 	<insert id="reviewInsert" parameterType="rvdto">
-		insert into review (num,id,comment,img_name,img_path,reporting_date)
-		values (#{num},#{id},#{comment},#{img_name},#{img_path},now())
+		insert into review (num,id,comment,img_name1,img_name2,img_name3,img_name4,reporting_date)
+		values (#{num},#{id},#{comment},#{img_name1},#{img_name2},#{img_name3},#{img_name4},now())
 	</insert>
+	
+	<select id="reviewDetail" resultType="rvdto">
+		select * from review where idx=#{idx}
+	</select>
+	
+	<update id="reviewUpdate" parameterType="rvdto">
+		update review set comment=#{comment},img_name1=#{img_name1},img_name2=#{img_name2},
+		img_name3=#{img_name3},img_name4=#{img_name4},reporting_date=now() where idx=#{idx}
+	</update>
+	
+	<select id="idxFindImg" resultType="rvdto">
+		select img_name1,img_name2,img_name3,img_name4 from review where idx = #{idx}
+	</select>
+	
+	<update id="reviewImgDelete" parameterType="rvdto">
+		update review set img_name1=#{img_name1},img_name2=#{img_name2},
+		img_name3=#{img_name3},img_name4=#{img_name4} where idx=#{idx}
+	</update>
 	
 	<delete id="reviewDel" parameterType="int">
 		delete from review where idx = #{idx}
