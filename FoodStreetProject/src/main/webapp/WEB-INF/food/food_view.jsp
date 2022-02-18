@@ -186,7 +186,7 @@
 			<textarea name="comment" id="modify_comment"></textarea>
 			<span>* 이미지는 최대 4장까지만 등록이 가능합니다.</span><br/>
 			<div class="all_input_box">
-				<label class="input_file_button_1" for="file_1"><i class="bi bi-plus"></i></label>
+				<label class="input_file_button_1" id="input_file_button_1" for="file_1"><i class="bi bi-plus"></i></label>
 				<input type="file" name="file1" id="file_1">
 				
 				<label class="input_file_button_2" for="file_2"><i class="bi bi-plus"></i></label>

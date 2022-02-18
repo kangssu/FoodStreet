@@ -257,30 +257,25 @@ function reviewModifyPopup(idx) {
 			success: function(data){
 				$("#modify_comment").val(data.comment);
 				
-				if(data.img_name1 != null){
+				if(data.img_name1 != null && data.img_name1 != ''){
 					$('.input_file_button_1').html('<img src="/images/'+data.img_name1+'" alt="img" class="img_view1">'+
 					'<button type="button" class="input_file_close_btn_1"><i class="bi bi-x-circle-fill"></i></button>');
 				}
 
-				if(data.img_name2 != null){
+				if(data.img_name2 != null && data.img_name2 != ''){
 					$('.input_file_button_2').html('<img src="/images/'+data.img_name2+'" alt="img" class="img_view2">'+
 					'<button type="button" class="input_file_close_btn_2"><i class="bi bi-x-circle-fill"></i></button>');
 				}
 				
-				if(data.img_name3 != null){
+				if(data.img_name3 != null && data.img_name3 != ''){
 					$('.input_file_button_3').html('<img src="/images/'+data.img_name3+'" alt="img" class="img_view3">'+
 					'<button type="button" class="input_file_close_btn_3"><i class="bi bi-x-circle-fill"></i></button>');
 				}
 				
-				if(data.img_name4 != null){
+				if(data.img_name4 != null && data.img_name4 != ''){
 					$('.input_file_button_4').html('<img src="/images/'+data.img_name4+'" alt="img" class="img_view4">'+
 					'<button type="button" class="input_file_close_btn_4"><i class="bi bi-x-circle-fill"></i></button>');
 				}
-				
-				if(data.img_name1 == "" || data.img_name2 == "" || data.img_name3 == "" || data.img_name4 == ""){
-					$('.input_file_button_1').html('<i class="bi bi-plus"></i>');
-				}
-				
 			}
 		});
 	});

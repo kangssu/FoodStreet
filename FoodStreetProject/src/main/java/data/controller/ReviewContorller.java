@@ -35,7 +35,6 @@ public class ReviewContorller {
   @GetMapping("/review/detail")
   public ReviewDto reviewDetail(int idx) {
 
-    ReviewDto dto = service.reviewDetail(idx);
     return service.reviewDetail(idx);
   }
 

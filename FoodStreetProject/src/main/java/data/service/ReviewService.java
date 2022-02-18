@@ -134,18 +134,34 @@ public class ReviewService {
 
     if (img_back.equals(item.getImg_name1())) {
       dto.setImg_name1("");
+      System.out.println("1");
+    } else {
+      dto.setImg_name1(item.getImg_name1());
+      System.out.println("2");
     }
 
     if (img_back.equals(item.getImg_name2())) {
       dto.setImg_name2("");
+      System.out.println("3");
+    } else {
+      dto.setImg_name2(item.getImg_name2());
+      System.out.println("4");
     }
 
     if (img_back.equals(item.getImg_name3())) {
       dto.setImg_name3("");
+      System.out.println("5");
+    } else {
+      dto.setImg_name3(item.getImg_name3());
+      System.out.println("6");
     }
 
     if (img_back.equals(item.getImg_name4())) {
       dto.setImg_name4("");
+      System.out.println("7");
+    } else {
+      dto.setImg_name4(item.getImg_name4());
+      System.out.println("8");
     }
 
     mapper.reviewImgDelete(dto);
