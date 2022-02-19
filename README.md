@@ -20,7 +20,7 @@
 ### Backend Stack
 <p>
   <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
-  <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+  <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
   <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 </p>
 
@@ -51,7 +51,8 @@
 * 관리자, 운영진, 회원 마이페이지
   * <code>관리자</code> 회원,비회원들이 맛집 신청하면 신청내역 확인, 삭제 및 맛집리스트로 업로드 가능
   * <code>관리자</code> 운영진 계정 생성, 수정, 삭제 가능
-  * <code>운영진</code> 회원 정보 수정 및 스토리 등록, 수정, 삭제 가능 (X)
+  * <code>운영진</code> 자신의 회원정보 수정 가능
+  * <code>운영진</code> 푸드스토리 등록, 수정, 삭제 가능 (Summernote editor 사용)
   * <code>회원</code> 자신의 회원정보 수정 가능
   * <code>회원</code> 자신이 신청한 신청내역 확인, 삭제 가능
   * <code>회원</code> 자신이 등록한 리뷰 리스트 확인, 수정, 삭제 가능
@@ -60,6 +61,9 @@
   * 맛집리스트 카테고리별 출력
   * 관리자가 맛집으로 등록한 맛집들만 리스트 및 상세 페이지 출력
   * 회원들이 맛집리스트로 등록된 맛집들에 직접 리뷰 등록, 수정, 삭제 가능
+  
+* 푸드스토리
+  * 운영진이 등록한 스토리 리스트 및 상세 페이지 출력
 
 * 맛집신청
   * 회원, 비회원 상관없이 맛집신청 가능
