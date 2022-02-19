@@ -29,4 +29,45 @@
 		delete from food_request where num = #{num}
 	</delete>
 	
+	<select id="reviewNoPageList" parameterType="HashMap" resultType="frdto">
+		SELECT
+		  f.food_store
+		, f.place_name
+		, r.idx
+		, r.comment
+		, r.img_name1
+		, r.img_name2
+		, r.img_name3
+		, r.img_name4
+		, r.reporting_date
+		FROM food_request AS f
+		RIGHT JOIN review AS r
+		ON f.num = r.num
+		WHERE r.id = #{id}
+		AND idx order by r.idx desc
+	</select>
+	
+	<select id="totalCountReview" resultType="int">
+		select count(*) from review where id=#{id}
+	</select>
+	
+	<select id="getReviewList" parameterType="HashMap" resultType="frdto">
+		SELECT
+		  f.food_store
+		, f.place_name
+		, r.idx
+		, r.comment
+		, r.img_name1
+		, r.img_name2
+		, r.img_name3
+		, r.img_name4
+		, r.reporting_date
+		FROM food_request AS f
+		RIGHT JOIN review AS r
+		ON f.num = r.num
+		WHERE r.id = #{id}
+		AND idx order by r.idx desc
+		LIMIT #{start}, #{end}
+	</select>
+	
 </mapper>

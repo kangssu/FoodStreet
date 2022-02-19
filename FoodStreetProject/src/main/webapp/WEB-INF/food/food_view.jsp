@@ -93,8 +93,8 @@
 						<c:forEach var="r" items="${reviewList}">
 							<div class="commtent_list_box">
 								<div class="commtent_my_info">
-									<img src="/img/noimg.png">
-									<h3>${r.id}</h3>
+									<img src="/images/${r.img_name}">
+									<h3>${r.nickname}</h3>
 									<c:if test="${member.id == r.id}">
 										<div class="food_review_all_btn">
 											<button type="button" class="food_review_modify" onclick="reviewModifyPopup(${r.idx});">수정</button>

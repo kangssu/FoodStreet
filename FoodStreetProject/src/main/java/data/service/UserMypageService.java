@@ -2,6 +2,7 @@ package data.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
+import data.dto.RequestReviewDto;
 import data.dto.MemberDto;
 import data.dto.RequestDto;
 import data.mapper.UserMypageMapper;
@@ -39,5 +40,17 @@ public class UserMypageService {
 
   public int requestDel(int num) {
     return mapper.requestDel(num);
+  }
+
+  public List<RequestReviewDto> reviewNoPageList(String id) {
+    return mapper.reviewNoPageList(id);
+  }
+
+  public int totalCountReview(String id) {
+    return mapper.totalCountReview(id);
+  }
+
+  public List<RequestReviewDto> getReviewList(String id, int start, int end) {
+    return mapper.getReviewList(id, start, end);
   }
 }

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import data.dto.MemberDto;
+import data.dto.Role;
 import data.service.JoinService;
 import data.validator.IdCheckValidator;
 import data.validator.NicknameCheckValidator;
@@ -106,9 +107,9 @@ public class JoinController {
       HttpSession session) throws IOException {
 
     MemberDto member = (MemberDto) session.getAttribute("member");
-    String id = member.getId();
+    Role privider = member.getAuth_provider();
 
-    if (id.equals("admin")) {
+    if (privider.equals(Role.ADMIN)) {
 
       service.updateMember(dto, num, file);
 
@@ -116,13 +117,20 @@ public class JoinController {
       PrintWriter out = response.getWriter();
       out.println(
           "<script>alert('운영자 계정이 수정되었습니다!'); location.href='/admin/executive/list';</script>");
-    } else {
+    } else if (privider.equals(Role.USER)) {
 
       service.updateMember(dto, num, file);
 
       response.setContentType("text/html; charset=UTF-8");
       PrintWriter out = response.getWriter();
       out.println("<script>alert('회원님의 계정이 수정되었습니다!'); location.href='/mypage';</script>");
+    } else {
+      service.updateMember(dto, num, file);
+
+      response.setContentType("text/html; charset=UTF-8");
+      PrintWriter out = response.getWriter();
+      out.println(
+          "<script>alert('운영진님의 계정이 수정되었습니다!'); location.href='/executive/mypage';</script>");
     }
   }
 

@@ -111,7 +111,7 @@
 							</td>
 						</tr>
 						<tr>
-							<th><span>*</span>상태변경${currentPage}</th>
+							<th><span>*</span>상태변경</th>
 							<td>
 								<select name="state">
 									<option>--선택--</option>

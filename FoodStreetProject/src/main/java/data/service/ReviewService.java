@@ -127,10 +127,6 @@ public class ReviewService {
 
   public void reviewImgDelete(ReviewDto dto, int idx, String img_back) {
     ReviewDto item = mapper.idxFindImg(idx);
-    System.out.println("넘어온 이미지 값 : " + img_back + " 기존 이미지 값 : " + item.getImg_name1());
-    System.out.println("넘어온 이미지 값 : " + img_back + " 기존 이미지 값 : " + item.getImg_name2());
-    System.out.println("넘어온 이미지 값 : " + img_back + " 기존 이미지 값 : " + item.getImg_name3());
-    System.out.println("넘어온 이미지 값 : " + img_back + " 기존 이미지 값 : " + item.getImg_name4());
 
     if (img_back.equals(item.getImg_name1())) {
       dto.setImg_name1("");

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import data.dto.RequestReviewDto;
 import data.dto.MemberDto;
 import data.dto.RequestDto;
 import data.paging.Criteria;
@@ -32,9 +33,11 @@ public class UserMypageController {
 
     List<RequestDto> list = service.noPageList(id);
     String img_name = service.getImg(id);
+    List<RequestReviewDto> rlist = service.reviewNoPageList(id);
 
     mv.addObject("list", list);
     mv.addObject("img_name", img_name);
+    mv.addObject("rlist", rlist);
     mv.setViewName("/m/user_mypage/home");
 
     return mv;
@@ -115,4 +118,36 @@ public class UserMypageController {
   public void del(@RequestBody int num) {
     service.requestDel(num);
   }
+
+  @GetMapping("/mypage/review/list")
+  public ModelAndView reviewList(Criteria cri, HttpSession session) {
+
+    ModelAndView mv = new ModelAndView();
+
+    MemberDto member = (MemberDto) session.getAttribute("member");
+    String id = member.getId();
+
+    int listCount = service.totalCountReview(id);
+    String img_name = service.getImg(id);
+
+    Paging paging = new Paging();
+    paging.setCri(cri);
+    paging.setTotalCount(listCount);
+    int no = paging.getNo();
+    int currentPage = cri.getPage();
+    int start = cri.getPageStart();
+    int end = cri.getPerPageNum();
+
+    List<RequestReviewDto> list = service.getReviewList(id, start, end);
+
+    mv.addObject("list", list);
+    mv.addObject("paging", paging);
+    mv.addObject("no", no);
+    mv.addObject("currentPage", currentPage);
+    mv.addObject("img_name", img_name);
+    mv.setViewName("/m/user_mypage/review_list");
+
+    return mv;
+  }
+
 }

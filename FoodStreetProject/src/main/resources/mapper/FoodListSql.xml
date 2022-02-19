@@ -25,8 +25,23 @@
 		select img_name from food_request where num=#{num}
 	</select>
 	
-	<select id="reviewList" parameterType="HashMap" resultType="rvdto">
-		select * from review where num = #{num} order by idx desc
+	<select id="reviewList" parameterType="HashMap" resultType="mrdto">
+	SELECT
+		  m.nickname
+		, m.img_name
+		, r.idx
+		, r.id
+		, r.comment
+		, r.img_name1
+		, r.img_name2
+		, r.img_name3
+		, r.img_name4
+		, r.reporting_date
+		FROM member AS m
+		RIGHT JOIN review AS r
+		ON m.id = r.id
+		WHERE r.num = #{num}
+		AND idx order by r.idx desc
 	</select>
 	
 </mapper>

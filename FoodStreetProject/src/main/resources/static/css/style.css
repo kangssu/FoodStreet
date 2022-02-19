@@ -72,6 +72,10 @@ a:hover{
 	text-decoration:none;
 }
 
+input:focus{
+	outline:none;
+}
+
 *{line-height:20px;}
 
 .clearfix::after{
@@ -1581,6 +1585,60 @@ a:hover{
 }
 /* 회원 맛집신청 확인 페이지 */
 
+/* 운영진 스토리 관리 */
+.story_form_tb_all{
+	width:990px;
+	margin-top:20px;
+}
+
+.story_form_tb_all th, .story_form_tb_all td{
+	border:1px solid black;
+	height:40px;
+	padding:10px;
+}
+
+.story_form_tb_all tr th{
+	font-weight:400;
+	font-size:15px;
+	color:#000000;
+	background-color:#f8f8f8;
+}
+
+.story_form_tb_all tr td{
+	font-weight:400;
+	font-size:15px;
+	color:#000000;
+	background-color:#fff;
+}
+
+.story_form_tb_all td input{
+	border:none;
+	background:none;
+	height:30px;
+	padding:5px;
+}
+
+.story_form_tb_all .title_form{
+	width:700px;
+}
+
+.story_form_tb_all td textarea{
+	display:none; 
+	width:100%; 
+	height:400px;
+}
+
+.story_form_tb_all #image_section{
+	width:300px;
+	height:auto;
+}
+
+.info_list_table img{
+	width:120px;
+	height:120px;
+}
+/* 운영진 스토리 관리 */
+
 /* 삭제 팝업 */
 #popup {
 	display: flex; 
@@ -1796,7 +1854,7 @@ a:hover{
 	z-index: 1; 
 }
 
-#r_modify_popup.hide {
+#r_modify_popup.hide, #img_popup.hide{
 	display: none;
 }
 
@@ -1811,6 +1869,32 @@ a:hover{
 
 #r_modify_popup .content textarea:focus{
 	outline:none;
+}
+/*******/
+#s_del_popup {
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	position: fixed; 
+	top: 0; left: 0; 
+	width: 100%;
+	height: 100%; 
+	background: rgba(0, 0, 0, .7); 
+	z-index: 1; 
+}
+
+#s_del_popup.hide {
+	display: none;
+}
+
+#s_del_popup .content{
+	text-align:center;
+	background: #fff; 
+	border-radius: 10px; 
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+	padding:50px 50px 30px 50px;
+	width:300px;
+	height:200px;
 }
 /*******/
 .popup_title{
@@ -1833,7 +1917,7 @@ a:hover{
 
 .content span{
 	font-size:16px;
-	color:#000000;
+	color:#F63805;
 	line-height:30px;
 	margin-bottom:7px;
 }
@@ -1884,7 +1968,8 @@ a:hover{
 	color:#696969;
 }
 
-.popup_btn #btn_e_del, #btn_suceess, #btn_r_del, #btn_modify{
+.popup_btn #btn_e_del, #btn_suceess, #btn_ok_del,
+#btn_r_del, #btn_modify, #btn_s_del{
 	background-color:#F63805;
 	color:white;
 	margin-right:5px;

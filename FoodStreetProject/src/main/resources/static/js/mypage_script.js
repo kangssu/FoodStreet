@@ -10,6 +10,36 @@ $(document).ready(function(){
 	$('#img_modify_btn').click(function(){
 		$('.join_modify_form_img_all').toggle();
 	});
+	
+	// 썸머노트 에디터 사용
+	$('#summernote').summernote({
+		placeholder : '내용을 입력해주세요.',
+		height : 400, 
+		minHeight : null, // set minimum height of editor
+		maxHeight : null, // set maximum height of editor
+	});
+      
+	//에디터에서 p를 br로 바꾸기 위함!
+	$("#summernote").on("summernote.enter", function(we, e) {
+         $(this).summernote("pasteHTML", "<br><br>");
+         e.preventDefault();
+	});
+      
+	//이미지 한개 미리보기!
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+		var reader = new FileReader();
+       
+		reader.onload = function (e) {
+			$('#image_section').attr('src', e.target.result);  
+		}
+		reader.readAsDataURL(input.files[0]);
+		}
+	}
+    	  
+	$(".thumbnail_form").change(function(){
+        readURL(this);
+     });
 });
 
 function submitRequest(){

@@ -348,3 +348,30 @@ function closeReviewDelPopup() {
 	const popup2 = document.querySelector('#r_del_popup');
 	popup2.classList.add('hide');
 }
+
+/* 운영진 스토리 삭제 버튼 클릭시 팝업 */
+function storyDelPopup(num) {
+	$("#num").val(num);
+	
+	const popup2 = document.querySelector('#s_del_popup');
+	popup2.classList.remove('hide');
+		
+	$("#btn_s_del").click(function(){
+		var num = $("#num").val();
+		
+		$.ajax({
+			type: 'post',
+			url: '/executive/story/delete',
+			data: num,
+			contentType: 'application/json; charset=UTF-8',
+			success: function(){
+				location.reload();
+			}
+		});
+	});
+}
+	
+function closeStoryPopup() {
+	const popup2 = document.querySelector('#s_del_popup');
+	popup2.classList.add('hide');
+}

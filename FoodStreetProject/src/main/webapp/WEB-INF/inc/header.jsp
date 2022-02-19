@@ -15,7 +15,7 @@
         		<ul class="gnb">
         			<li><a href="/">홈</a></li>
         			<li><a href="/food/list">맛집리스트</a></li>
-        			<li><a href="#">스토리</a></li>
+        			<li><a href="#">푸드스토리</a></li>
         			<li><a href="/request">맛집신청</a></li>
         		</ul>
         	</div>
@@ -36,8 +36,11 @@
 						<c:when test="${member != null || user != null}">
 		            		<li><a href="/logout/success"><i class="fa fa-user" aria-hidden="true"></i>로그아웃</a></li>
 		            		<c:choose>
-		            			<c:when test="${member.id eq 'admin'}">
+		            			<c:when test="${member.member_level == 30}">
 									<li><a href="/admin/mypage"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>마이페이지</a></li>
+								</c:when>
+								<c:when test="${member.member_level == 20}">
+									<li><a href="/executive/mypage"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>마이페이지</a></li>
 								</c:when>
 								<c:otherwise>
 									<li><a href="/mypage"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>마이페이지</a></li>

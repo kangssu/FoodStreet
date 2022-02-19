@@ -89,7 +89,14 @@
 				</table>
 			</div>
 			<div class="form_all_btn">
-				<button type="button" onclick="location.href='/mypage';" class="btn_cancle">취소</button>
+				<c:choose>
+					<c:when test="${member.member_level == 20}">
+						<button type="button" onclick="location.href='/executive/mypage';" class="btn_cancle">취소</button>
+					</c:when>
+					<c:otherwise>
+						<button type="button" onclick="location.href='/mypage';" class="btn_cancle">취소</button>
+					</c:otherwise>
+				</c:choose>
 				<button type="submit" class="btn_confirm">수정하기</button>
 			</div>
 		</form>

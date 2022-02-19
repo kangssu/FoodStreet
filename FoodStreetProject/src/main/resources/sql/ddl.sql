@@ -45,3 +45,12 @@ create table review(
 	img_name4 varchar(300),
 	reporting_date datetime
 )
+
+create table food_story(
+	num smallint auto_increment primary key,
+	id varchar(100),
+	title varchar(100),
+	content varchar(2000),
+	thumbnail varchar(300),
+	reporting_date datetime
+)
