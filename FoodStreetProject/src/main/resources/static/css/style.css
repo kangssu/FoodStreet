@@ -312,6 +312,7 @@ input:focus{
 
 .content_two_box img{
 	width:330px;
+	height:235px;
 	border-radius:10px 0px 0px 10px;
 }
 
@@ -345,6 +346,7 @@ input:focus{
 	overflow:hidden;
 	width:258px;
 	margin-top:30px;
+	font-weight:500;
 }
 
 .two_box_text p{
@@ -1065,12 +1067,14 @@ input:focus{
 	position:relative;
 	overflow:hidden;
 	border-radius:10px;
+	width:548px;
 }
 
 .story_box img{
-	width:548px;
+	width:100%;
 	height:548px;
 	border-radius:10px;
+	object-fit:cover;
 	display:block;
 }
 
@@ -1121,9 +1125,13 @@ input:focus{
 	text-align:center;
 }
 
+.story_editor_info{
+	margin-top:40px;
+}
+
 .story_editor_info img{
-	width:50px;
-	height:50px;
+	width:40px;
+	height:40px;
 	border-radius:100px;
 }
 

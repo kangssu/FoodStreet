@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.FoodStoryMapper">
+
+	<select id="storyList" parameterType="HashMap" resultType="sdto">
+		select * from food_story order by num desc
+	</select>
+	
+	<select id="storyJoinList" resultType="msdto">
+		SELECT
+		  m.nickname
+		, m.img_name
+		, s.num
+		, s.id
+		, s.title
+		, s.content
+		, s.thumbnail
+		, s.reporting_date
+		FROM member AS m
+		RIGHT JOIN food_story AS s
+		ON m.id = s.id
+		order by s.num desc
+	</select>
+	
+	<select id="storyView" resultType="msdto">
+		SELECT
+		  m.nickname
+		, m.img_name
+		, s.num
+		, s.id
+		, s.title
+		, s.content
+		, s.thumbnail
+		, s.reporting_date
+		FROM member AS m
+		RIGHT JOIN food_story AS s
+		ON m.id = s.id
+		WHERE s.num = #{num} order by s.num desc
+	</select>
+	
+</mapper>

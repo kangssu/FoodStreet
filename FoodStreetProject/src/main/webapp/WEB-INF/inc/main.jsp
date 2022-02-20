@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.slider-banner-511517418').slick({
@@ -31,9 +34,9 @@
 <div id="main_wrap">
 	<div class="main_slider container">
 		<div class="slick-items slider-banner-511517418">
-			<div><img src="/img/main_new2.jpg"></div>
-			<div><img src="/img/main_new2.jpg"></div>
-			<div><img src="/img/main_new2.jpg"></div>
+			<div><img src="/img/main_new3.png"></div>
+			<div><img src="/img/main_new3.png"></div>
+			<div><img src="/img/main_new3.png"></div>
 		</div>
 	</div>
 	<div class="main_content_one">
@@ -110,82 +113,25 @@
 			</div>
 			<div class="content_two_box">
 				<ul>
-					<li>
-						<a href="#">
-							<div class="two_box_img">
-								<img src="/img/sushi_new.jpg">
-							</div>
-							<div class="two_box_text">
-								<div class="two_box_nickname_text">
-									<img src="/img/noimg.png">
-									<span>푸드스트릿 에디터</span>
+					<c:forEach var="s" items="${list}" begin="0" end="3">
+						<li>
+							<a href="#">
+								<div class="two_box_img">
+									<img src="/images/${s.thumbnail}">
 								</div>
-								<div class="two_box_content_text">
-									<h6>서울 근교 맛집 추천!!!</h6>
-									<p>여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!
-									여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!
-									여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!</p>
+								<div class="two_box_text">
+									<div class="two_box_nickname_text">
+										<img src="/img/noimg.png">
+										<span>Editor.${s.nickname}</span>
+									</div>
+									<div class="two_box_content_text">
+										<h6>${s.title}</h6>
+										${s.content}
+									</div>
 								</div>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="two_box_img">
-								<img src="/img/sushi_new.jpg">
-							</div>
-							<div class="two_box_text">
-								<div class="two_box_nickname_text">
-									<img src="/img/noimg.png">
-									<span>푸드스트릿 에디터</span>
-								</div>
-								<div class="two_box_content_text">
-									<h6>서울 근교 맛집 추천!!!</h6>
-									<p>여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!
-									여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!
-									여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!</p>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="two_box_img">
-								<img src="/img/sushi_new.jpg">
-							</div>
-							<div class="two_box_text">
-								<div class="two_box_nickname_text">
-									<img src="/img/noimg.png">
-									<span>푸드스트릿 에디터</span>
-								</div>
-								<div class="two_box_content_text">
-									<h6>서울 근교 맛집 추천!!!</h6>
-									<p>여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!
-									여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!
-									여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!</p>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="two_box_img">
-								<img src="/img/sushi_new.jpg">
-							</div>
-							<div class="two_box_text">
-								<div class="two_box_nickname_text">
-									<img src="/img/noimg.png">
-									<span>푸드스트릿 에디터</span>
-								</div>
-								<div class="two_box_content_text">
-									<h6>서울 근교 맛집 추천!!!</h6>
-									<p>여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!
-									여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!
-									여러분 안녕하세요. 제가 소문을 듣고 서울에서 확인을 하러!</p>
-								</div>
-							</div>
-						</a>
-					</li>
+							</a>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
