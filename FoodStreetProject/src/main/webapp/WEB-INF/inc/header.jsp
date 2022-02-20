@@ -5,7 +5,7 @@
 <div id="wrap">
 	<div id="header_wrap">
 		<div class="header_banner">
-			<a href="#" >나만 알고 있는 소중한 맛집을 공유해주세요!<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+			<a href="/request">나만 알고 있는 소중한 맛집을 공유해주세요!<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 		</div>
 		<div class="header container">
 			<div class="main_logo">
@@ -15,7 +15,7 @@
         		<ul class="gnb">
         			<li><a href="/">홈</a></li>
         			<li><a href="/food/list">맛집리스트</a></li>
-        			<li><a href="#">푸드스토리</a></li>
+        			<li><a href="/foodstory/list">푸드스토리</a></li>
         			<li><a href="/request">맛집신청</a></li>
         		</ul>
         	</div>

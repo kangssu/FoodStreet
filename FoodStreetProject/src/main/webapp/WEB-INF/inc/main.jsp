@@ -45,7 +45,7 @@
 			<div class="content_one_box">
 				<ul>
 					<li>
-						<a href="#">
+						<a href="/food/list?category=일식">
 							<img src="/img/sushi_new.jpg" alt="스시"/>
 							<div class="content_one_box_text">
 								<span>일식 BEST 20!</span>
@@ -54,7 +54,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="/food/list?category=피자">
 							<img src="/img/pizza3_new.jpg" alt="피자"/>
 							<div class="content_one_box_text">
 								<span>피자 BEST 20!</span>
@@ -63,8 +63,8 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
-							<img src="/img/pasta_new.jpg" alt="파스타"/>
+						<a href="/food/list?category=양식">
+							<img src="/img/pasta_new.jpg" alt="양식"/>
 							<div class="content_one_box_text">
 								<span>양식 BEST 20!</span>
 								<p>스타게티 먹고 눈물이 난다는 맛집들!!</p>
@@ -72,7 +72,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="/food/list?category=브런치">
 							<img src="/img/brunch_new.jpg" alt="브런치"/>
 							<div class="content_one_box_text">
 								<span>브런치 BEST 맛집</span>
@@ -81,7 +81,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="/food/list?category=중식">
 							<img src="/img/chinese_new.jpg" alt="중식"/>
 							<div class="content_one_box_text">
 								<span>중식 BEST 20!</span>
@@ -90,7 +90,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="/food/list?category=디저트">
 							<img src="/img/pancakes_new.jpg" alt="디저트"/>
 							<div class="content_one_box_text">
 								<span>카페 BEST 20!</span>
@@ -187,100 +187,12 @@
 						</a>
 					</li>
 				</ul>
-				<div class="editor_story_more_btn">
-					<button type="button" class="more_btn">스토리 더보기</button>
-				</div>
 			</div>
 		</div>
 	</div>
 	<div class="main_content_three">
 		<div class="main_banner container">
-			<a href="#"><img src="/img/banner.jpg"></a>
-		</div>
-	</div>
-	<div class="main_content_four">
-		<div class="container">
-			<div class="content_one_title">
-				<h2>맛집 리뷰</h2>
-				<p>여러 사람들이 작성한 리얼 리뷰를 확인해보세요!</p>
-			</div>
-			<div class="main_review_slider slider-banner-511517419">
-				<div class="review_content_box">
-					<a href="#">
-						<div class="four_box_text">
-							<div class="four_box_nickname_text">
-								<img src="/img/noimg.png">
-								<span>희수캉</span>
-							</div>
-							<div class="four_box_content_text">
-								<p>제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="review_content_box">
-					<a href="#">
-						<div class="four_box_text">
-							<div class="four_box_nickname_text">
-								<img src="/img/noimg.png">
-								<span>희수캉</span>
-							</div>
-							<div class="four_box_content_text">
-								<p>제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="review_content_box">
-					<a href="#">
-						<div class="four_box_text">
-							<div class="four_box_nickname_text">
-								<img src="/img/noimg.png">
-								<span>희수캉</span>
-							</div>
-							<div class="four_box_content_text">
-								<p>제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="review_content_box">
-					<a href="#">
-						<div class="four_box_text">
-							<div class="four_box_nickname_text">
-								<img src="/img/noimg.png">
-								<span>희수캉</span>
-							</div>
-							<div class="four_box_content_text">
-								<p>제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="review_content_box">
-					<a href="#">
-						<div class="four_box_text">
-							<div class="four_box_nickname_text">
-								<img src="/img/noimg.png">
-								<span>희수캉</span>
-							</div>
-							<div class="four_box_content_text">
-								<p>제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!
-								제가 먹은 스시중에 최고이면서 시간이 흘러도 여기만 생각날 것 같은 맛집입니다! 다음에 다시 한 번!</p>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
+			<a href="/request"><img src="/img/banner.jpg"></a>
 		</div>
 	</div>
 </div>
