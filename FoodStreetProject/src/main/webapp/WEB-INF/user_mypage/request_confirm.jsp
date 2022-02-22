@@ -47,7 +47,7 @@
 						<th class="request_img_view"><span>*</span>등록된 음식사진</th>
 						<td>
 							<c:forTokens items="${dto.img_name}" var="image" delims=",">
-								<img src="/photo/${image}">
+								<img src="/images/${image}">
 							</c:forTokens>
 						</td>
 					</tr>

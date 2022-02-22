@@ -70,7 +70,6 @@ public class JoinController {
       }
       return "/users/join_form";
     }
-
     service.insertMember(dto, file);
     return "/users/join_success";
   }
@@ -103,13 +102,14 @@ public class JoinController {
 
   // 회원정보 수정
   @PostMapping("/join/update")
-  public void update(int num, MemberDto dto, MultipartFile file, HttpServletResponse response,
-      HttpSession session) throws IOException {
+  public void update(int num, MemberDto dto, MultipartFile file, Errors errors, Model model,
+      HttpServletResponse response, HttpSession session) throws IOException {
 
     MemberDto member = (MemberDto) session.getAttribute("member");
     Role privider = member.getAuth_provider();
 
     if (privider.equals(Role.ADMIN)) {
+
 
       service.updateMember(dto, num, file);
 
@@ -117,7 +117,7 @@ public class JoinController {
       PrintWriter out = response.getWriter();
       out.println(
           "<script>alert('운영자 계정이 수정되었습니다!'); location.href='/admin/executive/list';</script>");
-    } else if (privider.equals(Role.USER)) {
+    } else if (privider.equals(Role.USER) || privider.equals(Role.SOCIAL)) {
 
       service.updateMember(dto, num, file);
 

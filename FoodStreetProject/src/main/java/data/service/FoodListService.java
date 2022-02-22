@@ -34,12 +34,16 @@ public class FoodListService {
     return mapper.getNumList(num);
   }
 
-  public String imgNameList(int num) {
+  public List<RequestDto> imgNameList(int num) {
     return mapper.imgNameList(num);
   }
 
   public List<MemberReviewDto> reviewList(int num) {
     return mapper.reviewList(num);
+  }
+
+  public RequestDto addressFind(int num) {
+    return mapper.addressFind(num);
   }
 
 }

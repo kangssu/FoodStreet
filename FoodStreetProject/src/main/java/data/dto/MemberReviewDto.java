@@ -13,6 +13,7 @@ import lombok.ToString;
 public class MemberReviewDto {
 
   // member dto
+  private String name;
   private String nickname;
   private String img_name;
 

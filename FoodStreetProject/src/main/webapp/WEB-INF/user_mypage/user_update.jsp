@@ -23,28 +23,35 @@
 								<input type="text" name="id" class="id_form" id="id_form" value="${dto.id}" disabled/>
 							</td>
 						</tr>
-						<tr>
-							<th><span>*</span>비밀번호</th>
-							<td>
-								<button type="button" id="pw_modify_btn">비밀번호 변경</button>
-								<div class="pw_modify_all_box">
-									<div class="join_modify_form_pw_all">
-										<div class="join_modify_form_pw" id="join_form_pw">새 비밀번호</div>
-										<div class="join_modify_form_pw">
-											<input type="password" name="pw" class="pw_form" id="pw_form" pw="${dto.pw}"/>
-											<p id="pw_check_tag">${valid_pw}</p>
+						<c:choose>
+							<c:when test="${!dto.id.contains('@')}">
+								<tr>
+									<th><span>*</span>비밀번호</th>
+									<td>
+										<button type="button" id="pw_modify_btn">비밀번호 변경</button>
+										<div class="pw_modify_all_box">
+											<div class="join_modify_form_pw_all">
+												<div class="join_modify_form_pw" id="join_form_pw">새 비밀번호</div>
+												<div class="join_modify_form_pw">
+													<input type="password" name="pw" class="pw_form" id="pw_form" pw="${dto.pw}"/>
+													<p id="pw_check_tag">${valid_pw}</p>
+												</div>
+											</div>
+											<div class="join_modify_form_pw_all" id="pw_all">
+												<div class="join_modify_form_pw" id="join_form_pw_check">새 비밀번호 확인</div>
+												<div class="join_modify_form_pw">
+													<input type="password" name="pw_check" class="pwcheck_form" id="pwcheck_form"/>
+													<p id="pwcheck_check_tag">${valid_pw_check}</p>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="join_modify_form_pw_all" id="pw_all">
-										<div class="join_modify_form_pw" id="join_form_pw_check">새 비밀번호 확인</div>
-										<div class="join_modify_form_pw">
-											<input type="password" name="pw_check" class="pwcheck_form" id="pwcheck_form"/>
-											<p id="pwcheck_check_tag">${valid_pw_check}</p>
-										</div>
-									</div>
-								</div>
-							</td>
-						</tr>
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<input type="hidden" name="pw" value="">
+							</c:otherwise>
+						</c:choose>
 						<tr>
 							<th><span>*</span>이름</th>
 							<td>
@@ -54,7 +61,9 @@
 						<tr>
 							<th><span>*</span>닉네임</th>
 							<td>
-								<input type="text" name="nickname" class="nickname_form" id="nickname_form" value="${dto.nickname}" disabled/>
+								<input type="text" name="nickname" class="nickname_form" id="nickname_form" 
+								placeholder="닉네임을 입력해주세요." value="${dto.nickname}"/>
+								<p id="nickname_check_tag">${valid_nickname}</p>
 							</td>
 						</tr>
 						<tr>

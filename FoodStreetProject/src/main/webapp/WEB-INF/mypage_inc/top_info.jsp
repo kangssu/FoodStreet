@@ -12,6 +12,9 @@
 			<c:when test="${member.id eq 'admin'}">
 				<img src="/images/${member.img_name}">
 			</c:when>
+			<c:when test="${member.img_name == null}">
+				<img src="/img/user_noimg.png" alt="소셜 프로필 이미지">
+			</c:when>
 			<c:otherwise>
 				<img src="/images/${img_name}" alt="프로필 이미지">
 			</c:otherwise>

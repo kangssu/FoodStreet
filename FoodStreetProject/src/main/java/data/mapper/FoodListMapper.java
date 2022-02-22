@@ -19,8 +19,10 @@ public interface FoodListMapper {
 
   public RequestDto getNumList(int num);
 
-  public String imgNameList(int num);
+  public List<RequestDto> imgNameList(int num);
 
   public List<MemberReviewDto> reviewList(int num);
+
+  public RequestDto addressFind(int num);
 
 }

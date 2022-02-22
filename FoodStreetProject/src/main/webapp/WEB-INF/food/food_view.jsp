@@ -11,10 +11,10 @@
 		</div>
 		<div class="food_detail_new_img_content">
 			<c:choose>
-				<c:when test="${count>=4}">
-					<c:forTokens items="${dto.img_name}" var="image" delims="," begin="1" end="4">
-						<img src="/images/${image}">
-					</c:forTokens>
+				<c:when test="${results.size() >= 4}">
+					<c:forEach var="r" items="${results}" begin="0" end="3">
+						<img src="/images/${r.img_name1}">
+					</c:forEach>
 				</c:when>
 			</c:choose>
 		</div>
@@ -53,10 +53,10 @@
 					</c:forTokens>
 				</div>
 			</div>
-			<div class="food_detail_content">
-				<div class="food_detail_menu_title">
-					<h3>지도자리</h3>
-				</div>
+			<div class="map-container">
+				<div id="map"></div>
+				<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xf9s4zcc62&submodules=geocoder"></script>
+				<script src="/js/map_script.js"></script>
 			</div>
 		</div>
 		<div class="food_detail_back_btn">
@@ -93,8 +93,22 @@
 						<c:forEach var="r" items="${reviewList}">
 							<div class="commtent_list_box">
 								<div class="commtent_my_info">
-									<img src="/images/${r.img_name}">
-									<h3>${r.nickname}</h3>
+									<c:choose>
+										<c:when test="${r.img_name == null}">
+											<img src="/img/user_noimg.png">
+										</c:when>
+										<c:otherwise>
+											<img src="/images/${r.img_name}">
+										</c:otherwise>
+									</c:choose>
+									<c:choose>
+										<c:when test="${r.nickname == null}">
+											<h3>${r.name}</h3>
+										</c:when>
+										<c:otherwise>
+											<h3>${r.nickname}</h3>
+										</c:otherwise>
+									</c:choose>
 									<c:if test="${member.id == r.id}">
 										<div class="food_review_all_btn">
 											<button type="button" class="food_review_modify" onclick="reviewModifyPopup(${r.idx});">수정</button>

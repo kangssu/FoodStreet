@@ -13,9 +13,7 @@
 				<p>SNS 계정으로 간편하게 회원가입 하세요.</p>
 			</div>
 			<div class="sns_icons">
-				<a href="#" class="sns_naver"><img src="/img/naver_logo.png" alt="네이버"/></a>
-				<a href="#" class="sns_kakao"><img src="/img/kakao_logo.png" alt="카카오"/></a>
-				<a href="/oauth2/authorization/google" class="sns_google"><img src="/img/google_logo.png" alt="구글"/></a>
+				<a href="/oauth2/authorization/google" class="sns_google"><img src="/img/Google_icon.png" alt="구글"/>구글 계정으로 계속하기</a>
 			</div>
 		</div>
 		<div class="sns_guide">

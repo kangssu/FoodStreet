@@ -4,25 +4,20 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
+import javax.servlet.http.HttpSession;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import data.dto.MemberDto;
 import data.dto.Role;
-import data.service.JoinService;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Component
 public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
-  private final JoinService service;
-
-  @Lazy
-  @Autowired
-  public OAuth2LoginSuccessHandler(JoinService service) {
-    this.service = service;
-  }
+  private final OAuth2JoinService service;
+  private final HttpSession session;
 
   @Override
   public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -33,13 +28,16 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
     String email = OAuth2User.getEmail();
     String name = OAuth2User.getName();
 
-    MemberDto member = service.getFindByEmail(email);
+    MemberDto member = service.findEmailMember(email);
 
     if (member == null) {
       service.createNewMember(email, name, Role.SOCIAL);
+      MemberDto again_member = service.findEmailMember(email);
+      session.setAttribute("member", again_member);
       System.out.println("로그인 + 회원가입 성공");
     } else {
       // 여기에 업데이트 넣으면됨!
+      session.setAttribute("member", member);
       System.out.println("로그인 + 기존 회원(업데이트 성공)");
     }
 
@@ -47,7 +45,4 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
 
     super.onAuthenticationSuccess(request, response, authentication);
   }
-
-
-
 }

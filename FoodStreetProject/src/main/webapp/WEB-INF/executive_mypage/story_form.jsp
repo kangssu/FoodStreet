@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet"> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 <div class="info_content_list">
 	<div class="info_content_list_title">
 		<h2>스토리 등록<span>운영진님의 소중한 스토리를 작성해주세요.</span></h2>

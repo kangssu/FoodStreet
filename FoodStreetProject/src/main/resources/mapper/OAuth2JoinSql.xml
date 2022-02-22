@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.oauth.OAuth2JoinMapper">
+
+	<insert id="insertOAuthMember" parameterType="mdto">
+		insert into member (member_level,id,pw,name,nickname,email,hp,img_name,img_path,auth_provider,gaipday) 
+		values (#{member_level},#{id},#{pw},#{name},#{nickname},#{email},#{hp},#{img_name},#{img_path},#{auth_provider},now())
+	</insert>
+	
+	<select id="findEmailMember" resultType="mdto">
+		select * from member where email=#{email}
+	</select>
+	
+</mapper>

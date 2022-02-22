@@ -22,5 +22,4 @@ public interface JoinMapper {
 
   public boolean existsByNickname(String nickname);
 
-  public MemberDto getFindByEmail(String email);
 }

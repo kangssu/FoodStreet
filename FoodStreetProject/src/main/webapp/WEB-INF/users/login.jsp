@@ -12,10 +12,11 @@
 			</div>
 			<div class="login_all_btn">
 				<button type="submit" class="login_nomal_btn">로그인</button>
+				<a href="/oauth2/authorization/google" class="sns_google"><img src="/img/Google_icon.png" alt="구글"/>구글 계정으로 로그인</a>
 				<button type="button" class="login_join_btn" onclick="location.href='/join'">회원가입</button>
 			</div>
 		</form>
-		<div class="login_plus_btn">
+		<!-- <div class="login_plus_btn">
 			<ul>
 				<li>
 					<button type="button" class="login_id_btn">아이디찾기</button>
@@ -24,16 +25,6 @@
 					<button type="button" class="login_pw_btn">비밀번호찾기</button>
 				</li>
 			</ul>
-		</div>
-		<div class="sns">
-			<div class="sns_title">
-				<p>SNS 계정으로 간편하게 로그인 하세요.</p>
-			</div>
-			<div class="sns_icons">
-				<a href="#" role="button" class="sns_naver"><img src="/img/naver_logo.png" alt="네이버"/></a>
-				<a href="#" class="sns_kakao"><img src="/img/kakao_logo.png" alt="카카오"/></a>
-				<a href="/oauth2/authorization/google" class="sns_google"><img src="/img/google_logo.png" alt="구글"/></a>
-			</div>
-		</div>
+		</div> -->
 	</div>
 </div>

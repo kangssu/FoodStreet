@@ -7,7 +7,7 @@
 	</insert>
 	
 	<update id="updateMember" parameterType="mdto">
-		update member set pw=#{pw},email=#{email},hp=#{hp},img_name=#{img_name},img_path=#{img_path} where num=#{num}
+		update member set pw=#{pw},nickname=#{nickname},email=#{email},hp=#{hp},img_name=#{img_name},img_path=#{img_path} where num=#{num}
 	</update>
 	
 	<select id="getFindJoin" resultType="mdto">
@@ -30,8 +30,5 @@
 		select if(count(*) > 0, 'true', 'false') from member where nickname = #{nickname, jdbcType=VARCHAR}
 	</select>
 	
-	<select id="getFindByEmail" resultType="mdto">
-		select email from member where email=#{email}
-	</select>
 </mapper>
 

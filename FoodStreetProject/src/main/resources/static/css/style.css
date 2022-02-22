@@ -339,7 +339,7 @@ input:focus{
 }
 
 .two_box_text h6{
-	font-size:20px;
+	font-size:19px;
 	color:#000000;
 	text-overflow:ellipsis; 
 	white-space:nowrap; 
@@ -403,7 +403,7 @@ input:focus{
 	width:380px;
 	margin:0 auto;
 	padding:0 20px;
-	margin-bottom:180px;
+	margin-bottom:85px;
 }
 
 .login_form_box input{
@@ -474,7 +474,7 @@ input:focus{
 }
 
 .sns{
-	margin-bottom:120px;
+	margin-bottom:25px;
 }
 
 .sns_title{
@@ -483,40 +483,6 @@ input:focus{
 	color:#3c3c3c;
 }
 
-.sns_icons{
-	margin-left:70px;
-}
-
-.sns_icons a{
-	float:left;
-	display:flex;
-	width:60px;
-	height:60px;
-	border-radius:50%;
-	cursor:pointer;
-	-webkit-box-pack:center;
-	justify-content:center;
-	-webkit-box-align:center;
-	align-items:center;	
-	margin:30px 10px;
-}
-
-.sns_icons img{
-	width:42px;
-	height:42px;
-}
-
-.sns_icons .sns_naver{
-	background-color:rgb(30, 200, 0);
-}
-
-.sns_icons .sns_kakao{
-	background-color:rgb(249, 224, 0);
-}
-
-.sns_icons .sns_google{
-	background-color:rgb(255, 255, 255); /* 248,249,253 */
-}
 /* 로그인 영역 */	 
 /* 회원가입 영역 */
 #join_wrap{
@@ -735,7 +701,7 @@ input:focus{
 
 .success_content_btn{
 	text-align:center;
-	margin-top:40px;
+	margin:40px 0 85px 0;
 }
 
 .success_content_btn .success_home_btn{
@@ -768,6 +734,44 @@ input:focus{
 #small_point_text{
 	font-size:14px;
 	color:#868686;
+}
+
+.sns_icons{
+	margin-top:20px;
+}
+
+.sns_icons img, .login_all_btn img{
+	width:25px;
+	height:25px;
+	margin-right:20px;
+}
+
+.login_all_btn .sns_google{
+	width:380px;
+	height:45px;
+	border-radius:22px;
+	font-size:16px;
+	line-height:45px;
+	cursor:pointer;
+	display:block;
+	background-color:rgb(255, 255, 255);
+	color:#000000;
+	border:1px solid #dddbd8;
+	margin-top:10px;
+}
+
+.sns_icons .sns_google{
+	width:380px;
+	height:45px;
+	border-radius:22px;
+	font-size:16px;
+	line-height:45px;
+	cursor:pointer;
+	display:block;
+	background-color:rgb(255, 255, 255);
+	color:#000000;
+	margin-left:20px;
+	border:1px solid #dddbd8;
 }
 /* 회원가입 영역 */
 
@@ -1048,6 +1052,14 @@ input:focus{
 	font-size:12px;
 	width:40px;
 	height:25px;
+}
+
+.map-container #map{
+	width:430px; 
+	height:250px; 
+	margin:10px; 
+	border-radius:10px;
+	z-index:1;
 }
 
 /* 맛집리스트 상세 영역 */
@@ -1596,7 +1608,7 @@ input:focus{
 	width: 100%;
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
-	z-index: 1; 
+	z-index: 10; 
 }
 
 #popup.hide {
@@ -1622,7 +1634,7 @@ input:focus{
 	width: 100%;
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
-	z-index: 1; 
+	z-index: 10; 
 }
 
 #popup_e.hide {
@@ -1648,7 +1660,7 @@ input:focus{
 	width: 100%;
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
-	z-index: 1; 
+	z-index: 10; 
 }
 
 #u_r_popup.hide {
@@ -1674,7 +1686,7 @@ input:focus{
 	width: 100%;
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
-	z-index: 1; 
+	z-index: 10; 
 }
 
 #r_del_popup.hide {
@@ -1700,7 +1712,7 @@ input:focus{
 	width: 100%;
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
-	z-index: 1; 
+	z-index: 10; 
 }
 
 #review_popup.hide {
@@ -1735,7 +1747,7 @@ input:focus{
 	width: 100%;
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
-	z-index: 1; 
+	z-index: 10; 
 }
 
 #r_write_popup.hide {
@@ -1798,7 +1810,7 @@ input:focus{
 	width: 100%;
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
-	z-index: 1; 
+	z-index: 10; 
 }
 
 #r_modify_popup.hide, #img_popup.hide{
@@ -1827,7 +1839,7 @@ input:focus{
 	width: 100%;
 	height: 100%; 
 	background: rgba(0, 0, 0, .7); 
-	z-index: 1; 
+	z-index: 10; 
 }
 
 #s_del_popup.hide {

@@ -39,6 +39,8 @@
 							<td>
 								<input type="text" name="address1" class="address1_form" placeholder="우편번호" value="${dto.address1}"/>
 								<button type="button" id="hp_sms_btn" onclick="execPostCode();">주소찾기</button>
+								<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+								<script src="/js/address_script.js"></script>
 							</td>
 						</tr>
 						<tr>

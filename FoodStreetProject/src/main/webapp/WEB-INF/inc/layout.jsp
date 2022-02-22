@@ -7,13 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1220">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <title>푸드스트릿 : 나만의 맛집 검색!</title>
+<link rel="shortcut icon" href="#">
 <script src="/js/jquery-3.3.1.min.js"></script>
-<!-- slick 불러오기 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet"> 
 <!-- css, icon 불러오기 -->
 <link rel="stylesheet" href="/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,9 +31,10 @@
 		</div>
 	</div>
 	<!-- 스크립트 불러오기 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+	<script src="/js/main_script.js"></script>
 	<script src="/js/join_script.js"></script>
-	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-	<script src="/js/address_script.js"></script>
 	<script src="/js/popup_script.js"></script>
 	<script src="/js/mypage_script.js"></script>
 </body>

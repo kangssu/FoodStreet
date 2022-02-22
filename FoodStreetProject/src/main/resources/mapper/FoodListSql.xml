@@ -21,13 +21,14 @@
 		select * from food_request where num=#{num}
 	</select>
 	
-	<select id="imgNameList" resultType="String">
-		select img_name from food_request where num=#{num}
+	<select id="imgNameList" parameterType="HashMap" resultType="rvdto">
+		select img_name1 from review where num=#{num} and NOT img_name1 is NULL order by reporting_date desc
 	</select>
 	
 	<select id="reviewList" parameterType="HashMap" resultType="mrdto">
 	SELECT
-		  m.nickname
+		  m.name
+		, m.nickname
 		, m.img_name
 		, r.idx
 		, r.id
@@ -44,4 +45,7 @@
 		AND idx order by r.idx desc
 	</select>
 	
+	<select id="addressFind" resultType="rdto">
+		select num,address2 from food_request where num=#{num}
+	</select>
 </mapper>

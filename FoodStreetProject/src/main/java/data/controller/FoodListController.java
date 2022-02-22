@@ -3,7 +3,10 @@ package data.controller;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import data.dto.MemberReviewDto;
 import data.dto.RequestDto;
@@ -61,23 +64,24 @@ public class FoodListController {
 
     RequestDto dto = service.getNumList(num);
 
-    String img = service.imgNameList(num);
-    String[] results = img.split(",");
-
-    int count = 0;
-
-    for (int i = 0; i < results.length; i++) {
-      count++;
-    }
-
+    List<RequestDto> results = service.imgNameList(num);
     List<MemberReviewDto> reviewList = service.reviewList(num);
 
     mv.addObject("dto", dto);
-    mv.addObject("count", count);
+    mv.addObject("results", results);
     mv.addObject("currentPage", page);
     mv.addObject("reviewList", reviewList);
     mv.setViewName("/food/food_view");
 
     return mv;
+  }
+
+  @ResponseBody
+  @RequestMapping("/food/view/address")
+  public RequestDto addressFind(@RequestBody int num) {
+    System.out.println("넘버 확인 : " + num);
+    RequestDto address = service.addressFind(num);
+    System.out.println("정보 확인 : " + address);
+    return address;
   }
 }
