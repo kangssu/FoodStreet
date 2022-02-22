@@ -1,5 +1,5 @@
 # [개인 프로젝트] FOODSTREET - 푸드스트릿 :hamburger::pizza::beers:
-### 💡 프로젝트 기간 : 2022.01.05 ~ (진행중)
+### 💡 프로젝트 기간 : 2022.01.05 ~ 2022.02.22 (총 49일 동안 진행)
 * **"여러 사람들이 알고 있는 맛집들을 자신만 아는게 아닌 서로 공유할 방법이 없을까?"**
 * **"맛집 공유를 하더라도 사이트의 의도와 맞지 않는 게시글은 제외시키는게 낫지 않을까?"**
 * 이런 물음들에 대해 100% 딱 맞는 사이트로 만든 것이 바로 **푸드스트릿** 입니다!!
@@ -52,7 +52,7 @@
   * <code>관리자</code> 회원,비회원들이 맛집 신청하면 신청내역 확인, 삭제 및 맛집리스트로 업로드 가능
   * <code>관리자</code> 운영진 계정 생성, 수정, 삭제 가능
   * <code>운영진</code> 자신의 회원정보 수정 가능
-  * <code>운영진</code> 푸드스토리 등록, 수정, 삭제 가능 (Summernote editor 사용)
+  * <code>운영진</code> 푸드스토리 리스트 확인, 등록, 수정, 삭제 가능 (Summernote editor 사용)
   * <code>회원</code> 자신의 회원정보 수정 가능
   * <code>회원</code> 자신이 신청한 신청내역 확인, 삭제 가능
   * <code>회원</code> 자신이 등록한 리뷰 리스트 확인, 수정, 삭제 가능
@@ -60,6 +60,7 @@
 * 맛집리스트
   * 맛집리스트 카테고리별 출력
   * 관리자가 맛집으로 등록한 맛집들만 리스트 및 상세 페이지 출력
+  * 상세 페이지에서 네이버 Geocoding API 적용하여 맛집 위치 출력
   * 회원들이 맛집리스트로 등록된 맛집들에 직접 리뷰 등록, 수정, 삭제 가능
   
 * 푸드스토리
@@ -233,7 +234,26 @@ $("#btn_suceess").click(function(){
 </details>
 
 **Ajax로 이미지 전송 방법을 통해 기존에 몰랐던 옵션들과 자바스크립트 객체를 알게 되어서 Ajax에 대해 조금 더 공부하게 된 계기가 되었다.**
-  
+
+### 📌 생성자 주입 순환 참조 오류
+생성자 주입방식으로 동일한 객체를 생성했다가 일반 회원가입과 소셜 회원가입 클래스에서 오류가 발생했다.<br/>
+The dependencies of the beans in the application context form a cycle 오류 메시지가 순환참조 오류라는 것을 알게 되었다.
+	
+임시 해결 방법인 @Lazy 어노테이션을 추가하면 모든 빈을 처음 초기화 시에 만들지 않고 빈을 가져오는 시점에 생성하여 해결할 수 있었다.<br/>
+다만 스프링에서 권장하지 않는 방법이라는 것을 아래 스프링부트 문서를 통해 알게 되었고 사용하지 않기로 했다.<br/>
+```
+A downside of lazy initialization is that it can delay the discovery of a problem with the application. If a misconfigured bean is initialized<br/>
+lazily, a failure will no longer occur during startup and the problem will only become apparent when the bean is initialized. Care must<br/>
+also be taken to ensure that the JVM has sufficient memory to accommodate all of the application’s beans and not just those that are<br/>
+initialized during startup. For these reasons, lazy initialization is not enabled by default and it is recommended that fine-tuning of the<br/>
+JVM’s heap size is done before enabling lazy initialization.
+```
+📚 [Spring boot Core Features 바로가기](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.spring-application.lazy-initialization)
+
+결국 @Lazy 어노테이션을 지우고 A, B로 아예 분리된 상태로 클래스를 만들어서 일반 회원가입은 A 생성자 주입, 소셜 회원가입은 B 생성자 주입으로 해결하게 되었다.
+
+**생성자 주입의 순환 참조 오류에 대해 알고 있었지만 직접 경험하면서 왜 발생하는지를 좀 더 명확하게 알게 된 계기였다.**
+	
 <br/>
 
 ## 4. 추후 보완사항
@@ -242,3 +262,4 @@ $("#btn_suceess").click(function(){
 * - [ ] 일반 로그인 Security 설정
 * - [ ] 일반 회원 아이디, 패스워드 찾기
 * - [ ] 소셜 로그인 연동 (네이버, 카카오톡)
+* - [ ] 전체 맛집 검색
