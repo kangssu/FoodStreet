@@ -16,7 +16,7 @@
 	</update>
 	
 	<select id="idxFindImg" resultType="rvdto">
-		select img_name1,img_name2,img_name3,img_name4 from review where idx = #{idx}
+		select img_name1,img_name2,img_name3,img_name4 from review where idx=#{idx}
 	</select>
 	
 	<update id="reviewImgDelete" parameterType="rvdto">

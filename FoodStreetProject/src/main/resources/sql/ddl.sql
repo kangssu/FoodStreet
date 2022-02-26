@@ -22,6 +22,7 @@ create table food_request(
 	address1 varchar(20),
 	address2 varchar(100),
 	hp varchar(50),
+	category varchar(20),
 	type_of_food varchar(100),
 	price varchar(20),
 	store_time varchar(100),

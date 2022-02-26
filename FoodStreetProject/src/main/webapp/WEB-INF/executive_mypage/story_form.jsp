@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="info_content_list">
 	<div class="info_content_list_title">
 		<h2>스토리 등록<span>운영진님의 소중한 스토리를 작성해주세요.</span></h2>

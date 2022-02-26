@@ -56,7 +56,8 @@
 						<tr>
 							<th><span>*</span>닉네임</th>
 							<td>
-								<input type="text" name="nickname" class="nickname_form" id="nickname_form" value="${dto.nickname}" disabled/>
+								<input type="text" name="nickname" class="nickname_form" id="nickname_form" value="${dto.nickname}"/>
+								<p id="nickname_check_tag">${valid_nickname}</p>
 							</td>
 						</tr>
 						<tr>

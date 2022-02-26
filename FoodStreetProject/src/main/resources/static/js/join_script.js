@@ -128,7 +128,7 @@ $(document).ready(function(){
 	});
 	
 	// 인증번호
-	$('#hp_sms_btn').click(function(){
+	/*$('#hp_sms_btn').click(function(){
 		var hp = $('#hp_form').val();
 		var hp_length = $('#hp_form').val().length;
 		
@@ -159,7 +159,7 @@ $(document).ready(function(){
 				}
 			});
 		}
-	});
+	});*/
 });
 
 // 인증번호 불일치 및 이미지 업로드 확인

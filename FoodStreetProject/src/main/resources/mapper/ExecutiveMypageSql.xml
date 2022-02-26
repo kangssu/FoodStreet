@@ -19,6 +19,10 @@
 		select * from food_story where num = #{num}
 	</select>
 	
+	<select id="findNumImg" resultType="String">
+		select thumbnail from food_story where num=#{num}
+	</select>
+	
 	<update id="updateStory" parameterType="sdto">
 		update food_story set title=#{title},content=#{content},thumbnail=#{thumbnail},
 		reporting_date=now() where num=#{num}

@@ -86,7 +86,7 @@
 								<th><span>*</span>음식사진</th>
 								<td>
 									<input type="file" name="upload" class="food_img_form" value="no" multiple/>
-									<p id="small_point_text">※ 이미지를 많이 추가하시면 평가에 유리합니다.</p>
+									<p id="small_point_text">※ 첫 번째 이미지가 푸드리스트 대표 이미지가 되므로 신중히 선택해주세요.</p>
 								</td>
 							</tr>
 							<tr>

@@ -87,7 +87,7 @@
 				<ul>
 					<c:forEach var="s" items="${list}" begin="0" end="3">
 						<li>
-							<a href="#">
+							<a href="/foodstory/view?num=${s.num}">
 								<div class="two_box_img">
 									<img src="/images/${s.thumbnail}">
 								</div>

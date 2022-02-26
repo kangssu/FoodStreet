@@ -19,15 +19,14 @@ public class ExecutiveMypageService {
   public void insertStory(StoryDto dto, MultipartFile file)
       throws IllegalStateException, IOException {
 
-    String projectpath = System.getProperty("user.dir") + "\\src\\main\\webapp\\images";
-    String allprojectpath = projectpath.replaceAll("\\\\", "/");
+    String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
 
     String origin_img = file.getOriginalFilename();
 
     if (origin_img != "") {
       String fileName = uuid + "_" + file.getOriginalFilename();
-      File saveFile = new File(allprojectpath, fileName);
+      File saveFile = new File(projectpath, fileName);
       file.transferTo(saveFile);
 
       dto.setThumbnail(fileName);
@@ -48,21 +47,28 @@ public class ExecutiveMypageService {
     return mapper.storyGetView(num);
   }
 
-  public void updateStory(StoryDto dto, MultipartFile file)
+  public void updateStory(StoryDto dto, int num, MultipartFile file)
       throws IllegalStateException, IOException {
 
-    String projectpath = System.getProperty("user.dir") + "\\src\\main\\webapp\\images";
-    String allprojectpath = projectpath.replaceAll("\\\\", "/");
+    String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
+    String fileName = uuid + "_" + file.getOriginalFilename();
 
     String origin_img = file.getOriginalFilename();
 
+    String checkImg = mapper.findNumImg(num);
+
     if (origin_img != "") {
-      String fileName = uuid + "_" + file.getOriginalFilename();
-      File saveFile = new File(allprojectpath, fileName);
+      if (checkImg != null) {
+        File delFile = new File(projectpath, checkImg);
+        delFile.delete();
+      }
+      File saveFile = new File(projectpath, fileName);
       file.transferTo(saveFile);
 
       dto.setThumbnail(fileName);
+    } else {
+      dto.setThumbnail(checkImg);
     }
 
     mapper.updateStory(dto);

@@ -110,10 +110,10 @@ public class ExecutiveMypageController {
   }
 
   @PostMapping("/story/update")
-  public void storyUpdate(StoryDto dto, MultipartFile file, HttpServletResponse response)
+  public void storyUpdate(StoryDto dto, int num, MultipartFile file, HttpServletResponse response)
       throws IllegalStateException, IOException {
 
-    service.updateStory(dto, file);
+    service.updateStory(dto, num, file);
 
     response.setContentType("text/html; charset=UTF-8");
     PrintWriter out = response.getWriter();

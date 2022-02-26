@@ -55,7 +55,6 @@ public class ReviewContorller {
 
   @PostMapping("/review/img/delete")
   public void reviewImgDelete(ReviewDto dto, int idx, String img_back) {
-    System.out.println("리뷰 idx : " + idx + "이미지 경로 : " + img_back);
     service.reviewImgDelete(dto, idx, img_back);
   }
 

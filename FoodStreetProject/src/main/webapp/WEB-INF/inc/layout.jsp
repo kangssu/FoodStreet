@@ -8,13 +8,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1220">
 <title>푸드스트릿 : 나만의 맛집 검색!</title>
+<meta name="google-site-verification" content="ZuPZtj6sRUqN_DnZOKnPd7hfvUpH5CpHy3ZqqTyJ6r0" />
 <link rel="shortcut icon" href="#">
 <script src="/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet"> 
 <!-- css, icon 불러오기 -->
-<link rel="stylesheet" href="/css/style.css" type="text/css">
+<link rel="stylesheet" href="${root}/css/style.css" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 </head>

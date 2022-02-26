@@ -1,3 +1,4 @@
+/* 주소 찾기 */
 function execPostCode() {
 	new daum.Postcode({
 		oncomplete: function(data) {

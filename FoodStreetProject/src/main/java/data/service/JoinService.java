@@ -27,13 +27,12 @@ public class JoinService {
 
   public void insertMember(MemberDto dto, MultipartFile file) throws IOException {
 
-    String projectpath = System.getProperty("user.dir") + "\\src\\main\\webapp\\images";
-    String allprojectpath = projectpath.replaceAll("\\\\", "/");
+    String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
 
     String fileName = uuid + "_" + file.getOriginalFilename();
 
-    File saveFile = new File(allprojectpath, fileName);
+    File saveFile = new File(projectpath, fileName);
 
     file.transferTo(saveFile);
 
@@ -51,13 +50,12 @@ public class JoinService {
 
   public MemberDto updateMember(MemberDto dto, int num, MultipartFile file) throws IOException {
 
-    String projectpath = System.getProperty("user.dir") + "\\src\\main\\webapp\\images";
-    String allprojectpath = projectpath.replaceAll("\\\\", "/");
+    String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
 
     String fileName = uuid + "_" + file.getOriginalFilename();
 
-    File saveFile = new File(allprojectpath, fileName);
+    File saveFile = new File(projectpath, fileName);
 
     MemberDto item = mapper.getFindJoin(num);
 
@@ -71,6 +69,9 @@ public class JoinService {
       dto.setImg_name(item.getImg_name());
       dto.setImg_path("/images/" + item.getImg_name());
     } else {
+      File delFile = new File(projectpath, item.getImg_name());
+      delFile.delete();
+
       file.transferTo(saveFile);
       dto.setImg_name(fileName);
       dto.setImg_path("/images/" + fileName);

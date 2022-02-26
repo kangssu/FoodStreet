@@ -15,6 +15,8 @@ public interface ExecutiveMypageMapper {
 
   public StoryDto storyGetView(int num);
 
+  public String findNumImg(int num);
+
   public void updateStory(StoryDto dto);
 
   public int storyDelete(int num);

@@ -14,6 +14,8 @@ public interface ReviewMapper {
 
   public ReviewDto idxFindImg(int idx);
 
+  public String idxOne(int idx);
+
   public void reviewImgDelete(ReviewDto dto);
 
   public int reviewDel(int idx);

@@ -68,7 +68,7 @@
 				<li><a href="/food/list?category=피자">피자</a></li>
 				<li><a href="/food/list?category=일식">일식</a></li>
 				<li><a href="/food/list?category=중식">중식</a></li>
-				<li><a href="/food/list?category=브런치">브런치</a></li>
+				<li><a href=/food/list?category=브런치">브런치</a></li>
 				<li><a href="/food/list?category=카페">카페</a></li>
 			</c:otherwise>
 		</c:choose>
