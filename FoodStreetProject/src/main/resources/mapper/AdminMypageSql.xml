@@ -19,6 +19,10 @@
 		price=#{price},store_time=#{store_time},menu=#{menu},state=#{state} where num=#{num}
 	</update>
 	
+	<select id="numFindImg" resultType="String">
+		select img_name from food_request where num=#{num}
+	</select>
+	
 	<delete id="requestDel" parameterType="int">
 		delete from food_request where num = #{num}
 	</delete>

@@ -49,7 +49,7 @@ public class ReviewService {
     }
 
     if (!file4.getOriginalFilename().equals("")) {
-      String fileName4 = uuid + "_" + file1.getOriginalFilename();
+      String fileName4 = uuid + "_" + file4.getOriginalFilename();
       File saveFile4 = new File(projectpath, fileName4);
       file4.transferTo(saveFile4);
       dto.setImg_name4(fileName4);
@@ -150,6 +150,25 @@ public class ReviewService {
   }
 
   public int reviewDel(int idx) {
+
+    String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
+
+    ReviewDto item = mapper.idxFindImg(idx);
+
+    if (item.getImg_name1() != null) {
+      File delFile1 = new File(projectpath, item.getImg_name1());
+      delFile1.delete();
+    } else if (item.getImg_name2() != null) {
+      File delFile2 = new File(projectpath, item.getImg_name2());
+      delFile2.delete();
+    } else if (item.getImg_name3() != null) {
+      File delFile3 = new File(projectpath, item.getImg_name3());
+      delFile3.delete();
+    } else if (item.getImg_name4() != null) {
+      File delFile4 = new File(projectpath, item.getImg_name4());
+      delFile4.delete();
+    }
+
     return mapper.reviewDel(idx);
   }
 }

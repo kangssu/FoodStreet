@@ -73,7 +73,7 @@
 		</a>
 	</div>
 	<div class="info_content_all_table">
-		<table class="info_list_table">
+		<table class="info_list_table info_list_table_last">
 			<thead>
 				<tr>
 					<th width="10%">No</th>

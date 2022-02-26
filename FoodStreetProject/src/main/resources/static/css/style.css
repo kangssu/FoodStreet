@@ -1174,6 +1174,7 @@ input:focus{
 .story_top_view_content p{
 	font-size:16px;
 	color:#000000;
+	text-align:center;
 }
 
 .story_detail_back_btn{
@@ -1345,8 +1346,19 @@ input:focus{
 	width:990px;
 	table-layout: fixed;
 	color:#000000;
-	margin:15px 0 85px 0;
+	margin-top:15px;
 	border-top:1px solid #000000;
+}
+
+.info_list_table_last{
+	margin-bottom:85px;
+}
+
+.info_request_delete_warring span{
+	color:#F63805;
+	font-size:13px;
+	margin-top:10px;
+	display:block;
 }
 
 .info_content_all_table th{
@@ -1403,6 +1415,12 @@ input:focus{
 	border:1px solid #F63805;
 	color:#F63805;
 	cursor:pointer;
+}
+
+.request_del_ok{
+	background:#dddbd8;
+	border:1px solid #dddbd8;
+	color:#fff;
 }
 /* 관리자 마이페이지 */
 

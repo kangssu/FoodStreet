@@ -103,12 +103,13 @@
 							<td>
 								<select name="category">
 									<option>--선택--</option>
-									<option value="일식" <c:if test="${dto.category == '일식'}">selected</c:if>>일식</option>
-									<option value="피자" <c:if test="${dto.category == '피자'}">selected</c:if>>피자</option>
+									<option value="한식" <c:if test="${dto.category == '한식'}">selected</c:if>>한식</option>
 									<option value="양식" <c:if test="${dto.category == '양식'}">selected</c:if>>양식</option>
-									<option value="브런치" <c:if test="${dto.category == '브런치'}">selected</c:if>>브런치</option>
+									<option value="피자" <c:if test="${dto.category == '피자'}">selected</c:if>>피자</option>
+									<option value="일식" <c:if test="${dto.category == '일식'}">selected</c:if>>일식</option>
 									<option value="중식" <c:if test="${dto.category == '중식'}">selected</c:if>>중식</option>
-									<option value="카페" <c:if test="${dto.category == '카페'}">selected=</c:if>>카페</option>
+									<option value="카페" <c:if test="${dto.category == '카페'}">selected</c:if>>카페</option>
+									<option value="기타" <c:if test="${dto.category == '기타'}">selected=</c:if>>기타</option>
 								</select>
 							</td>
 						</tr>

@@ -17,6 +17,8 @@ public interface AdminMypageMapper {
 
   public void requestUpdate(RequestDto dto);
 
+  public String numFindImg(int num);
+
   public int requestDel(int num);
 
   public List<MemberDto> getExecutiveList(Criteria cri);

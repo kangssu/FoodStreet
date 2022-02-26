@@ -46,7 +46,14 @@
 								<td>${r.state}</td>
 								<td>
 									<button type="button" class="request_view" onclick="location.href='/user/request/view?num=${r.num}&page=${currentPage}';">확인</button>
-									<button type="button" class="request_del" onclick="userRequestDelPopup(${r.num});">삭제</button>
+									<c:choose>
+										<c:when test="${r.state == '대기중'}">
+											<button type="button" class="request_del" onclick="userRequestDelPopup(${r.num});">삭제</button>
+										</c:when>
+										<c:otherwise>
+											<button type="button" class="request_del_ok" disabled onclick="userRequestDelPopup(${r.num});">삭제</button>
+										</c:otherwise>
+									</c:choose>
 								</td>
 							</tr>
 						</c:forEach>
@@ -54,6 +61,9 @@
 				</c:choose>
 			</tbody>
 		</table>
+		<div class="info_request_delete_warring">
+			<span>※ 상태가 대기중인 신청 내역만 삭제 가능합니다.</span>
+		</div>
 		<ul class="paging">
 			<c:if test="${paging.prev}">
 				<li><a href="/mypage/request/list?page=${paging.startPage-1}"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>

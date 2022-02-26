@@ -110,7 +110,6 @@ public class JoinController {
 
     if (privider.equals(Role.ADMIN)) {
 
-
       service.updateMember(dto, num, file);
 
       response.setContentType("text/html; charset=UTF-8");

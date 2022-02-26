@@ -51,18 +51,18 @@ public class ExecutiveMypageService {
       throws IllegalStateException, IOException {
 
     String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
-    UUID uuid = UUID.randomUUID();
-    String fileName = uuid + "_" + file.getOriginalFilename();
 
-    String origin_img = file.getOriginalFilename();
+    UUID uuid = UUID.randomUUID();
+
 
     String checkImg = mapper.findNumImg(num);
 
-    if (origin_img != "") {
+    if (!file.getOriginalFilename().equals("")) {
       if (checkImg != null) {
         File delFile = new File(projectpath, checkImg);
         delFile.delete();
       }
+      String fileName = uuid + "_" + file.getOriginalFilename();
       File saveFile = new File(projectpath, fileName);
       file.transferTo(saveFile);
 
@@ -75,6 +75,14 @@ public class ExecutiveMypageService {
   }
 
   public int storyDelete(int num) {
+
+    String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
+
+    String checkImg = mapper.findNumImg(num);
+
+    File delFile = new File(projectpath, checkImg);
+    delFile.delete();
+
     return mapper.storyDelete(num);
   }
 

@@ -20,20 +20,11 @@
 			<div class="content_one_box">
 				<ul>
 					<li>
-						<a href="/food/list?category=일식">
-							<img src="/img/sushi_new.jpg" alt="스시"/>
+						<a href="/food/list?category=한식">
+							<img src="/img/koreanfood.png" alt="한식"/>
 							<div class="content_one_box_text">
-								<span>일식 BEST 20!</span>
-								<p>입에서 녹는 초밥부터 다양한 일식!</p>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="/food/list?category=피자">
-							<img src="/img/pizza3_new.jpg" alt="피자"/>
-							<div class="content_one_box_text">
-								<span>피자 BEST 20!</span>
-								<p>전 세계 다양한 맛집 피자를 맛보세요!</p>
+								<span>한식 BEST 20!</span>
+								<p>한식의 새로움!! 한국인은 밥힘!!</p>
 							</div>
 						</a>
 					</li>
@@ -47,11 +38,20 @@
 						</a>
 					</li>
 					<li>
-						<a href="/food/list?category=브런치">
-							<img src="/img/brunch_new.jpg" alt="브런치"/>
+						<a href="/food/list?category=피자">
+							<img src="/img/pizza3_new.jpg" alt="피자"/>
 							<div class="content_one_box_text">
-								<span>브런치 BEST 맛집</span>
-								<p>오전에 간단하지만 맛있게 먹고 싶을때!</p>
+								<span>피자 BEST 20!</span>
+								<p>전 세계 다양한 맛집 피자를 맛보세요!</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/food/list?category=일식">
+							<img src="/img/sushi_new.jpg" alt="스시"/>
+							<div class="content_one_box_text">
+								<span>일식 BEST 20!</span>
+								<p>입에서 녹는 초밥부터 다양한 일식!</p>
 							</div>
 						</a>
 					</li>
@@ -65,7 +65,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="/food/list?category=디저트">
+						<a href="/food/list?category=카페">
 							<img src="/img/pancakes_new.jpg" alt="디저트"/>
 							<div class="content_one_box_text">
 								<span>카페 BEST 20!</span>

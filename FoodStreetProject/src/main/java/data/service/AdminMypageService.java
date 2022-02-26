@@ -1,5 +1,6 @@
 package data.service;
 
+import java.io.File;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import data.dto.MemberDto;
@@ -31,6 +32,14 @@ public class AdminMypageService {
   }
 
   public int requestDel(int num) {
+
+    String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
+
+    String allImage = mapper.numFindImg(num);
+
+    File delFile = new File(projectpath, allImage);
+    delFile.delete();
+
     return mapper.requestDel(num);
   }
 
