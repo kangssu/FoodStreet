@@ -34,3 +34,5 @@ build/
 
 #info
 application.yml
+JoinService.java
+food_view.jsp
