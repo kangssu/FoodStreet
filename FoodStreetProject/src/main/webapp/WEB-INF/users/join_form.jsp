@@ -79,7 +79,7 @@
 								</td>
 							</tr>
 							<tr>
-								<th rowspan="2"><span>*</span>프로필 이미지</th>
+								<th rowspan="2"><span></span>프로필 이미지</th>
 								<td>
 									<input type="file" name="file" class="img_form" id="img_check" value="${MemberDto.img_name}"/>
 									<p>${valid_img_name}</p>	

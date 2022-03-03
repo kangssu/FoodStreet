@@ -13,6 +13,10 @@
 	<select id="getFindJoin" resultType="mdto">
 		select pw, img_name from member where num = #{num}
 	</select>
+	
+	<select id="getFindName" resultType="String">
+		select name from member where id = #{id}
+	</select>
 
 	<select id="idCheck" parameterType="String" resultType="int">
 		select count(*) from member where id = #{id}

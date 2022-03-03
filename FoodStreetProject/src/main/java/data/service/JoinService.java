@@ -30,15 +30,18 @@ public class JoinService {
     String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
 
-    String fileName = uuid + "_" + file.getOriginalFilename();
+    int img_length = file.getOriginalFilename().length();
 
-    File saveFile = new File(projectpath, fileName);
+    if (img_length > 0) {
+      String fileName = uuid + "_" + file.getOriginalFilename();
+      File saveFile = new File(projectpath, fileName);
+      file.transferTo(saveFile);
 
-    file.transferTo(saveFile);
+      dto.setImg_name(fileName);
+      dto.setImg_path("/images/" + fileName);
+    }
 
     dto.setPw(passwordEncoder.encode(dto.getPw()));
-    dto.setImg_name(fileName);
-    dto.setImg_path("/images/" + fileName);
 
     if (dto.getMember_level() == 10) {
       dto.setAuth_provider(Role.USER);
@@ -53,10 +56,6 @@ public class JoinService {
     String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
 
-    String fileName = uuid + "_" + file.getOriginalFilename();
-
-    File saveFile = new File(projectpath, fileName);
-
     MemberDto item = mapper.getFindJoin(num);
 
     if (dto.getPw().length() == 0) {
@@ -65,13 +64,17 @@ public class JoinService {
       dto.setPw(passwordEncoder.encode(dto.getPw()));
     }
 
-    if (file.getOriginalFilename().equals("")) {
+    int img_length = file.getOriginalFilename().length();
+
+    if (img_length == 0) {
       dto.setImg_name(item.getImg_name());
       dto.setImg_path("/images/" + item.getImg_name());
     } else {
       File delFile = new File(projectpath, item.getImg_name());
       delFile.delete();
 
+      String fileName = uuid + "_" + file.getOriginalFilename();
+      File saveFile = new File(projectpath, fileName);
       file.transferTo(saveFile);
       dto.setImg_name(fileName);
       dto.setImg_path("/images/" + fileName);
@@ -92,6 +95,10 @@ public class JoinService {
 
   public int idCheck(String id) {
     return mapper.idCheck(id);
+  }
+
+  public String getFindName(String id) {
+    return mapper.getFindName(id);
   }
 
   public int nicknameCheck(String nickname) {

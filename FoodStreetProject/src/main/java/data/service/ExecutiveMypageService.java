@@ -22,9 +22,9 @@ public class ExecutiveMypageService {
     String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
 
-    String origin_img = file.getOriginalFilename();
+    int img_length = file.getOriginalFilename().length();
 
-    if (origin_img != "") {
+    if (img_length > 0) {
       String fileName = uuid + "_" + file.getOriginalFilename();
       File saveFile = new File(projectpath, fileName);
       file.transferTo(saveFile);

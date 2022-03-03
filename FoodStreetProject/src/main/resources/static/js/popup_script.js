@@ -203,7 +203,7 @@ function reviewWritePopup() {
 		var data = {
 			num: $("#num").val(),
 			id: $("#id").val(),
-			comment: $("#comment").val()
+			comment: $("#comment").val().replace(/\n/g, "<br>")
 		};
 		
 		var form =$('#form')[0]; //첫번째 폼을 의미함

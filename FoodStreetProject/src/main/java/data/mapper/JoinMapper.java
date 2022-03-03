@@ -12,6 +12,8 @@ public interface JoinMapper {
 
   public MemberDto getFindJoin(int num);
 
+  public String getFindName(String id);
+
   public int idCheck(String id);
 
   public int nicknameCheck(String nickname);

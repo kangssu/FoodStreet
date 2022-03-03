@@ -21,7 +21,12 @@ public class ReviewService {
     String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
 
-    if (!file1.getOriginalFilename().equals("")) {
+    int img_length1 = file1.getOriginalFilename().length();
+    int img_length2 = file2.getOriginalFilename().length();
+    int img_length3 = file3.getOriginalFilename().length();
+    int img_length4 = file4.getOriginalFilename().length();
+
+    if (img_length1 > 0) {
       String fileName1 = uuid + "_" + file1.getOriginalFilename();
       File saveFile1 = new File(projectpath, fileName1);
       file1.transferTo(saveFile1);
@@ -30,7 +35,7 @@ public class ReviewService {
       dto.setImg_name1(dto.getImg_name1());
     }
 
-    if (!file2.getOriginalFilename().equals("")) {
+    if (img_length2 > 0) {
       String fileName2 = uuid + "_" + file2.getOriginalFilename();
       File saveFile2 = new File(projectpath, fileName2);
       file2.transferTo(saveFile2);
@@ -39,7 +44,7 @@ public class ReviewService {
       dto.setImg_name2(dto.getImg_name2());
     }
 
-    if (!file3.getOriginalFilename().equals("")) {
+    if (img_length3 > 0) {
       String fileName3 = uuid + "_" + file3.getOriginalFilename();
       File saveFile3 = new File(projectpath, fileName3);
       file3.transferTo(saveFile3);
@@ -48,7 +53,7 @@ public class ReviewService {
       dto.setImg_name3(dto.getImg_name3());
     }
 
-    if (!file4.getOriginalFilename().equals("")) {
+    if (img_length4 > 0) {
       String fileName4 = uuid + "_" + file4.getOriginalFilename();
       File saveFile4 = new File(projectpath, fileName4);
       file4.transferTo(saveFile4);
@@ -70,11 +75,16 @@ public class ReviewService {
     String projectpath = "/home/tomcat/apache-tomcat-9.0.58/webapps/foodstreet/images";
     UUID uuid = UUID.randomUUID();
 
+    int img_length1 = file1.getOriginalFilename().length();
+    int img_length2 = file2.getOriginalFilename().length();
+    int img_length3 = file3.getOriginalFilename().length();
+    int img_length4 = file4.getOriginalFilename().length();
+
     int idx = dto.getIdx();
 
     ReviewDto item = mapper.idxFindImg(idx);
 
-    if (!file1.getOriginalFilename().equals("")) {
+    if (img_length1 > 0) {
       String fileName = uuid + "_" + file1.getOriginalFilename();
       File saveFile = new File(projectpath, fileName);
       file1.transferTo(saveFile);
@@ -83,7 +93,7 @@ public class ReviewService {
       dto.setImg_name1(item.getImg_name1());
     }
 
-    if (!file2.getOriginalFilename().equals("")) {
+    if (img_length2 > 0) {
       String fileName = uuid + "_" + file2.getOriginalFilename();
       File saveFile = new File(projectpath, fileName);
       file2.transferTo(saveFile);
@@ -92,7 +102,7 @@ public class ReviewService {
       dto.setImg_name2(item.getImg_name2());
     }
 
-    if (!file3.getOriginalFilename().equals("")) {
+    if (img_length3 > 0) {
       String fileName = uuid + "_" + file3.getOriginalFilename();
       File saveFile = new File(projectpath, fileName);
       file3.transferTo(saveFile);
@@ -101,7 +111,7 @@ public class ReviewService {
       dto.setImg_name3(item.getImg_name3());
     }
 
-    if (!file4.getOriginalFilename().equals("")) {
+    if (img_length4 > 0) {
       String fileName = uuid + "_" + file4.getOriginalFilename();
       File saveFile = new File(projectpath, fileName);
       file4.transferTo(saveFile);

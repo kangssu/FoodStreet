@@ -71,6 +71,8 @@ public class JoinController {
       return "/users/join_form";
     }
     service.insertMember(dto, file);
+    String name = service.getFindName(id);
+    model.addAttribute("name", name);
     return "/users/join_success";
   }
 
