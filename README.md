@@ -20,7 +20,7 @@
 
 ### Backend Stack
 <p>
-  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
+  <img src="https://img.shields.io/badge/java 11-007396?style=for-the-badge&logo=java&logoColor=white"> 
   <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
   <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 </p>
@@ -63,7 +63,7 @@
 * 맛집리스트
   * 맛집리스트 카테고리별 출력
   * 관리자가 맛집으로 등록한 맛집들만 리스트 및 상세 페이지 출력
-  * 상세 페이지에서 네이버 Geocoding API 적용하여 맛집 위치 출력
+  * 상세 페이지에서 네이버 Geocoding API 적용하여 맛집 위치 출력 
   * 회원들이 맛집리스트로 등록된 맛집들에 직접 리뷰 등록, 수정, 삭제 가능
   
 * 푸드스토리
