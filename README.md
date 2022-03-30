@@ -39,7 +39,10 @@
 </p>
 <br/>
 
-## 2. 기능구현
+## 2. ERD 설계
+![ERD](https://user-images.githubusercontent.com/83870420/160884722-e48fb31c-2e78-47a0-b2e4-412b5674283d.png)
+
+## 3. 기능구현
 
 * 회원가입
   * 모든 항목 Javascript(Front) + Validation(Back) 유효성 검사
@@ -77,7 +80,7 @@
 
 <br/>
 
-## 3. 트러블 슈팅
+## 4. 트러블 슈팅
 
 ### 📌 아이디 + 닉네임 중복, 패스워드 불일치 확인 로직
 스프링에서 제공하는 @Valid 어노테이션으로 간단하게 유효성 검사가 끝난 줄 알았지만,<br/>
@@ -275,7 +278,7 @@ tail -f /home/tomcat/apache-tomcat-9.0.58/logs/catalina.out
 	
 <br/>
 
-## 4. 테스트 후 보완사항
+## 5. 테스트 후 보완사항
 푸드스프릿 웹 사이트 제작 완료 후 지인들의 테스트로 아래 피드백을 수렴하여 재배포했다.
 * - [x] ~~회원가입 시 이미지 필수항목 제외~~ <code>🙋 등록할 이미지가 없는데 필수항목으로 하면 불편하다.</code>
 * - [x] ~~회원가입 완료 후 회원 이름 출력하여 환영합니다.페이지 추가~~ <code>🙋 제대로 회원가입이 되었는지 확인 페이지가 있었으면 좋겠다.</code>
@@ -284,7 +287,7 @@ tail -f /home/tomcat/apache-tomcat-9.0.58/logs/catalina.out
 	
 <br/>
 	
-## 5. 추후 보완사항
+## 6. 추후 보완사항
 
 * - [ ] 핸드폰 인증번호 불일치 시 Javascript로 처리한 부분 Redis(In-memory)로 관리하기
 * - [ ] 일반 로그인 Security 설정
